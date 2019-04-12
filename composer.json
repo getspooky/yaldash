@@ -1,0 +1,44 @@
+{
+    "name": "LaravelDash",
+    "description": "LaravelDash provides a powerful user interfaces for CRUD (create, read, update, delete) operations for Laravel applications. It offers additonal features including Charts , Panel Management , Settings , Payment System , Store ...",
+    "keywords": ["laravel", "admin", "panel"],
+    "authors": [
+        {
+            "name": "Yasser Ameur el idrissi",
+            "email": "spookyframework@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.1.3",
+        "laravel/framework": "5.7.*"
+    },
+
+    "autoload": {
+
+        "psr-4": {
+            "Yasser\\LaravelDashboard\\": "src/"
+        }
+
+    },
+
+    "autoload-dev": {
+
+        "psr-4": {
+            "Yasser\\Tests\\": "Tests/"
+        }
+
+    },
+    "require-dev": {
+        "laravel/browser-kit-testing": "^5.1",
+        "phpunit/phpunit": "^7.0"
+    },
+
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Yasser\\LaravelDashboard\\DashboardServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "stable"
+}
