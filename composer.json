@@ -1,5 +1,5 @@
 {
-    "name": "LaravelDash",
+    "name": "yal/laraveldash",
     "description": "LaravelDash provides a powerful user interfaces for CRUD (create, read, update, delete) operations for Laravel applications. It offers additonal features including Charts , Panel Management , Settings , Payment System , Store ...",
     "keywords": ["laravel", "admin", "panel"],
     "authors": [
@@ -9,8 +9,7 @@
         }
     ],
     "require": {
-        "php": "^7.1.3",
-        "laravel/framework": "5.7.*"
+    
     },
 
     "autoload": {
