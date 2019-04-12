@@ -48,7 +48,7 @@ Anybody can help by doing any of the following: Ask your employer to use Laravel
 
 ## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Yasser Ameur El Idrissi via spookyframework@gmail.com . All security vulnerabilities will be promptly addressed.
+If you discover a security vulnerability within LaravelDash, please send an e-mail to Yasser Ameur El Idrissi via spookyframework@gmail.com . All security vulnerabilities will be promptly addressed.
 
 ## Bug Report
 
