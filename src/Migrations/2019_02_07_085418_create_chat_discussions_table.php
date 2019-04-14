@@ -15,10 +15,10 @@ class CreateChatDiscussionsTable extends Migration
     {
         Schema::create('chat_discussions', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer("user_id")->unsigned();
+            $table->unsignedBigInteger('user_id');
             $table->foreign("user_id")->references('id')->on('users')->onDelete('cascade');
             $table->text('message');
-            $table->integer('receiver')->unsigned();
+            $table->unsignedBigInteger('receiver');
             $table->foreign('receiver')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
