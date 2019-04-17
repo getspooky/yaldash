@@ -27,7 +27,7 @@ class LaravelDashboardController extends Controller
      public function __construct()
      {
 
-        $this->middleware(['web', 'auth']);
+        $this->middleware(['web', 'auth'])->except(['Dashboard_assets']);
 
      }
 

@@ -8,6 +8,8 @@
 namespace Yasser\LaravelDashboard;
 use \Illuminate\Support\ServiceProvider;
 use Yasser\LaravelDashboard\Commands\DashboardTemplate;
+use Yasser\LaravelDashboard\Commands\GenerateAuthentification;
+use Yasser\LaravelDashboard\Commands\LaravelDashInstall;
 use Yasser\LaravelDashboard\Providers\EventServiceProvider;
 
 class DashboardServiceProvider extends ServiceProvider
@@ -46,12 +48,12 @@ class DashboardServiceProvider extends ServiceProvider
         ],"config");
 
 
-        $this->publish_factories();
-
 
         if ($this->app->runningInConsole()) {
             $this->commands([
                DashboardTemplate::class,
+               GenerateAuthentification::class,
+               LaravelDashInstall::class
             ]);
         }
 
@@ -59,19 +61,6 @@ class DashboardServiceProvider extends ServiceProvider
     }
 
 
-    /**
-     * Publish Factories
-     */
-
-     public function publish_factories(){
-
-        $this->publishes([
-            __DIR__.'/Tests/Database/factories/StoreFactory.php' => database_path('factories/StoreFactory.php'),
-            __DIR__.'/Tests/Database/factories/PostFactory.php' => database_path('factories/PostFactory.php'),
-            __DIR__.'/Tests/Database/factories/CategorieFactory.php' => database_path('factories/CategorieFactory.php'),
-        ]);
-
-     }
 
 
 }

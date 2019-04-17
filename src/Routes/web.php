@@ -12,7 +12,7 @@
     */
 
 
-    Route::prefix(config('dashboard.prefix'))->group(function (){
+    Route::prefix(config('laravelDash.prefix'))->group(function (){
 
 
         Route::get('/',function (){
