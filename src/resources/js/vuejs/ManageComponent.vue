@@ -104,7 +104,7 @@
 
             HandleSubmitDelete: function (id,type) {
 
-                this.$swal("Are you sure?", "Once deleted, you will not be able to recover this post", "warning").
+                this.$swal("Are you sure?", "Once deleted, you will not be able to recover that", "warning").
                     then(()=>{
 
                         axios.post(`${this.delete}/${id}/${type}`,{
@@ -112,7 +112,7 @@
                             _method:'PUT'
                         }).then((response)=>{
 
-                            this.$swal("Good job!", "The user has been deleted!", "success");
+                            this.$swal("Good job!", "Your request has been completed", "success");
 
                             this.postManage = this.postManage.filter(e=>{
 
