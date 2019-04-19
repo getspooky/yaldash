@@ -10,12 +10,12 @@
             <a class="nav-link nav-link-icon text-center" data-toggle="dropdown" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <div class="nav-link-icon__wrapper">
                     <i class="material-icons">&#xE7F4;</i>
-                    <span class="badge badge-pill badge-danger">{{ \Yasser\LaravelDashboard\Helper\Helper::Notifications(auth()->id())->count() }}</span>
+                    <span class="badge badge-pill badge-danger">{{ optional(\Yasser\LaravelDashboard\Helper\Helper::Notifications(auth()->id()))->count() }}</span>
                 </div>
             </a>
             <div class="dropdown-menu dropdown-menu-small" role="menu" aria-labelledby="dropdownMenuLink">
-                @if(App\User::find(auth()->id())->unreadNotifications->count()>0)
-                    @foreach(App\User::find(auth()->id())->unreadNotifications as $notification)
+                @if(optional(auth()->user()->unreadNotifications)->count()>0)
+                    @foreach(auth()->user()->unreadNotifications as $notification)
                         <a class="dropdown-item" href="#">
                             <div class="notification__icon-wrapper">
                                 <div class="notification__icon">
@@ -47,7 +47,7 @@
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-nowrap px-3" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                <img class="user-avatar rounded-circle mr-2" width="50" height="40" src="{{ \Yasser\LaravelDashboard\Helper\Helper::UploadedAvatar(\App\User::find(auth()->id())) }}" alt="User Avatar">
+                <img class="user-avatar rounded-circle mr-2" width="50" height="40" src="{{ \Yasser\LaravelDashboard\Helper\Helper::UploadedAvatar(auth()->user()) }}" alt="User Avatar">
                 <span class="d-none d-md-inline-block">{{ auth()->user()->name }}</span>
             </a>
             <div class="dropdown-menu dropdown-menu-small">
