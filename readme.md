@@ -23,7 +23,7 @@ An admin interface for your Laravel app , An easy way to add/edit/delete data fo
 
 ## Documentation
 
-For installation instructions, in-depth usage and deployment details, please take a look at the official [documentation](https://github.com/getspooky/laravelDash/wiki/Getting-Started).
+For installation instructions, in-depth usage and deployment details, please take a look at the official [documentation](https://getspooky.github.io/laravelDash/#/).
 
 ## Requirements
 LaravelDash has a few requirements you should be aware of before installing:
