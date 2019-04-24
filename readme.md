@@ -59,10 +59,12 @@ If you've found a problem in LaravelDash which is not a security risk, do a sear
  <img src="https://drive.google.com/uc?id=1EFkLafpYO1w8YNK6Z_Qm3KyY7Bwn1S0W">
  <img src="https://drive.google.com/uc?id=1xFM9_peI1EE7VWBEgD54HGzYWjVv0otQ">
  <img src="https://drive.google.com/uc?id=1Ko5HsiorwxSti0zMNMU8hWavCFa5cqGl">
- <img src="https://drive.google.com/uc?id=1EgfWPVL6AK-WlroW8PHiCvTyV7V-DirX">
  <img src="https://drive.google.com/uc?id=1RkMUzd2-t7WOd_GCSslDkwY1gGaPH3u8">
+ <img src="https://drive.google.com/uc?id=1EgfWPVL6AK-WlroW8PHiCvTyV7V-DirX">
  <img src="https://drive.google.com/uc?id=1E14lAZ-BbO-o5AhABGmtuCff6mljg_qx">
+ <img src="https://drive.google.com/uc?id=15Ev6RS2JJcHzTp-fIBDQkpprvnS25cCh">
  <img src="https://drive.google.com/uc?id=1EqmkezLiAtUQBen6vrlOsg9uIoFPUM5m">
+ 
 
 ## License
 
