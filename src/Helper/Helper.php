@@ -10,6 +10,7 @@ namespace Yasser\LaravelDashboard\Helper;
 
 use App\User;
 use Illuminate\Notifications\Notification;
+use Illuminate\Support\Facades\DB;
 use Yasser\LaravelDashboard\Models\Devices;
 use Yasser\LaravelDashboard\Models\Followers;
 use Yasser\LaravelDashboard\Models\Post;
@@ -162,6 +163,17 @@ class Helper
     {
 
         return count(auth()->user()->followers()->where('follow_id', $id)->get()) === 0;
+
+    }
+
+    /**
+     * Get the total amount
+     * @return mixed
+     */
+
+    public static function amount(){
+
+        return DB::table('stores')->join('buys','stores.id','=','buys.store_id')->sum('stores.price');
 
     }
 

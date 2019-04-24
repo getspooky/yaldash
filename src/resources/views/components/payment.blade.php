@@ -39,7 +39,7 @@
                 </div>
             </div>
 
-            <stripe-component route="{{ route('dashboard.checkout.charges') }}" csrf="{{ session()->token() }}" stripekey="{{ config('services.stripe.key') }}" amount="{{ $amount }}"></stripe-component>
+            <stripe-component route="{{ route('dashboard.checkout.charges') }}" csrf="{{ session()->token() }}" stripekey="{{ config('services.stripe.key') }}" amount="{{\Yasser\LaravelDashboard\Helper\Helper::amount()}}"></stripe-component>
         </div>
 
 

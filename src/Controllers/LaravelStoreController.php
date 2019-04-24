@@ -41,13 +41,13 @@ class LaravelStoreController extends Controller
      * @return Response
      */
 
-    public function index(){
+     public function index(){
 
         $store = auth()->user()->store()->orderBy('id','desc')->get();
 
         return view('LaravelDashboard::store',compact('store'));
 
-    }
+     }
 
     /**
      * Buy Product

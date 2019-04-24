@@ -38,7 +38,7 @@
              <h5 class="m-0">Total:</h5>
          </td>
          <td class="text-right font-weight-semibold">
-            {{auth()->user()->store()->sum('price')}}$
+             {{ \Yasser\LaravelDashboard\Helper\Helper::amount() }}$
          </td>
      </tr>
 

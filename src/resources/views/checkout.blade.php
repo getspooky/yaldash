@@ -22,7 +22,7 @@
 
                                <!-- Payment -->
 
-                                   @component("LaravelDashboard::components.payment",['amount'=>auth()->user()->store()->sum('price')])
+                                   @component("LaravelDashboard::components.payment")
 
                                          <!-- Order Product -->
 
