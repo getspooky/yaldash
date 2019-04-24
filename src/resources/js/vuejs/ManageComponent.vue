@@ -10,7 +10,7 @@
 
             </div>
 
-            <div class="card-body p-0 pb-3 text-center">
+            <div class="card-body p-0 text-center">
 
 
             <div class="table-responsive">

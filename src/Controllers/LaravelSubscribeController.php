@@ -57,7 +57,7 @@ class LaravelSubscribeController extends Controller
 
          try {
 
-             $subscribe = User::find(auth()->id())->followers();
+             $subscribe = auth()->user()->followers();
 
              if (Helper::already_subscribe($request->get('follow_id'))) {
 

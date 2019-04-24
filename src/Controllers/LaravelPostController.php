@@ -83,7 +83,7 @@ class LaravelPostController extends Controller
 
             ])->validate();
 
-            $create_post = User::find(auth()->id())->posts()->create([
+            $create_post = auth()->user()->posts()->create([
                 "title" => $request->get("title"),
                 "content" => $request->get("content"),
                 "summary" => $request->get('summary')

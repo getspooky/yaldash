@@ -16,7 +16,7 @@ class CreateUserInformationsTable extends Migration
         Schema::create('user_informations', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedBigInteger('user_id');
-            //$table->foreign('user_id')->references('id')->on('users')->onCascade('delete');
+            $table->foreign('user_id')->references('id')->on('users')->onCascade('delete');
             $table->string('Description')->nullable();
             $table->string('LastName')->nullable();
             $table->string('Address')->nullable();

@@ -47,9 +47,9 @@ class LaravelManageController extends Controller
 
      public function Response(){
 
-         $userPost = User::find(auth()->id())->posts()->orderBy('id','desc')->get();
+         $userPost = auth()->user()->posts()->orderBy('id','desc')->get();
 
-         $userProduct = User::find(auth()->id())->store()->get();
+         $userProduct = auth()->user()->store()->get();
 
          return response()->json([
              "status" => 200,
@@ -78,9 +78,5 @@ class LaravelManageController extends Controller
 
 
       }
-
-
-
-
 
 }

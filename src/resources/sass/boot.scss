@@ -16,10 +16,6 @@
 
 @import "index";
 
-// import timeline.scss
-
-@import "timeline";
-
 // import footer.scss
 
 @import "footer";
@@ -726,6 +722,12 @@ div.card-scale{
     width:97% !important;
     margin-bottom:15px !important;
     border-radius:0px !important;
+}
+
+.content-blog-post pre{
+    background: rgba(0,0,0,.05) !important;
+    padding: 20px;
+    white-space: pre-wrap;
 }
 
 .content-blog-post p{

@@ -45,9 +45,13 @@
 
         Route::get('Checkout','Yasser\LaravelDashboard\Controllers\LaravelCheckoutController@index')->name('dashboard.checkout.index');
 
+        Route::post('Checkout','Yasser\LaravelDashboard\Controllers\LaravelCheckoutController@charges')->name('dashboard.checkout.charges');
+
         Route::get('Store','Yasser\LaravelDashboard\Controllers\LaravelStoreController@index')->name('dashboard.store.index');
 
         Route::post('Store','Yasser\LaravelDashboard\Controllers\LaravelStoreController@store')->name('dashboard.store.store');
+
+        Route::post('Buy/{id}','Yasser\LaravelDashboard\Controllers\LaravelStoreController@buy')->name('dashboard.store.buy');
 
         Route::post('View/device/{id}','Yasser\LaravelDashboard\Controllers\LaravelPostController@DevicesStore')->name('dashboard.post.DevicesStore');
 

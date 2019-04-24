@@ -148,7 +148,7 @@
 
                    this.$swal("Good job!",response.data.success, "success").then(()=>{
 
-                         window.location.href = this.route;
+                         window.location.reload();
 
                     });
 

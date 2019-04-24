@@ -40,7 +40,7 @@ class LaravelDashboardController extends Controller
 
      public function index(){
 
-         $user = User::find(auth()->id());
+         $user = auth()->user();
 
          $points = (int)($user->posts()->count()*4/1500);
 

@@ -14,6 +14,10 @@ class UserInformation extends Model
 
     public $table = "user_informations";
 
+    /**
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
 
     public function users(){
 

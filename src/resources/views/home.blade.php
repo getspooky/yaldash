@@ -19,6 +19,8 @@
 
     <script src="{{\Yasser\LaravelDashboard\Helper\Assets::load('js','app.js')}}" defer></script>
 
+    <script src="https://js.stripe.com/v3/"></script>
+
 </head>
 
 <body>
@@ -65,7 +67,6 @@
    <div>
 
     @yield('js')
-
 
 </body>
 

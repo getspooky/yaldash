@@ -16,8 +16,10 @@ class Post extends Model
      *  Eloquent: Relationships
      */
 
+
     /**
-     * Get the user that owns the post.
+     * Get the user that owns the post
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
 
     public function user()
@@ -25,6 +27,10 @@ class Post extends Model
         return $this->belongsTo(User::class);
     }
 
+    /**
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
+     */
 
     public function attachements(){
 
@@ -32,14 +38,21 @@ class Post extends Model
 
     }
 
+    /**
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+
     public function categories(){
 
        return $this->hasOne(Categories::class);
 
     }
 
+
     /**
-     * Get the devices for the blog post.
+     * Get the devices for the blog post
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
 
     public function devices(){
@@ -47,5 +60,6 @@ class Post extends Model
         return $this->hasMany(Devices::class);
 
     }
+
 
 }

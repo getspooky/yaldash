@@ -10,9 +10,9 @@ namespace Yasser\LaravelDashboard\Controllers;
 
 
 use App\Http\Controllers\Controller;
-use App\User;
-use Illuminate\Http\RedirectResponse;
+use Cartalyst\Stripe\Laravel\Facades\Stripe;
 use Illuminate\Http\Request;
+use Yasser\LaravelDashboard\Models\Buy;
 
 class LaravelCheckoutController extends Controller
 {
@@ -22,44 +22,56 @@ class LaravelCheckoutController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
+
+     public function __construct()
+     {
         $this->middleware(['web', 'auth']);
-    }
+     }
 
     /**
      * Show the application payment.
      *
-     * @return \Illuminate\Contracts\Support\Renderable
+     * @return Renderable
      */
 
      public function index(){
 
-         return view("LaravelDashboard::checkout");
-     }
+         $products = auth()->user()->buy;
 
-    /**
-     * @param Request $request
-     * @return RedirectResponse
-     */
-
-     public function store(Request $request){
-
-        User::find(auth()->id())->checkout()->create([
-            'FirstName'=>$request->get('FirstName'),
-            'LastName'=>$request->get('LastName'),
-            'email'=>$request->get('email'),
-            'phone'=>$request->get('phone'),
-            'address'=>implode(',',[
-                $request->get('City'),$request->get('State'),$request->get('Zip'),$request->get('Country')
-            ]),
-            'Order_Notes'=>$request->get('Order_Notes'),
-            'Price'=>123
-        ]);
-
-         return redirect()->route('checkout.index');
+         return view("LaravelDashboard::checkout",compact('products'));
 
      }
 
+     /**
+      *
+      * @param Request $request
+      * @return response
+      */
+
+     public function charges(Request $request){
+
+        try{
+
+            $charge = Stripe::charges()->create([
+                'currency' => 'USD',
+                'amount'   => $request->get('amount'),
+                'source'=>$request->get('stripeToken')
+            ]);
+
+            return response()->json([
+                'success'=>'Your payment has been successfully processed'
+            ]);
+
+        }catch (\Exception $exception){
+
+            return response()->json([
+                'error'=>$exception->getMessage(),
+                'status'=>$exception->getCode(),
+                'result'=>$request->get('stripeToken')
+            ]);
+
+        }
+
+     }
 
 }

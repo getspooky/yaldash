@@ -6,6 +6,7 @@
  * Time: 17:09
  */
 namespace Yasser\LaravelDashboard;
+use Cartalyst\Stripe\Laravel\StripeServiceProvider;
 use \Illuminate\Support\ServiceProvider;
 use Yasser\LaravelDashboard\Commands\DashboardTemplate;
 use Yasser\LaravelDashboard\Commands\GenerateAuthentification;
@@ -25,6 +26,10 @@ class DashboardServiceProvider extends ServiceProvider
     {
 
         $this->app->register(EventServiceProvider::class);
+
+        $this->app->register(StripeServiceProvider::class);
+
+        $this->app->alias('Stripe',Cartalyst\Stripe\Laravel\Facades\Stripe::class);
 
     }
 
@@ -46,7 +51,6 @@ class DashboardServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/Config/laravelDash.php' => config_path('laravelDash.php')
         ],"config");
-
 
 
         if ($this->app->runningInConsole()) {

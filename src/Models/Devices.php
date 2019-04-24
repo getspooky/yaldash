@@ -21,6 +21,7 @@ class Devices extends Model
 
     /**
      * Get the post that owns the devices.
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
 
    public function post(){

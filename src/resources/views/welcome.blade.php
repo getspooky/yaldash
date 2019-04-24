@@ -75,12 +75,11 @@
         </div>
 
         <div class="links">
-            <a href="">Docs</a>
-            <a href="">Features</a>
-            <a href="">Releases</a>
-            <a href="">Blog</a>
-            <a href="">Donate</a>
-            <a href="">GitHub</a>
+            <a href="https://getspooky.github.io/laravelDash/#/" target="_blank">Docs</a>
+            <a href="https://getspooky.github.io/laravelDash/#/Feature" target="_blank">Features</a>
+            <a href="https://github.com/getspooky/laravelDash/issues" target="_blank">Issues</a>
+            <a href="https://www.paypal.me/SpookyCommunity" target="_blank">Donate</a>
+            <a href="https://github.com/getspooky/laravelDash" target="_blank">GitHub</a>
         </div>
 
     </div>

@@ -60,6 +60,10 @@ class LaravelDashInstall extends Command
 
         $this->call('migrate');
 
+        $this->info('Creating a symbolic link from "public/storage" to "storage/app/public"');
+
+        $this->call('storage:link');
+
     }
 
 

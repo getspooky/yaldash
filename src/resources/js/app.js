@@ -15,25 +15,9 @@ import Chart from 'chart.js'
 
 import VueSweetalert2 from 'vue-sweetalert2';
 
-import * as VueGoogleMaps from 'vue2-google-maps'
-
-
 Vue.use(VueSweetalert2);
 
 Vue.use(VueChartkick, {adapter: Chart});
-
-Vue.use(VueGoogleMaps, {
-    load: {
-        key: 'AIzaSyCJSxZXZJ8NAn5U7JdqeHog2daCS9uDXjo',
-        libraries: 'places', // This is required if you use the Autocomplete plugin
-        // OR: libraries: 'places,drawing'
-        // OR: libraries: 'places,drawing,visualization'
-        // (as you require)
-
-        //// If you want to set the version, you can do so:
-        // v: '3.26',
-    }})
-
 
 /**
  * The following block of code may be used to automatically register your
@@ -52,6 +36,8 @@ Vue.component('manage-component',require('./vuejs/ManageComponent').default);
 
 Vue.component('chart-component',require('./vuejs/ChartComponent').default);
 
+Vue.component('stripe-component',require('./vuejs/StripeComponent').default);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -59,6 +45,6 @@ Vue.component('chart-component',require('./vuejs/ChartComponent').default);
  */
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
 });
 

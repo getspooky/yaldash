@@ -25,11 +25,12 @@
                                     <a href="#">
                                         <img class="pic-1" src="{{ asset('storage/avatars/'.$store->attachementStore()->first()['file_name'])}}">
                                     </a>
-                                    <ul class="social">
-                                        <li><a href="" class="fa fa-cart-plus"></a></li>
-                                        <li><a href="" class="fa fa-credit-card"></a></li>
-                                        <li><a href="" class="fa fa-envelope"></a></li>
-                                    </ul>
+                                    <form method="post" id="card-store" action="{{ route('dashboard.store.buy',['id'=>$store->id]) }}">
+                                        @csrf
+                                        <ul class="social">
+                                            <li><a href="#" onclick="document.getElementById('card-store').submit();" class="fa fa-cart-plus"></a></li>
+                                        </ul>
+                                    </form>
                                     <span class="product-discount-label">0%</span>
                                 </div>
                                 <div class="product-content">

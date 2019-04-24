@@ -15,8 +15,10 @@ class Attachement extends Model
 
     protected $fillable = ['file_name'];
 
+
     /**
-     * Get all of the owning attachable models.
+     * Get all of the owning attachable models
+     * @return \Illuminate\Database\Eloquent\Relations\MorphTo
      */
 
     public function attachable(){

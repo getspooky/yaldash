@@ -17,6 +17,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Yasser\LaravelDashboard\Events\NotificationEvent;
 use Exception;
+use Yasser\LaravelDashboard\Models\Buy;
+use Yasser\LaravelDashboard\Models\Store;
 
 class LaravelStoreController extends Controller
 {
@@ -41,11 +43,29 @@ class LaravelStoreController extends Controller
 
     public function index(){
 
-        $store = User::find(auth()->id())->store()->orderBy('id','desc')->get();
+        $store = auth()->user()->store()->orderBy('id','desc')->get();
 
         return view('LaravelDashboard::store',compact('store'));
 
     }
+
+    /**
+     * Buy Product
+     * @param int $id
+     * @return RedirectResponse
+     */
+
+    public function buy($id){
+
+         $product = Buy::create([
+            "user_id"=>auth()->id(),
+            "store_id"=>$id
+         ]);
+
+         return redirect()->route('dashboard.checkout.index');
+
+    }
+
 
     /**
      * Store products
@@ -65,7 +85,7 @@ class LaravelStoreController extends Controller
 
             ])->validate();
 
-            $store = User::find(auth()->id())->store()->create([
+            $store = auth()->user()->store()->create([
                 'price' => $request->get('price'),
                 'description' => $request->get('description'),
             ]);

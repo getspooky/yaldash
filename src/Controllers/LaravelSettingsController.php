@@ -56,7 +56,7 @@ class LaravelSettingsController extends Controller
 
          $this->Validator($request->all())->validate();
 
-         $attach = User::find(auth()->id())->information();
+         $attach = auth()->user()->information();
 
          is_null($attach->first()) ? $attach->create($this->Filter($this->user_information, $request->all())) : $attach->Update($this->Filter($this->user_information, $request->all()));
 
@@ -133,7 +133,7 @@ class LaravelSettingsController extends Controller
 
            /** @var  $user */
 
-           $user = User::find(auth()->id())->attachementUser();
+           $user = auth()->user()->attachementUser();
 
            /** @var  $generate_name * */
 

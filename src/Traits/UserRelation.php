@@ -4,6 +4,7 @@
 namespace Yasser\LaravelDashboard\Traits;
 
 use Yasser\LaravelDashboard\Models\Attachement;
+use Yasser\LaravelDashboard\Models\Buy;
 use Yasser\LaravelDashboard\Models\Checkout;
 use Yasser\LaravelDashboard\Models\Devices;
 use Yasser\LaravelDashboard\Models\Followers;
@@ -38,6 +39,10 @@ trait UserRelation
 
     }
 
+    /**
+     * @return mixed
+     */
+
     public function attachementUser(){
 
         return $this->morphMany(Attachement::class,'attachable');
@@ -45,11 +50,19 @@ trait UserRelation
     }
 
 
+    /**
+     * @return mixed
+     */
+
     public function followers(){
 
         return $this->hasMany(Followers::class);
 
     }
+
+    /**
+     * @return mixed
+     */
 
     public function checkout(){
 
@@ -57,15 +70,33 @@ trait UserRelation
 
     }
 
+    /**
+     * @return mixed
+     */
+
     public function store(){
 
         return $this->hasMany(Store::class);
 
     }
 
+    /**
+     * @return mixed
+     */
+
     public function devices(){
 
         return $this->hasManyThrough(Devices::class,Post::class);
+
+    }
+
+    /**
+     * @return mixed
+     */
+
+    public function buy(){
+
+        return $this->hasMany(Buy::class);
 
     }
 

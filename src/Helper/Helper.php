@@ -161,7 +161,7 @@ class Helper
     public static function already_subscribe($id)
     {
 
-        return count(User::find(auth()->id())->followers()->where('follow_id', $id)->get()) === 0;
+        return count(auth()->user()->followers()->where('follow_id', $id)->get()) === 0;
 
     }
 

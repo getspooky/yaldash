@@ -1,43 +1,47 @@
 <table class="table table-centered mb-0">
     <tbody>
-    <tr>
-        <td>
-            <img src="https://i.ytimg.com/vi/drG7Dh71IbM/maxresdefault.jpg" alt="contact-img" title="contact-img" class="rounded mr-2" height="90" width="120">
-            <p class="m-0 d-inline-block align-middle">
-                <a href="apps-ecommerce-products-details.html" class="text-body font-weight-semibold">Amazing Modern Chair</a>
-                <br>
-                <small>5 x $148.66</small>
-            </p>
-        </td>
-        <td class="text-right">
-            $743.30
-        </td>
-    </tr>
 
-    <tr class="text-right">
-        <td>
-            <h6 class="m-0">Sub Total:</h6>
-        </td>
-        <td class="text-right">
-            $1071.29
-        </td>
-    </tr>
-    <tr class="text-right">
-        <td>
-            <h6 class="m-0">Shipping:</h6>
-        </td>
-        <td class="text-right">
-            FREE
-        </td>
-    </tr>
-    <tr class="text-right">
-        <td>
-            <h5 class="m-0">Total:</h5>
-        </td>
-        <td class="text-right font-weight-semibold">
-            $1071.29
-        </td>
-    </tr>
+    @if($product_num = $products->count() > 0)
+
+     @foreach($products as $product)
+
+         <tr>
+             <td>
+                 <img src="{{ asset('storage/avatars/'.$product->store->attachementStore()->first()['file_name'])}}" alt="contact-img" title="contact-img" class="rounded mr-2" height="90" width="120">
+                 <p class="m-0 d-inline-block align-middle mt-2">
+                     <a href="apps-ecommerce-products-details.html" class="text-body font-weight-semibold ">{{ $product->store->description }}</a>
+                     <br>
+                 </p>
+             </td>
+             <td class="text-right">
+                 <span class="badge badge-success">{{$product->store->price}}$</span>
+             </td>
+         </tr>
+
+     @endforeach
+
+     @else
+
+        <div class="alert alert-danger" role="alert">
+            <h4 class="alert-heading">Be attention!</h4>
+            <p>If you’ve had a damaged delivery or it didn’t arrive at all, your rights are protected by the Consumer Rights Act and the Consumer Contracts Regulations.</p>
+            <hr>
+            <p class="mb-0">Consumer rights is a division of Which? that provides clear information on your rights offering simple solutions to solve your everyday consumer problems</p>
+        </div>
+
+      @endif
+
+     {{ $slot }}
+
+     <tr class="text-right">
+         <td>
+             <h5 class="m-0">Total:</h5>
+         </td>
+         <td class="text-right font-weight-semibold">
+            {{auth()->user()->store()->sum('price')}}$
+         </td>
+     </tr>
 
     </tbody>
+
 </table>

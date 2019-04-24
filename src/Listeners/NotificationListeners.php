@@ -32,7 +32,7 @@ class NotificationListeners
     {
         //
 
-        $user = $event->payload['to'] === 'auth' ? User::find(auth()->id()) : User::all();
+        $user = $event->payload['to'] === 'auth' ? auth()->user() : User::all();
 
         $when = now()->addSeconds(30);
 
