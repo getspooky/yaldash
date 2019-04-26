@@ -69,3 +69,8 @@ If you've found a problem in LaravelDash which is not a security risk, do a sear
 ## License
 
 The LaravelDash Library is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Support on Beerpay
+Hey dude! Help me out for a couple of :beers:!
+
+[![Beerpay](https://beerpay.io/getspooky/laravelDash/badge.svg?style=beer-square)](https://beerpay.io/getspooky/laravelDash)  [![Beerpay](https://beerpay.io/getspooky/laravelDash/make-wish.svg?style=flat-square)](https://beerpay.io/getspooky/laravelDash?focus=wish)
