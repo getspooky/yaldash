@@ -12,7 +12,7 @@
 
 ## About LaravelDash
 
-LaravelDash provides a powerful user interfaces for CRUD (create, read, update, delete) operations for Laravel applications. It offers additonal features including Charts , Panel Management , Settings , Payment System and Store
+LaravelDash provides a powerful user interfaces for CRUD (create, read, update, delete) operations for Laravel applications. It offers additonal features including Charts , Panel Management , Settings , Payment System and Store ...
 
 ## Quick Introduction
 
