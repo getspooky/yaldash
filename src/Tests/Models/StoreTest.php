@@ -8,17 +8,14 @@
 
 namespace Yasser\Tests\Models;
 
-
 use Illuminate\Support\Facades\Auth;
 use Tests\TestCase;
 use Yasser\LaravelDashboard\Models\Store;
 
-
 class StoreTest extends TestCase
 {
-
-    public function testCanCreateStore(){
-
+    public function testCanCreateStore()
+    {
         $user = Auth::loginUsingId(1);
 
         $store = new Store();
@@ -31,13 +28,10 @@ class StoreTest extends TestCase
 
         $store->save();
 
-        $this->assertEquals(1,$store->id);
+        $this->assertEquals(1, $store->id);
 
-        $this->assertEquals('Test Tile',$store->title);
+        $this->assertEquals('Test Tile', $store->title);
 
-        $this->assertEquals(10,$store->price);
-
+        $this->assertEquals(10, $store->price);
     }
-
-
 }

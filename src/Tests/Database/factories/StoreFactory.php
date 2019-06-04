@@ -13,12 +13,10 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(\Yasser\LaravelDashboard\Models\Store::class , function (Faker $faker) {
+$factory->define(\Yasser\LaravelDashboard\Models\Store::class, function (Faker $faker) {
     return [
         'user_id' => $faker->numberBetween([0,50]),
-        'email' => $faker->text(250,50),
+        'email' => $faker->text(250, 50),
         'price' => $faker->randomNumber(),
     ];
 });
-
-

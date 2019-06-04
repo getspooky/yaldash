@@ -13,7 +13,5 @@ use Tests\CreatesApplication;
 
 abstract class BrowserKitTesting extends BaseTestCase
 {
-
     use CreatesApplication;
-
 }

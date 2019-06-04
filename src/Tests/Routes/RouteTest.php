@@ -8,15 +8,13 @@
 
 namespace Yasser\Tests\Routes;
 
-
 use Illuminate\Support\Facades\Auth;
 use Tests\TestCase;
 
 class RouteTest extends TestCase
 {
-
-    public function testGetRoute(){
-
+    public function testGetRoute()
+    {
         $user = Auth::loginUsingId(1);
 
         $routes = [
@@ -30,16 +28,10 @@ class RouteTest extends TestCase
            route('dashboard.views.state')
         ];
 
-        foreach($routes as $route) {
+        foreach ($routes as $route) {
+            $response = $this->get($route);
 
-           $response = $this->get($route);
-
-           $this->assertEquals(200,$response->status(),$route.' did not return 200');
-
-
+            $this->assertEquals(200, $response->status(), $route.' did not return 200');
         }
-
     }
-
-
 }

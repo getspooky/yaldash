@@ -3,7 +3,6 @@
 
 namespace Yasser\LaravelDashboard\Controllers;
 
-
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Response;
 
@@ -31,11 +30,5 @@ class LaravelSellController extends Controller
         //
 
         return view('LaravelDashboard::sell');
-
     }
-
-
-
-
-
 }

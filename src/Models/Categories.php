@@ -11,5 +11,4 @@ class Categories extends Model
     protected $fillable = ['categories','post_id'];
 
     protected $guarded = ['id'];
-
 }

@@ -32,5 +32,4 @@ class CreateDevicesTable extends Migration
     {
         Schema::dropIfExists('devices');
     }
-
 }

@@ -8,7 +8,6 @@
 
 namespace Yasser\LaravelDashboard\Helper;
 
-
 class Assets
 {
 
@@ -20,10 +19,9 @@ class Assets
      *
      */
 
-    public static function load($folder,$file){
-
-        return route('dashboard.assets',['file'=>$file,'folder'=>$folder]);
-
+    public static function load($folder, $file)
+    {
+        return route('dashboard.assets', ['file'=>$file,'folder'=>$folder]);
     }
 
     /**
@@ -33,11 +31,8 @@ class Assets
      *
      */
 
-    public static function loadImg($file){
-
-        return route('dashboard.assets',['file'=>$file,'folder'=>'img']);
-
+    public static function loadImg($file)
+    {
+        return route('dashboard.assets', ['file'=>$file,'folder'=>'img']);
     }
-
-
 }

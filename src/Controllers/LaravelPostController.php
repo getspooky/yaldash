@@ -38,14 +38,13 @@ class LaravelPostController extends Controller
      * @return Response
      */
 
-     public function index()
+    public function index()
     {
         //
 
         $post = Post::all();
 
-        return view('LaravelDashboard::display_posts',compact('post'));
-
+        return view('LaravelDashboard::display_posts', compact('post'));
     }
 
     /**
@@ -54,13 +53,12 @@ class LaravelPostController extends Controller
      * @return Response
      */
 
-     public function create()
-     {
+    public function create()
+    {
         //
 
         return view('LaravelDashboard::post');
-
-     }
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -69,12 +67,11 @@ class LaravelPostController extends Controller
      * @return Response
      */
 
-      public function store(Request $request)
-      {
+    public function store(Request $request)
+    {
         //
 
         try {
-
             Validator::make($request->all(), [
 
                 "title" => "required|string|max:200",
@@ -102,17 +99,10 @@ class LaravelPostController extends Controller
                 return response()->json([
                     'success' => 'data was inserted successfully',
                 ]);
-
-
             }
-
-        }catch (Exception $e){
-
-             return response()->json(["error"=>$e->getMessage(), "code" => $e->getCode()]);
-
+        } catch (Exception $e) {
+            return response()->json(["error"=>$e->getMessage(), "code" => $e->getCode()]);
         }
-
-
     }
 
     /**
@@ -122,18 +112,15 @@ class LaravelPostController extends Controller
      * @return Response
      */
 
-      public function show($id)
-      {
+    public function show($id)
+    {
         //
-          $post = Post::find($id);
+        $post = Post::find($id);
 
-          if(!is_null($post)){
-
-              return view('LaravelDashboard::post_show',compact('post'));
-
-          }
-
-      }
+        if (!is_null($post)) {
+            return view('LaravelDashboard::post_show', compact('post'));
+        }
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -142,12 +129,10 @@ class LaravelPostController extends Controller
      * @return Response
      */
 
-     public function edit($id)
-     {
+    public function edit($id)
+    {
         //
-
-
-     }
+    }
 
     /**
      * Update the specified resource in storage.
@@ -157,10 +142,10 @@ class LaravelPostController extends Controller
      * @return Response
      */
 
-     public function update(Request $request, $id)
-     {
+    public function update(Request $request, $id)
+    {
         //
-     }
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -169,41 +154,35 @@ class LaravelPostController extends Controller
      * @return Response
      */
 
-      public function destroy($id)
-      {
+    public function destroy($id)
+    {
         //
 
         $destroy = Post::destroy([$id]);
 
         return redirect()->route("post.index");
+    }
 
-       }
+    /**
+     * Save user devices
+     * @param int $id
+     * @return Devices
+     */
 
-       /**
-        * Save user devices
-        * @param int $id
-        * @return Devices
-        */
+    public function DevicesStore($id)
+    {
+        $device = null;
 
-       public function DevicesStore($id){
+        if (preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $_SERVER["HTTP_USER_AGENT"])) {
+            $device = 'mobile';
+        } else {
+            $device = 'laptop';
+        }
 
-           $device = null;
-
-           if(preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $_SERVER["HTTP_USER_AGENT"])){
-
-               $device = 'mobile';
-
-           }else{
-               $device = 'laptop';
-           }
-
-           Post::find($id)->devices()->create([
+        Post::find($id)->devices()->create([
                "user_device_information"=>$device
            ]);
 
-           return redirect()->route('post.show',['id'=>$id]);
-
-       }
-
-
+        return redirect()->route('post.show', ['id'=>$id]);
+    }
 }

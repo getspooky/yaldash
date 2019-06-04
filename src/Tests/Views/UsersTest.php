@@ -8,16 +8,13 @@
 
 namespace Yasser\Tests\Views;
 
-
 use Illuminate\Support\Facades\Auth;
 use Yasser\LaravelDashboard\Kit\BrowserKitTesting;
 
 class UsersTest extends BrowserKitTesting
 {
-
-
-    public function testUsersPageRender(){
-
+    public function testUsersPageRender()
+    {
         $this->withoutMiddleware();
 
         $this->withExceptionHandling();
@@ -27,9 +24,5 @@ class UsersTest extends BrowserKitTesting
         $visit->see('Mrs. Kaylee Sauer Sr.');
 
         $visit->see('Active User ');
-
     }
-
-
-
 }

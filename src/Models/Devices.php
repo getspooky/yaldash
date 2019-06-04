@@ -8,26 +8,22 @@
 
 namespace Yasser\LaravelDashboard\Models;
 
-
 use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Devices extends Model
 {
+    protected $fillable = ['user_device_information'];
 
-   protected $fillable = ['user_device_information'];
-
-   protected  $guarded = ['id'];
+    protected $guarded = ['id'];
 
     /**
      * Get the post that owns the devices.
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
 
-   public function post(){
-
-       return $this->belongsTo(Post::class);
-
-   }
-
+    public function post()
+    {
+        return $this->belongsTo(Post::class);
+    }
 }

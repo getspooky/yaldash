@@ -36,9 +36,6 @@ class NotificationListeners
 
         $when = now()->addSeconds(30);
 
-        $user->notify((new DashboardNotification($event->payload['message'],$event->payload['type'],$event->payload['name']))->delay($when));
-
-
+        $user->notify((new DashboardNotification($event->payload['message'], $event->payload['type'], $event->payload['name']))->delay($when));
     }
-
 }

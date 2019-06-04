@@ -13,7 +13,6 @@ class CreateStoresTable extends Migration
      */
     public function up()
     {
-
         Schema::create('stores', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedBigInteger('user_id');
@@ -22,7 +21,6 @@ class CreateStoresTable extends Migration
             $table->float('price');
             $table->timestamps();
         });
-
     }
 
     /**
@@ -31,9 +29,8 @@ class CreateStoresTable extends Migration
      * @return void
      */
 
-     public function down()
-     {
+    public function down()
+    {
         Schema::dropIfExists('stores');
-     }
-
+    }
 }

@@ -19,12 +19,10 @@ class NotificationEvent
      * @return void
      */
 
-     public function __construct(array $payload)
-     {
+    public function __construct(array $payload)
+    {
         //
 
         $this->payload = $payload;
-
-     }
-
+    }
 }

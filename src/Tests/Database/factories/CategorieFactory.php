@@ -16,8 +16,6 @@ use Faker\Generator as Faker;
 $factory->define(\Yasser\LaravelDashboard\Models\Categories::class, function (Faker $faker) {
     return [
         'categories' => $faker->randomElement(['design','make up','story']),
-         'post_id' => $faker->randomNumber(0,50)
+         'post_id' => $faker->randomNumber(0, 50)
     ];
 });
-
-

@@ -15,12 +15,10 @@ use Faker\Generator as Faker;
 
 $factory->define(\Yasser\LaravelDashboard\Models\Post::class, function (Faker $faker) {
     return [
-        'user_id'=>$faker->randomNumber(0,50),
+        'user_id'=>$faker->randomNumber(0, 50),
         'title' => $faker->text(100),
         'summary' => $faker->text(150),
         'content' => $faker->text(),
         'status' => $faker->randomElement(['publish','draft'])
     ];
 });
-
-

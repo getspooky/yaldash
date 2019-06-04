@@ -9,10 +9,11 @@ use Illuminate\Notifications\Messages\MailMessage;
 
 class DashboardNotification extends Notification implements ShouldQueue
 {
-
     use Queueable;
 
-    public $message,$type,$name;
+    public $message;
+    public $type;
+    public $name;
 
     /**
      * Create a new notification instance.
@@ -22,17 +23,16 @@ class DashboardNotification extends Notification implements ShouldQueue
      * @return void
      */
 
-     public function __construct($message,$type,$name)
-     {
+    public function __construct($message, $type, $name)
+    {
         //
 
-         $this->message = $message;
+        $this->message = $message;
 
-         $this->type = $type;
+        $this->type = $type;
 
-         $this->name = $name;
-
-     }
+        $this->name = $name;
+    }
 
     /**
      * Get the notification's delivery channels.
@@ -70,13 +70,10 @@ class DashboardNotification extends Notification implements ShouldQueue
 
     public function toArray($notifiable)
     {
-
         return [
             "name"=>$this->name,
             "message"=>$this->message,
             "type"=>$this->type
         ];
-
     }
-
 }

@@ -8,16 +8,14 @@
 
 namespace Yasser\Tests\Models;
 
-
 use Illuminate\Support\Facades\Auth;
 use Tests\TestCase;
 use Yasser\LaravelDashboard\Models\Post;
 
 class PostTest extends TestCase
 {
-
-    public function testCanCreatePost(){
-
+    public function testCanCreatePost()
+    {
         $user = Auth::loginUsingId(1);
 
         $post = new Post();
@@ -32,17 +30,12 @@ class PostTest extends TestCase
 
         $post->save();
 
-        $this->assertEquals(1,$post->id);
+        $this->assertEquals(1, $post->id);
 
-        $this->assertEquals('Test Tile',$post->title);
+        $this->assertEquals('Test Tile', $post->title);
 
-        $this->assertEquals('Test Summary',$post->summary);
+        $this->assertEquals('Test Summary', $post->summary);
 
-        $this->assertEquals('Test Content',$post->content);
-
-
+        $this->assertEquals('Test Content', $post->content);
     }
-
-
-
 }

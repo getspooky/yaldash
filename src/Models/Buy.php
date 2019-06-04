@@ -2,7 +2,6 @@
 
 namespace Yasser\LaravelDashboard\Models;
 
-
 use Illuminate\Database\Eloquent\Model;
 
 class Buy extends Model
@@ -17,10 +16,8 @@ class Buy extends Model
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
 
-    public function store(){
-
+    public function store()
+    {
         return $this->belongsTo(Store::class);
-
     }
-
 }

@@ -8,7 +8,6 @@
 
 namespace Yasser\LaravelDashboard\Traits;
 
-
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\File;
 
@@ -22,35 +21,24 @@ trait Assets
      * @return Response
      */
 
-    public function Dashboard_assets($folder,$file){
-
-        $path = str_replace(['../','./'],'',$file);
+    public function Dashboard_assets($folder, $file)
+    {
+        $path = str_replace(['../','./'], '', $file);
 
         $path = dirname(__DIR__)."/published/$folder/$path";
 
-        if(File::exists($path)){
-
+        if (File::exists($path)) {
             $ContentType = null;
 
-            if(ends_with($path,'.js')){
-
+            if (ends_with($path, '.js')) {
                 $ContentType = 'text/javascript';
-
-            }else if(ends_with($path,'.css')){
-
+            } elseif (ends_with($path, '.css')) {
                 $ContentType = 'text/css';
-
-            }else{
-
+            } else {
                 $ContentType = File::mimeType($path);
-
             }
 
-            return response(File::get($path),200,['Content-Type'=>$ContentType]);
-
+            return response(File::get($path), 200, ['Content-Type'=>$ContentType]);
         }
-
-
     }
-
 }

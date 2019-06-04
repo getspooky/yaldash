@@ -29,12 +29,10 @@ class DashboardTemplate extends Command
      * @return void
      */
 
-     public function __construct()
-     {
-
-         parent::__construct();
-
-     }
+    public function __construct()
+    {
+        parent::__construct();
+    }
 
     /**
      * Execute the console command.
@@ -42,37 +40,26 @@ class DashboardTemplate extends Command
      * @return mixed
      */
 
-      public function handle()
-      {
+    public function handle()
+    {
         //
 
-           try {
+        try {
+            $resource = resource_path('views/' . $this->argument('name') . '.blade.php');
 
-               $resource = resource_path('views/' . $this->argument('name') . '.blade.php');
+            $stub = dirname(__DIR__) . '/resources/views/stubs/template.blade.php';
 
-               $stub = dirname(__DIR__) . '/resources/views/stubs/template.blade.php';
+            if (!file_exists($resource)) {
+                $content = str_replace('Template', ucfirst($this->argument('name')), file_get_contents($stub));
 
-               if (!file_exists($resource)) {
+                File::put($resource, $content);
 
-                   $content = str_replace('Template',ucfirst($this->argument('name')),file_get_contents($stub));
-
-                   File::put($resource, $content);
-
-                   $this->info("The file is created successfully");
-
-               } else {
-
-                   $this->error('The file already exists');
-
-               }
-
-           }catch (\Exception $e){
-
-                $this->error($e->getMessage());
-
-           }
-
-      }
-
-
+                $this->info("The file is created successfully");
+            } else {
+                $this->error('The file already exists');
+            }
+        } catch (\Exception $e) {
+            $this->error($e->getMessage());
+        }
+    }
 }
