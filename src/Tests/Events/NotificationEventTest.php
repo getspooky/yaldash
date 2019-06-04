@@ -15,28 +15,23 @@ use Yasser\LaravelDashboard\Events\NotificationEvent;
 
 class NotificationEventTest extends TestCase
 {
-
-    public function testCanDispatchEventNotification(){
-
+    public function testCanDispatchEventNotification()
+    {
         Event::fake();
 
         $user = Auth::loginUsingId(1);
 
-        event(new NotificationEvent([
+        event(new NotificationEvent(
+            [
             'message'=>$user->name.' has published a new Post',
             'type'=>'post',
             'name'=>$user->name,
             'to'=>'auth']
         ));
 
-        Event::assertDispatched(NotificationEvent::class, function ($event) use ($user){
-
+        Event::assertDispatched(NotificationEvent::class, function ($event) use ($user) {
             return $event->payload['type'] === 'post' && $event->payload['message'] === $user->name.' has published a new Post'
                 && $event->payload['name'] === $user->name && $event->payload['to'] === 'auth';
-
         });
-
-
     }
-
 }

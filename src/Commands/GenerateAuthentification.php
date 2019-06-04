@@ -33,9 +33,7 @@ class GenerateAuthentification extends Command
 
     public function __construct()
     {
-
         parent::__construct();
-
     }
 
     /**
@@ -49,31 +47,19 @@ class GenerateAuthentification extends Command
         //
 
         try {
-
             $auth_folder =  dirname(__DIR__).'/resources/views/auth';
 
             if ($this->confirm('Do you want to use LaravelDash authentification')) {
                 //
 
-                if(File::exists(resource_path('views/auth'))){
-
-                    File::copyDirectory($auth_folder,resource_path('views/auth'));
-
-                }else{
-
+                if (File::exists(resource_path('views/auth'))) {
+                    File::copyDirectory($auth_folder, resource_path('views/auth'));
+                } else {
                     $this->error('Auth folder not found (:');
-
                 }
-
             }
-
-
-        }catch (\Exception $e){
-
+        } catch (\Exception $e) {
             $this->error($e->getMessage());
-
         }
-
     }
-
 }

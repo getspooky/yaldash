@@ -21,10 +21,9 @@ class Attachement extends Model
      * @return \Illuminate\Database\Eloquent\Relations\MorphTo
      */
 
-    public function attachable(){
-
+    public function attachable()
+    {
         return $this->morphTo();
-
     }
 
 
@@ -35,21 +34,18 @@ class Attachement extends Model
      * @return mixed
      */
 
-    public function UploadFile(File $file,$name){
+    public function UploadFile(File $file, $name)
+    {
 
         // check if file exist
 
-        $upload = Storage::putFileAs('public/avatars',$file,$name);
+        $upload = Storage::putFileAs('public/avatars', $file, $name);
 
-        if($upload){
-
+        if ($upload) {
             return $upload;
-
         }
 
-            return false;
-
-
+        return false;
     }
 
     /**
@@ -58,36 +54,29 @@ class Attachement extends Model
      * @return mixed
      */
 
-     public function DeleteFile($file){
-
-         if(FacadeFile::exists($file)){
-
+    public function DeleteFile($file)
+    {
+        if (FacadeFile::exists($file)) {
             return FacadeFile::delete($file);
+        }
 
-         }
-
-         return false;
-
-     }
+        return false;
+    }
 
 
-     /**
-      * Delete File
-      * @param string $file
-      * @param string $file_rename
-      * @return mixed
-      */
+    /**
+     * Delete File
+     * @param string $file
+     * @param string $file_rename
+     * @return mixed
+     */
 
-      public function UpdateFile($file,$file_rename){
+    public function UpdateFile($file, $file_rename)
+    {
+        if (FacadeFile::exists($file) && FacadeFile::isFile($file)) {
+            return rename($file, $file_rename);
+        }
 
-          if(FacadeFile::exists($file) && FacadeFile::isFile($file)){
-
-             return rename($file,$file_rename);
-
-          }
-
-          return false;
-
-      }
-
+        return false;
+    }
 }

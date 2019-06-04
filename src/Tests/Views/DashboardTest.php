@@ -13,11 +13,8 @@ use Yasser\LaravelDashboard\Kit\BrowserKitTesting;
 
 class DashboardTest extends BrowserKitTesting
 {
-
-
     public function testDashboardPageRender()
     {
-
         $this->withExceptionHandling();
 
         $user = Auth::loginUsingId(1);
@@ -29,13 +26,11 @@ class DashboardTest extends BrowserKitTesting
         $visit->see('SUBSCRIBERS');
 
         $visit->see('Posts');
-
     }
 
 
     public function testNavigateOtherPage()
     {
-
         $this->withExceptionHandling();
 
         $user = Auth::loginUsingId(1);
@@ -43,20 +38,16 @@ class DashboardTest extends BrowserKitTesting
         $visit = $this->visit(route('dashboard.home'));
 
         $visit->click('Store')->seePageIs(route('dashboard.store.index'));
-
     }
 
 
     public function testCanSeeTheUsername()
     {
-
         $this->withExceptionHandling();
 
         $user = Auth::loginUsingId(1);
 
         $this->visit(route('dashboard.home'))
             ->seeInElement('span', $user->name);
-
     }
-
 }

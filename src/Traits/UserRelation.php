@@ -21,10 +21,9 @@ trait UserRelation
      * Relationships:One To Many
      */
 
-    public function posts(){
-
+    public function posts()
+    {
         return $this->hasMany(Post::class);
-
     }
 
 
@@ -33,20 +32,18 @@ trait UserRelation
      *
      */
 
-    public function information(){
-
+    public function information()
+    {
         return $this->hasOne(UserInformation::class);
-
     }
 
     /**
      * @return mixed
      */
 
-    public function attachementUser(){
-
-        return $this->morphMany(Attachement::class,'attachable');
-
+    public function attachementUser()
+    {
+        return $this->morphMany(Attachement::class, 'attachable');
     }
 
 
@@ -54,51 +51,44 @@ trait UserRelation
      * @return mixed
      */
 
-    public function followers(){
-
+    public function followers()
+    {
         return $this->hasMany(Followers::class);
-
     }
 
     /**
      * @return mixed
      */
 
-    public function checkout(){
-
+    public function checkout()
+    {
         return $this->hasMany(Checkout::class);
-
     }
 
     /**
      * @return mixed
      */
 
-    public function store(){
-
+    public function store()
+    {
         return $this->hasMany(Store::class);
-
     }
 
     /**
      * @return mixed
      */
 
-    public function devices(){
-
-        return $this->hasManyThrough(Devices::class,Post::class);
-
+    public function devices()
+    {
+        return $this->hasManyThrough(Devices::class, Post::class);
     }
 
     /**
      * @return mixed
      */
 
-    public function buy(){
-
+    public function buy()
+    {
         return $this->hasMany(Buy::class);
-
     }
-
-
 }

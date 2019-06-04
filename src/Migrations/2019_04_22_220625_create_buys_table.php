@@ -14,7 +14,6 @@ class CreateBuysTable extends Migration
 
     public function up()
     {
-
         Schema::create('buys', function (Blueprint $table) {
             $table->increments('id');
             $table->bigInteger('user_id')->unsigned();
@@ -23,7 +22,6 @@ class CreateBuysTable extends Migration
             $table->foreign('store_id')->references('id')->on('stores')->onDelete('cascade');
             $table->timestamps();
         });
-
     }
 
     /**
@@ -34,14 +32,11 @@ class CreateBuysTable extends Migration
 
     public function down()
     {
-
         Schema::table('buys', function (Blueprint $table) {
             $table->dropForeign(['store_id']);
             $table->dropForeign(['user_id']);
         });
 
         Schema::dropIfExists('buys');
-
     }
-
 }

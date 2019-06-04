@@ -8,7 +8,6 @@
 
 namespace Yasser\LaravelDashboard\Tests\Views;
 
-
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Http\File;
 use Illuminate\Support\Facades\Auth;
@@ -16,11 +15,10 @@ use Yasser\LaravelDashboard\Kit\BrowserKitTesting;
 
 class StoreTest extends BrowserKitTesting
 {
-
     use DatabaseTransactions;
 
-    public function testStorePageRender(){
-
+    public function testStorePageRender()
+    {
         $this->withoutMiddleware();
 
         $this->withExceptionHandling();
@@ -30,12 +28,11 @@ class StoreTest extends BrowserKitTesting
         $visit->see('Price');
 
         $visit->see("Product");
-
     }
 
 
-    public function testPostStore(){
-
+    public function testPostStore()
+    {
         $this->withExceptionHandling();
 
         $user = Auth::loginUsingId(1);
@@ -44,9 +41,7 @@ class StoreTest extends BrowserKitTesting
 
         $visit->type('Iphone 10', 'title')
             ->type('1032', 'price')
-            ->type(new File(dirname(__DIR__).'/File/logo.png'),'file')
+            ->type(new File(dirname(__DIR__).'/File/logo.png'), 'file')
             ->press('Product');
-
     }
-
 }

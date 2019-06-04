@@ -32,10 +32,9 @@ class Post extends Model
      * @return \Illuminate\Database\Eloquent\Relations\MorphMany
      */
 
-    public function attachements(){
-
-        return $this->morphMany(Attachement::class,"attachable");
-
+    public function attachements()
+    {
+        return $this->morphMany(Attachement::class, "attachable");
     }
 
     /**
@@ -43,10 +42,9 @@ class Post extends Model
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
 
-    public function categories(){
-
-       return $this->hasOne(Categories::class);
-
+    public function categories()
+    {
+        return $this->hasOne(Categories::class);
     }
 
 
@@ -55,11 +53,8 @@ class Post extends Model
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
 
-    public function devices(){
-
+    public function devices()
+    {
         return $this->hasMany(Devices::class);
-
     }
-
-
 }

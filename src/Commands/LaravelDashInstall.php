@@ -3,7 +3,6 @@
 
 namespace Yasser\LaravelDashboard\Commands;
 
-
 use Illuminate\Console\Command;
 use Yasser\LaravelDashboard\DashboardServiceProvider;
 
@@ -34,9 +33,7 @@ class LaravelDashInstall extends Command
 
     public function __construct()
     {
-
         parent::__construct();
-
     }
 
     /**
@@ -47,14 +44,13 @@ class LaravelDashInstall extends Command
 
     public function handle()
     {
-
         $this->info('Generate Authentification');
 
         $this->call('make:auth');
 
         $this->info('Publishing the LaravelDash config file');
 
-        $this->call('vendor:publish',['--provider' => DashboardServiceProvider::class, '--tag' => 'config']);
+        $this->call('vendor:publish', ['--provider' => DashboardServiceProvider::class, '--tag' => 'config']);
 
         $this->info('Migrating the database tables into your application');
 
@@ -63,8 +59,5 @@ class LaravelDashInstall extends Command
         $this->info('Creating a symbolic link from "public/storage" to "storage/app/public"');
 
         $this->call('storage:link');
-
     }
-
-
 }

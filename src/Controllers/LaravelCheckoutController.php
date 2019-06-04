@@ -8,7 +8,6 @@
 
 namespace Yasser\LaravelDashboard\Controllers;
 
-
 use App\Http\Controllers\Controller;
 use Cartalyst\Stripe\Laravel\Facades\Stripe;
 use Illuminate\Http\Request;
@@ -23,10 +22,10 @@ class LaravelCheckoutController extends Controller
      * @return void
      */
 
-     public function __construct()
-     {
+    public function __construct()
+    {
         $this->middleware(['web', 'auth']);
-     }
+    }
 
     /**
      * Show the application payment.
@@ -34,24 +33,22 @@ class LaravelCheckoutController extends Controller
      * @return Renderable
      */
 
-     public function index(){
+    public function index()
+    {
+        $products = auth()->user()->buy;
 
-         $products = auth()->user()->buy;
+        return view("LaravelDashboard::checkout", compact('products'));
+    }
 
-         return view("LaravelDashboard::checkout",compact('products'));
+    /**
+     *
+     * @param Request $request
+     * @return response
+     */
 
-     }
-
-     /**
-      *
-      * @param Request $request
-      * @return response
-      */
-
-     public function charges(Request $request){
-
-        try{
-
+    public function charges(Request $request)
+    {
+        try {
             $charge = Stripe::charges()->create([
                 'currency' => 'USD',
                 'amount'   => $request->get('amount'),
@@ -61,17 +58,12 @@ class LaravelCheckoutController extends Controller
             return response()->json([
                 'success'=>'Your payment has been successfully processed'
             ]);
-
-        }catch (\Exception $exception){
-
+        } catch (\Exception $exception) {
             return response()->json([
                 'error'=>$exception->getMessage(),
                 'status'=>$exception->getCode(),
                 'result'=>$request->get('stripeToken')
             ]);
-
         }
-
-     }
-
+    }
 }

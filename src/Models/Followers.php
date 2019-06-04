@@ -8,7 +8,6 @@
 
 namespace Yasser\LaravelDashboard\Models;
 
-
 use App\User;
 use Illuminate\Database\Eloquent\Model;
 
@@ -19,17 +18,15 @@ class Followers extends Model
 
     protected $fillable = ['follow_id'];
 
-    protected  $guarded = ['id'];
+    protected $guarded = ['id'];
 
     /**
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
 
-    public function user(){
-
+    public function user()
+    {
         return $this->belongsTo(User::class);
-
     }
-
 }

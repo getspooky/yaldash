@@ -16,21 +16,17 @@ class Store extends Model
      * @return \Illuminate\Database\Eloquent\Relations\MorphMany
      */
 
-    public function attachementStore(){
-
-        return $this->morphMany(Attachement::class,'attachable');
-
+    public function attachementStore()
+    {
+        return $this->morphMany(Attachement::class, 'attachable');
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
 
-    public function buy(){
-
+    public function buy()
+    {
         return $this->hasMany(Buy::class);
-
     }
-
-
 }

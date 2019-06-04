@@ -33,50 +33,45 @@ class LaravelManageController extends Controller
      * @return Response
      */
 
-    public function index(){
-
+    public function index()
+    {
         return view('LaravelDashboard::manage');
+    }
 
-     }
+    /**
+     * Return Json User and Post data
+     *
+     * @return JsonResponse
+     */
 
-     /**
-      * Return Json User and Post data
-      *
-      * @return JsonResponse
-      */
+    public function Response()
+    {
+        $userPost = auth()->user()->posts()->orderBy('id', 'desc')->get();
 
-     public function Response(){
+        $userProduct = auth()->user()->store()->get();
 
-         $userPost = auth()->user()->posts()->orderBy('id','desc')->get();
-
-         $userProduct = auth()->user()->store()->get();
-
-         return response()->json([
+        return response()->json([
              "status" => 200,
              "posts" => $userPost,
              "products" => $userProduct
          ]);
+    }
 
-     }
+    /**
+     * Destroy Post
+     * @param $id
+     * @param $type
+     * @return Response
+     */
 
-     /**
-      * Destroy Post
-      * @param $id
-      * @param $type
-      * @return Response
-      */
+    public function Delete($id, $type)
+    {
+        $type == "posts" ? Post::destroy([$id]) : Store::destroy([$id]);
 
-      public function Delete($id,$type){
+        event(new NotificationEvent(["message"=>"Your request has been completed",'type'=>'manage','name'=>auth()->user()->name,'to'=>'auth']));
 
-          $type == "posts" ? Post::destroy([$id]) : Store::destroy([$id]);
-
-          event(new NotificationEvent(["message"=>"Your request has been completed",'type'=>'manage','name'=>auth()->user()->name,'to'=>'auth']));
-
-          return response()->json([
+        return response()->json([
               'success'=>"Your request has been completed",
           ]);
-
-
-      }
-
+    }
 }

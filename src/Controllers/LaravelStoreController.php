@@ -8,7 +8,6 @@
 
 namespace Yasser\LaravelDashboard\Controllers;
 
-
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\File;
@@ -41,13 +40,12 @@ class LaravelStoreController extends Controller
      * @return Response
      */
 
-     public function index(){
+    public function index()
+    {
+        $store = auth()->user()->store()->orderBy('id', 'desc')->get();
 
-        $store = auth()->user()->store()->orderBy('id','desc')->get();
-
-        return view('LaravelDashboard::store',compact('store'));
-
-     }
+        return view('LaravelDashboard::store', compact('store'));
+    }
 
     /**
      * Buy Product
@@ -55,15 +53,14 @@ class LaravelStoreController extends Controller
      * @return RedirectResponse
      */
 
-    public function buy($id){
-
-         $product = Buy::create([
+    public function buy($id)
+    {
+        $product = Buy::create([
             "user_id"=>auth()->id(),
             "store_id"=>$id
          ]);
 
-         return redirect()->route('dashboard.checkout.index');
-
+        return redirect()->route('dashboard.checkout.index');
     }
 
 
@@ -73,10 +70,9 @@ class LaravelStoreController extends Controller
      * @return RedirectResponse
      */
 
-     public function store(Request $request){
-
+    public function store(Request $request)
+    {
         try {
-
             Validator::make($request->all(), [
 
                 "price" => "required|integer",
@@ -91,7 +87,6 @@ class LaravelStoreController extends Controller
             ]);
 
             if ($store) {
-
                 event(new NotificationEvent(['message' => 'your Product has been added successfully', 'type' => 'store', 'name' => auth()->user()->name, 'to' => 'auth']));
 
                 /** @var  $generate_name * */
@@ -106,20 +101,11 @@ class LaravelStoreController extends Controller
 
                 $store->attachementStore()->getRelated()->newInstance()
                     ->UploadFile(new File($request->file('file_name')), $generate_name);
-
-
             }
 
             return redirect()->route('dashboard.store.index');
-
-
-        }catch (Exception $e){
-
+        } catch (Exception $e) {
             return response()->json(["error"=>$e->getMessage(), "code" => $e->getCode()]);
-
-
         }
-
-     }
-
+    }
 }

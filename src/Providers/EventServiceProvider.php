@@ -3,7 +3,6 @@
 
 namespace Yasser\LaravelDashboard\Providers;
 
-
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Yasser\LaravelDashboard\Events\NotificationEvent;
 use Yasser\LaravelDashboard\Listeners\NotificationListeners;
@@ -30,10 +29,8 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
         parent::boot();
 
         //
     }
-
 }

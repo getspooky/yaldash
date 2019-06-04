@@ -8,7 +8,6 @@
 
 namespace Yasser\LaravelDashboard\Controllers;
 
-
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\RedirectResponse;
@@ -39,11 +38,9 @@ class LaravelSubscribeController extends Controller
 
     public function index()
     {
-
         $users = User::all(); // get all users
 
-        return view('LaravelDashboard::users',compact('users'));
-
+        return view('LaravelDashboard::users', compact('users'));
     }
 
 
@@ -53,32 +50,22 @@ class LaravelSubscribeController extends Controller
      * @return RedirectResponse
      */
 
-     public function store(Request $request){
+    public function store(Request $request)
+    {
+        try {
+            $subscribe = auth()->user()->followers();
 
-         try {
-
-             $subscribe = auth()->user()->followers();
-
-             if (Helper::already_subscribe($request->get('follow_id'))) {
-
-                 $subscribe->create([
+            if (Helper::already_subscribe($request->get('follow_id'))) {
+                $subscribe->create([
                      "follow_id" => $request->get('follow_id')
                  ]);
+            } else {
+                $subscribe->where('follow_id', $request->get('follow_id'))->delete();
+            }
 
-             } else {
-
-                 $subscribe->where('follow_id', $request->get('follow_id'))->delete();
-
-             }
-
-             return redirect()->route("dashboard.users");
-
-         }catch (Exception $e){
-
-             return response()->json(["error"=>$e->getMessage(), "code" => $e->getCode()]);
-
-         }
-
-     }
-
+            return redirect()->route("dashboard.users");
+        } catch (Exception $e) {
+            return response()->json(["error"=>$e->getMessage(), "code" => $e->getCode()]);
+        }
+    }
 }

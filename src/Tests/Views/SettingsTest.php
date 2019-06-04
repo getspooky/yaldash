@@ -8,18 +8,16 @@
 
 namespace Yasser\Tests\Views;
 
-
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Support\Facades\Auth;
 use Yasser\LaravelDashboard\Kit\BrowserKitTesting;
 
 class SettingsTest extends BrowserKitTesting
 {
-
     use DatabaseTransactions;
 
-    public function testSettingsPageRender(){
-
+    public function testSettingsPageRender()
+    {
         $this->withoutMiddleware();
 
         $this->withExceptionHandling();
@@ -31,29 +29,25 @@ class SettingsTest extends BrowserKitTesting
         $visit->see('Description');
 
         $visit->see('Subscribers');
-
     }
 
 
-    public function testUpdateUserInformation(){
-
+    public function testUpdateUserInformation()
+    {
         $this->withExceptionHandling();
 
         $user = Auth::loginUsingId(1);
 
         $this->visit(route('dashboard.settings.index'))
-            ->type('Name Test','name')
-            ->type('Last Name Test','LastName')
-            ->type('Email Test','email')
-            ->type(bcrypt('Test Password'),'password')
-            ->type('Address Test','Address')
-            ->type('City Test','City')
-            ->type('Morocco','Country')
-            ->type(3232,'Zip')
-            ->type(str_random(50),'Description')
+            ->type('Name Test', 'name')
+            ->type('Last Name Test', 'LastName')
+            ->type('Email Test', 'email')
+            ->type(bcrypt('Test Password'), 'password')
+            ->type('Address Test', 'Address')
+            ->type('City Test', 'City')
+            ->type('Morocco', 'Country')
+            ->type(3232, 'Zip')
+            ->type(str_random(50), 'Description')
             ->press('Update Account');
-
     }
-
-
 }
