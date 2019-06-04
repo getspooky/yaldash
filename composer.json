@@ -9,29 +9,26 @@
         }
     ],
     "require": {
-     "cartalyst/stripe-laravel": "9.0.*"
+        "cartalyst/stripe-laravel": "9.0.*",
+        "cartalyst/stripe": "~2.0",
+        "nesbot/carbon": "^1.26.3 || ^2.0",
+        "laravel/framework": "^5.4 || ^5.8"
     },
-
     "autoload": {
-
         "psr-4": {
             "Yasser\\LaravelDashboard\\": "src/"
         }
-
     },
-
     "autoload-dev": {
 
         "psr-4": {
             "Yasser\\Tests\\": "Tests/"
         }
-
     },
     "require-dev": {
         "laravel/browser-kit-testing": "^5.1",
         "phpunit/phpunit": "^7.0"
     },
-
     "extra": {
         "laravel": {
             "providers": [
