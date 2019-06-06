@@ -3,11 +3,18 @@
 </p>
 
 <p align="center">
- <img src="https://img.shields.io/badge/build-passing-success.svg">
- <img src="https://img.shields.io/badge/php-90%25-informational.svg">
- <img src="https://img.shields.io/badge/coverity-passing-success.svg">
- <img src="https://img.shields.io/badge/license-MIT-success.svg">
- <img src="https://img.shields.io/badge/version-1.0.0-blue.svg">
+	<a href="https://packagist.org/packages/yal/laraveldash">
+		<img src="https://img.shields.io/packagist/v/yal/laraveldash.svg?label=stable" title="Stable Release">
+	</a>
+	<a href="https://packagist.org/packages/yal/laraveldash">
+		<img src="https://img.shields.io/packagist/dt/yal/laraveldash.svg" title="Downloads">
+	</a>
+	<a href="https://packagist.org/packages/yal/laraveldash">
+		<img src="https://img.shields.io/packagist/vpre/yal/laraveldash.svg?label=unstable" title="Unstable Release">
+	</a>
+	<a href="https://packagist.org/packages/yal/laraveldash">
+		<img src="https://img.shields.io/packagist/l/yal/laraveldash.svg" title="License">
+	</a>
 </p>
 
 ## About LaravelDash
