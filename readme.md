@@ -3,18 +3,11 @@
 </p>
 
 <p align="center">
-	<a href="https://packagist.org/packages/yal/laraveldash">
-		<img src="https://img.shields.io/packagist/v/yal/laraveldash.svg?label=stable" title="Stable Release">
-	</a>
-	<a href="https://packagist.org/packages/yal/laraveldash">
-		<img src="https://img.shields.io/packagist/dt/yal/laraveldash.svg" title="Downloads">
-	</a>
-	<a href="https://packagist.org/packages/yal/laraveldash">
-		<img src="https://img.shields.io/packagist/vpre/yal/laraveldash.svg?label=unstable" title="Unstable Release">
-	</a>
-	<a href="https://packagist.org/packages/yal/laraveldash">
-		<img src="https://img.shields.io/packagist/l/yal/laraveldash.svg" title="License">
-	</a>
+<img src="https://badgen.net/github/issues/getspooky/laravelDash">
+<img src="https://badgen.net/github/commits/getspooky/laravelDash">
+<img src="https://badgen.net/github/stars/getspooky/laravelDash">
+<img src="https://badgen.net/packagist/lang/yal/laraveldash">
+<img src="https://badgen.net/github/license/getspooky/laravelDash">
 </p>
 
 ## About LaravelDash
