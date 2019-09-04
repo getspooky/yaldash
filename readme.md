@@ -8,6 +8,7 @@
 <img src="https://badgen.net/github/stars/getspooky/laravelDash">
 <img src="https://badgen.net/packagist/lang/yal/laraveldash">
 <img src="https://badgen.net/github/license/getspooky/laravelDash">
+<a title="MadeWithLaravel.com Shield" href="https://madewithlaravel.com/p/laraveldash/shield-link"> <img src="https://madewithlaravel.com/storage/repo-shields/1438-shield.svg"/></a>  
 </p>
 
 ## About LaravelDash
