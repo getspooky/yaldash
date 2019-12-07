@@ -1,0 +1,24 @@
+{
+    "editor.formatOnSave": false,
+    "javascript.format.enable": true,
+    "eslint.autoFixOnSave": true,
+    "vetur.format.defaultFormatter.html": "prettyhtml",
+    "eslint.alwaysShowStatus": true,
+    "eslint.options": {
+      "extensions": [".html", ".js", ".vue", ".jsx"]
+    },
+    "eslint.validate": [
+      { "language": "html", "autoFix": true },
+      { "language": "vue", "autoFix": true },
+      { "language": "javascript", "autoFix": true },
+      { "language": "javascriptreact", "autoFix": true }
+    ],
+    "[php]":{
+      "editor.formatOnSave": true
+    },
+    "[blade]": {
+      "editor.formatOnSave": true
+    },
+    "blade.format.enable": true,
+    "files.associations": {".blade.php": "blade", ".tpl": "html"},
+  }
