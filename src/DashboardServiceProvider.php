@@ -13,6 +13,7 @@ use \Illuminate\Support\ServiceProvider;
 use Yasser\LaravelDashboard\Commands\DashboardTemplate;
 use Yasser\LaravelDashboard\Commands\GenerateAuthentification;
 use Yasser\LaravelDashboard\Commands\LaravelDashInstall;
+use Yasser\LaravelDashboard\Commands\LaravelDashInstall5;
 use Yasser\LaravelDashboard\Providers\EventServiceProvider;
 
 class DashboardServiceProvider extends ServiceProvider
@@ -59,7 +60,8 @@ class DashboardServiceProvider extends ServiceProvider
             $this->commands([
                 DashboardTemplate::class,
                 GenerateAuthentification::class,
-                LaravelDashInstall::class
+                LaravelDashInstall::class,
+                LaravelDashInstall5::class
             ]);
         }
     }
