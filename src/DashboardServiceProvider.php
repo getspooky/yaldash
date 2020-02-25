@@ -5,6 +5,7 @@
  * Date: 24/02/19
  * Time: 17:09
  */
+
 namespace Yasser\LaravelDashboard;
 
 use Cartalyst\Stripe\Laravel\StripeServiceProvider;
@@ -12,6 +13,7 @@ use \Illuminate\Support\ServiceProvider;
 use Yasser\LaravelDashboard\Commands\DashboardTemplate;
 use Yasser\LaravelDashboard\Commands\GenerateAuthentification;
 use Yasser\LaravelDashboard\Commands\LaravelDashInstall;
+use Yasser\LaravelDashboard\Commands\LaravelDashInstall5;
 use Yasser\LaravelDashboard\Providers\EventServiceProvider;
 
 class DashboardServiceProvider extends ServiceProvider
@@ -40,22 +42,26 @@ class DashboardServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        $this->loadRoutesFrom(__DIR__.'/Routes/web.php');
+        $this->loadRoutesFrom(__DIR__ . '/Routes/web.php');
 
         $this->loadViewsFrom(__DIR__ . '/resources/views', 'LaravelDashboard');
 
-        $this->loadMigrationsFrom(__DIR__.'/Migrations');
+        $this->loadMigrationsFrom(__DIR__ . '/Migrations');
 
         $this->publishes([
             __DIR__ . '/Config/laravelDash.php' => config_path('laravelDash.php')
         ], "config");
 
+        $this->publishes([
+            __DIR__ . '/published' => public_path('published')
+        ], 'laravelDash-assets');
 
         if ($this->app->runningInConsole()) {
             $this->commands([
-               DashboardTemplate::class,
-               GenerateAuthentification::class,
-               LaravelDashInstall::class
+                DashboardTemplate::class,
+                GenerateAuthentification::class,
+                LaravelDashInstall::class,
+                LaravelDashInstall5::class
             ]);
         }
     }
