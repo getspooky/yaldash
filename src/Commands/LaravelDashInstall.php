@@ -46,7 +46,7 @@ class LaravelDashInstall extends Command
     {
         $this->info('Generate Authentification');
 
-        $this->call('make:auth');
+        //$this->call('make:auth');
 
         $this->info('Publishing the LaravelDash config file');
 
