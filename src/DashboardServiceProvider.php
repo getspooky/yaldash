@@ -1,9 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: yasser
- * Date: 24/02/19
- * Time: 17:09
+/*
+ * This file is part of the laravelDash package.
+ *
+ * (c) Yasser Ameur El Idrissi <getspookydev@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Yasser\LaravelDashboard;
@@ -11,7 +13,7 @@ namespace Yasser\LaravelDashboard;
 use Cartalyst\Stripe\Laravel\StripeServiceProvider;
 use \Illuminate\Support\ServiceProvider;
 use Yasser\LaravelDashboard\Commands\DashboardTemplate;
-use Yasser\LaravelDashboard\Commands\GenerateAuthentification;
+use Yasser\LaravelDashboard\Commands\GenerateAuthentication;
 use Yasser\LaravelDashboard\Commands\LaravelDashInstall;
 use Yasser\LaravelDashboard\Commands\LaravelDashInstall5;
 use Yasser\LaravelDashboard\Providers\EventServiceProvider;
@@ -24,7 +26,6 @@ class DashboardServiceProvider extends ServiceProvider
      *
      * @return void
      */
-
     public function register()
     {
         $this->app->register(EventServiceProvider::class);
@@ -39,7 +40,6 @@ class DashboardServiceProvider extends ServiceProvider
      *
      * @return void
      */
-
     public function boot()
     {
         $this->loadRoutesFrom(__DIR__ . '/Routes/web.php');
@@ -59,7 +59,7 @@ class DashboardServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->commands([
                 DashboardTemplate::class,
-                GenerateAuthentification::class,
+                GenerateAuthentication::class,
                 LaravelDashInstall::class,
                 LaravelDashInstall5::class
             ]);
