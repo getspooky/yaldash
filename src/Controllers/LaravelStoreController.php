@@ -1,9 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: yasser
- * Date: 28/02/19
- * Time: 13:42
+/*
+ * This file is part of the laravelDash package.
+ *
+ * (c) Yasser Ameur El Idrissi <getspookydev@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Yasser\LaravelDashboard\Controllers;
@@ -17,7 +19,6 @@ use Illuminate\Support\Facades\Validator;
 use Yasser\LaravelDashboard\Events\NotificationEvent;
 use Exception;
 use Yasser\LaravelDashboard\Models\Buy;
-use Yasser\LaravelDashboard\Models\Store;
 
 class LaravelStoreController extends Controller
 {
@@ -27,7 +28,6 @@ class LaravelStoreController extends Controller
      *
      * @return void
      */
-
     public function __construct()
     {
         $this->middleware(['web', 'auth']);
@@ -37,9 +37,8 @@ class LaravelStoreController extends Controller
     /**
      * Display a Manage index .
      *
-     * @return Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-
     public function index()
     {
         $store = auth()->user()->store()->orderBy('id', 'desc')->get();
@@ -49,15 +48,15 @@ class LaravelStoreController extends Controller
 
     /**
      * Buy Product
+     *
      * @param int $id
      * @return RedirectResponse
      */
-
     public function buy($id)
     {
-        $product = Buy::create([
-            "user_id"=>auth()->id(),
-            "store_id"=>$id
+        Buy::create([
+            "user_id"  => auth()->id(),
+            "store_id" => $id
          ]);
 
         return redirect()->route('dashboard.checkout.index');
@@ -66,8 +65,9 @@ class LaravelStoreController extends Controller
 
     /**
      * Store products
+     *
      * @param Request $request
-     * @return RedirectResponse
+     * @return mixed
      */
 
     public function store(Request $request)
@@ -89,23 +89,21 @@ class LaravelStoreController extends Controller
             if ($store) {
                 event(new NotificationEvent(['message' => 'your Product has been added successfully', 'type' => 'store', 'name' => auth()->user()->name, 'to' => 'auth']));
 
-                /** @var  $generate_name * */
-
                 $generate_name = str_random(16) . '.' . $request->file('file_name')->getClientOriginalExtension();
 
                 $store->attachementStore()->create([
                     'file_name' => $generate_name,
                 ]);
 
-                // Store the image
-
                 $store->attachementStore()->getRelated()->newInstance()
                     ->UploadFile(new File($request->file('file_name')), $generate_name);
             }
 
             return redirect()->route('dashboard.store.index');
+
         } catch (Exception $e) {
             return response()->json(["error"=>$e->getMessage(), "code" => $e->getCode()]);
         }
+
     }
 }
