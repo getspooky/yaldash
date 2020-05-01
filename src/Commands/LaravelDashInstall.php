@@ -1,5 +1,12 @@
 <?php
-
+/*
+ * This file is part of the laravelDash package.
+ *
+ * (c) Yasser Ameur El Idrissi <getspookydev@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 namespace Yasser\LaravelDashboard\Commands;
 
@@ -12,17 +19,17 @@ class LaravelDashInstall extends Command
     /**
      * The name and signature of the console command.
      *
-     * @var string
+     * @var $signature
+     * @types {String}
      */
-
     protected $signature = 'LaravelDash:install';
 
     /**
      * The console command description.
      *
-     * @var string
+     * @var $description
+     * @types {String}
      */
-
     protected $description = 'Install the LaravelDash package';
 
     /**
@@ -30,7 +37,6 @@ class LaravelDashInstall extends Command
      *
      * @return void
      */
-
     public function __construct()
     {
         parent::__construct();
@@ -41,12 +47,11 @@ class LaravelDashInstall extends Command
      *
      * @return mixed
      */
-
     public function handle()
     {
-        $this->info('Generate Authentification');
+        $this->info('Generate Authentication');
 
-        //$this->call('make:auth');
+        $this->call('make:auth');
 
         $this->info('Publishing the LaravelDash config file');
 
