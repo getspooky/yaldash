@@ -12,17 +12,17 @@ class GenerateAuthentification extends Command
     /**
      * The name and signature of the console command.
      *
-     * @var string
+     * @var $signature
+     * @types {String}
      */
-
     protected $signature = 'LaravelDash:auth ';
 
     /**
      * The console command description.
      *
-     * @var string
+     * @var $description
+     * @types {String}
      */
-
     protected $description = 'Generate Simple and Easy LaravelDash Login Authentication';
 
     /**
@@ -30,7 +30,6 @@ class GenerateAuthentification extends Command
      *
      * @return void
      */
-
     public function __construct()
     {
         parent::__construct();
@@ -41,23 +40,17 @@ class GenerateAuthentification extends Command
      *
      * @return mixed
      */
-
     public function handle()
     {
-        //
-
-        try {
-            $auth_folder =  dirname(__DIR__).'/resources/views/auth';
-
-            if ($this->confirm('Do you want to use LaravelDash authentification')) {
-                //
-
-                if (File::exists(resource_path('views/auth'))) {
-                    File::copyDirectory($auth_folder, resource_path('views/auth'));
-                } else {
-                    $this->error('Auth folder not found (:');
-                }
-            }
+      try {
+        $auth_folder =  dirname(__DIR__).'/resources/views/auth';
+           if ($this->confirm('Do you want to use LaravelDash authentication ?')) {
+             if (File::exists(resource_path('views/auth'))) {
+               File::copyDirectory($auth_folder, resource_path('views/auth'));
+             } else {
+               $this->error('Auth folder not found');
+             }
+           }
         } catch (\Exception $e) {
             $this->error($e->getMessage());
         }
