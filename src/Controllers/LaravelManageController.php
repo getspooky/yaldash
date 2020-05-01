@@ -1,26 +1,30 @@
 <?php
+/*
+ * This file is part of the laravelDash package.
+ *
+ * (c) Yasser Ameur El Idrissi <getspookydev@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 namespace Yasser\LaravelDashboard\Controllers;
 
 use App\User;
 use Yasser\LaravelDashboard\Events\NotificationEvent;
-use Yasser\LaravelDashboard\Models\Followers;
 use Yasser\LaravelDashboard\Models\Post;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Yasser\LaravelDashboard\Models\Store;
 
 class LaravelManageController extends Controller
 {
-    //
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-
     public function __construct()
     {
         $this->middleware(['web', 'auth']);
@@ -30,9 +34,8 @@ class LaravelManageController extends Controller
     /**
      * Display a Manage index .
      *
-     * @return Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-
     public function index()
     {
         return view('LaravelDashboard::manage');
@@ -43,7 +46,6 @@ class LaravelManageController extends Controller
      *
      * @return JsonResponse
      */
-
     public function Response()
     {
         $userPost = auth()->user()->posts()->orderBy('id', 'desc')->get();
@@ -58,12 +60,12 @@ class LaravelManageController extends Controller
     }
 
     /**
-     * Destroy Post
-     * @param $id
-     * @param $type
-     * @return Response
+     * Destroy Given Post.
+     *
+     * @param {String} $id
+     * @param {Number} $type
+     * @return JsonResponse
      */
-
     public function Delete($id, $type)
     {
         $type == "posts" ? Post::destroy([$id]) : Store::destroy([$id]);
