@@ -1,28 +1,27 @@
 <?php
+/*
+ * This file is part of the laravelDash package.
+ *
+ * (c) Yasser Ameur El Idrissi <getspookydev@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 namespace Yasser\LaravelDashboard\Controllers;
 
-use Illuminate\Support\Facades\Event;
 use Yasser\LaravelDashboard\Events\NotificationEvent;
-use Yasser\LaravelDashboard\Models\Devices;
-use Yasser\LaravelDashboard\Models\Post;
-use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
+use Yasser\LaravelDashboard\Models\Post;
+use App\User;
 use Exception;
 
 class LaravelPostController extends Controller
 {
 
-
-    /**
-     * @var array
-     */
-
-    private $result = [];
-
-    /**
+   /**
      * Create a new controller instance.
      *
      * @return void
@@ -35,28 +34,22 @@ class LaravelPostController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-
     public function index()
     {
-        //
-
         $post = Post::all();
-
         return view('LaravelDashboard::display_posts', compact('post'));
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
 
     public function create()
     {
-        //
-
         return view('LaravelDashboard::post');
     }
 
@@ -64,13 +57,11 @@ class LaravelPostController extends Controller
      * Store a newly created resource in storage.
      *
      * @param Request  $request
-     * @return Response
+     * @return \Illuminate\Http\JsonResponse
      */
 
     public function store(Request $request)
     {
-        //
-
         try {
             Validator::make($request->all(), [
 
@@ -88,8 +79,6 @@ class LaravelPostController extends Controller
 
             if ($create_post) {
 
-                // Create categories for the post
-
                 $create_post->categories()->create([
                     "categories" => $request->get('categories')
                 ]);
@@ -99,6 +88,7 @@ class LaravelPostController extends Controller
                 return response()->json([
                     'success' => 'data was inserted successfully',
                 ]);
+
             }
         } catch (Exception $e) {
             return response()->json(["error"=>$e->getMessage(), "code" => $e->getCode()]);
@@ -109,25 +99,24 @@ class LaravelPostController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
 
     public function show($id)
     {
-        //
-        $post = Post::find($id);
+       $post = Post::find($id);
 
         if (!is_null($post)) {
             return view('LaravelDashboard::post_show', compact('post'));
         }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
+  /**
+   * Show the form for editing the specified resource.
+   *
+   * @param int $id
+   * @return void
+   */
 
     public function edit($id)
     {
@@ -139,9 +128,8 @@ class LaravelPostController extends Controller
      *
      * @param  Request  $request
      * @param  int  $id
-     * @return Response
+     * @return void
      */
-
     public function update(Request $request, $id)
     {
         //
@@ -151,24 +139,20 @@ class LaravelPostController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return Response
+     * @return \Illuminate\Http\RedirectResponse
      */
 
     public function destroy($id)
     {
-        //
-
-        $destroy = Post::destroy([$id]);
-
+        Post::destroy([$id]);
         return redirect()->route("post.index");
     }
 
     /**
      * Save user devices
      * @param int $id
-     * @return Devices
+     * @return \Illuminate\Http\RedirectResponse
      */
-
     public function DevicesStore($id)
     {
         $device = null;
@@ -180,9 +164,9 @@ class LaravelPostController extends Controller
         }
 
         Post::find($id)->devices()->create([
-               "user_device_information"=>$device
-           ]);
+          "user_device_information" => $device
+        ]);
 
-        return redirect()->route('post.show', ['id'=>$id]);
+        return redirect()->route('post.show', ['id' => $id]);
     }
 }
