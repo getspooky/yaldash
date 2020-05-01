@@ -1,4 +1,12 @@
 <?php
+/*
+ * This file is part of the laravelDash package.
+ *
+ * (c) Yasser Ameur El Idrissi <getspookydev@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 namespace Yasser\LaravelDashboard\Controllers;
 
@@ -14,13 +22,16 @@ use Illuminate\Support\Facades\Validator;
 class LaravelSettingsController extends Controller
 {
 
-    /** @var array  */
+    private $user_information = [
+      'Country',
+      'Zip',
+      'Address',
+      'Description',
+      'City',
+      'LastName'
+    ];
 
-    private $user_information = ['Country','Zip','Address','Description','City','LastName'];
-
-    /** @array */
-
-    private $user_register_default_information = ['email','name'];
+    private $user_register_default_information = ['email', 'name'];
 
     /**
      * Create a new controller instance.
@@ -32,14 +43,11 @@ class LaravelSettingsController extends Controller
         $this->middleware(['web', 'auth']);
     }
 
-    //
-
     /**
      * Show the application dashboard.
      *
-     * @return Renderable
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-
     public function index()
     {
         return view('LaravelDashboard::settings');
@@ -47,8 +55,9 @@ class LaravelSettingsController extends Controller
 
     /**
      * Update the specified resource in storage information.
+     *
      * @param Request $request
-     * @return Response
+     * @return RedirectResponse
      */
 
     public function Update(Request $request)
@@ -59,9 +68,14 @@ class LaravelSettingsController extends Controller
 
         is_null($attach->first()) ? $attach->create($this->Filter($this->user_information, $request->all())) : $attach->Update($this->Filter($this->user_information, $request->all()));
 
-        $user = User::find(auth()->id())->update($this->Filter($this->user_register_default_information, $request->all()));
+        User::find(auth()->id())->update(
+          $this->Filter($this->user_register_default_information, $request->all()
+          ));
 
-        User::find(auth()->id())->notify((new DashboardNotification('your account has been updated successfully', 'settings', \auth()->user()->name))->delay(now()->addSeconds(40)));
+        User::find(auth()->id())->notify(
+          (new DashboardNotification('your account has been updated successfully',
+            'settings', \auth()->user()->name))->delay(now()->addSeconds(40)
+          ));
 
         event(new NotificationEvent(['message' => 'your information has benn updated successfully', 'type' => 'settings', 'name' => auth()->user()->name, 'to' => 'auth']));
 
@@ -92,11 +106,11 @@ class LaravelSettingsController extends Controller
 
     /**
      * Filter Data
+     *
      * @param array $filter
      * @param array $request
      * @return array
      */
-
     public function Filter(array $filter, array $request)
     {
         return array_filter($request, function ($element) use ($filter) {
@@ -107,7 +121,7 @@ class LaravelSettingsController extends Controller
     /**
      * Delete Account Render
      *
-     * @return Renderable
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
 
     public function RenderDelete()
@@ -118,26 +132,17 @@ class LaravelSettingsController extends Controller
 
     /**
      * Upload Image
+     *
      * @param Request $request
      * @return RedirectResponse
      */
-
     public function Upload(Request $request)
     {
-
-           /** @var  $user */
-
         $user = auth()->user()->attachementUser();
-
-        /** @var  $generate_name * */
 
         $generate_name = str_random(16) . '.' . $request->file('file')->getClientOriginalExtension();
 
-        /** @var  $upload_avatar */
-
-        $upload_avatar = $user->create([
-               'file_name'=>$generate_name,
-            ]);
+        $upload_avatar = $user->create(['file_name' => $generate_name]);
 
         if ($upload_avatar) {
             $user->getRelated()->newInstance()
