@@ -1,28 +1,30 @@
 <?php
+/*
+ * This file is part of the laravelDash package.
+ *
+ * (c) Yasser Ameur El Idrissi <getspookydev@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 namespace Yasser\LaravelDashboard\Controllers;
 
 use App\User;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Mail;
 use Yasser\LaravelDashboard\Mail\EmailSupport;
-use Yasser\LaravelDashboard\Models\Devices;
 use Yasser\LaravelDashboard\Traits\Assets;
 
 class LaravelDashboardController extends Controller
 {
     use Assets;
 
-    //
-
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-
     public function __construct()
     {
         $this->middleware(['web', 'auth'])->except(['Dashboard_assets']);
@@ -32,9 +34,8 @@ class LaravelDashboardController extends Controller
     /**
      * Show the application dashboard.
      *
-     * @return Renderable
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-
     public function index()
     {
         $user = auth()->user();
@@ -44,9 +45,9 @@ class LaravelDashboardController extends Controller
         $earning = number_format(($points*10/1000), 2);
 
         $state = [
-             "POST"=>$user->posts()->count(),
-             "EARNINGS"=>$earning,
-             "POINTS" =>$points
+             "POST"     => $user->posts()->count(),
+             "EARNINGS" => $earning,
+             "POINTS"   => $points
          ];
 
         return view("LaravelDashboard::index", $state);
@@ -58,32 +59,27 @@ class LaravelDashboardController extends Controller
      * @param  Request  $request
      * @return mixed
      */
-
     public function store_draft(Request $request)
     {
         return redirect()->route('dashboard.home');
     }
 
-
     /**
      * Get the views state
-     * @return Response
+     * @return \Illuminate\Http\JsonResponse
      */
-
     public function ViewsState()
     {
         $user = auth()->user()->devices();
 
-        $laptop = $user->where('user_device_information', 'laptop')->count()+1;
+        $laptop = $user->where('user_device_information', 'laptop')->count() + 1;
 
         $mobile = $user->where('user_device_information', 'mobile')->count();
 
         return response()->json([
-
                "laptop" => $laptop,
-
                "mobile" => $mobile
-
            ]);
+
     }
 }
