@@ -1,12 +1,19 @@
 <?php
-
+/*
+ * This file is part of the laravelDash package.
+ *
+ * (c) Yasser Ameur El Idrissi <getspookydev@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 namespace Yasser\LaravelDashboard\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
 
-class GenerateAuthentification extends Command
+class GenerateAuthentication extends Command
 {
 
     /**
