@@ -1,19 +1,19 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: yasser
- * Date: 27/02/19
- * Time: 08:52
+/*
+ * This file is part of the laravelDash package.
+ *
+ * (c) Yasser Ameur El Idrissi <getspookydev@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Yasser\LaravelDashboard\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\User;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Yasser\LaravelDashboard\Helper\Helper;
-use Yasser\LaravelDashboard\Models\Followers;
 use Exception;
 
 class LaravelSubscribeController extends Controller
@@ -35,10 +35,9 @@ class LaravelSubscribeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-
     public function index()
     {
-        $users = User::all(); // get all users
+        $users = User::all();
 
         return view('LaravelDashboard::users', compact('users'));
     }
@@ -46,10 +45,10 @@ class LaravelSubscribeController extends Controller
 
     /**
      * Create user followers relationShips
+     *
      * @param $request
-     * @return RedirectResponse
+     * @return mixed
      */
-
     public function store(Request $request)
     {
         try {
@@ -64,8 +63,13 @@ class LaravelSubscribeController extends Controller
             }
 
             return redirect()->route("dashboard.users");
+
         } catch (Exception $e) {
-            return response()->json(["error"=>$e->getMessage(), "code" => $e->getCode()]);
+
+            return response()->json([
+              "error"=>$e->getMessage(), "code" => $e->getCode()
+            ]);
+
         }
     }
 }
