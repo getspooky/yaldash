@@ -49,10 +49,6 @@ class LaravelDashInstall extends Command
      */
     public function handle()
     {
-        $this->info('Generate Authentication');
-
-        $this->call('make:auth');
-
         $this->info('Publishing the LaravelDash config file');
 
         $this->call('vendor:publish', ['--provider' => DashboardServiceProvider::class, '--tag' => 'config']);
