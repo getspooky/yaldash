@@ -1,18 +1,15 @@
 <?php
-
-
-    /*
-    |--------------------------------------------------------------------------
-    | LaravelDash Routes
-    |--------------------------------------------------------------------------
-    |
-    | This file is where you may override any of the routes that are included
-    | with LaravelDash.
-    |
-    */
-
+/*
+ * This file is part of the laravelDash package.
+ *
+ * (c) Yasser Ameur El Idrissi <getspookydev@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
     Route::prefix(config('laravelDash.prefix'))->group(function () {
+
         Route::get('/', function () {
             return view('LaravelDashboard::welcome');
         });
@@ -47,6 +44,8 @@
 
         Route::post('Store', 'Yasser\LaravelDashboard\Controllers\LaravelStoreController@store')->name('dashboard.store.store');
 
+        Route::get('Sell', 'Yasser\LaravelDashboard\Controllers\LaravelSellController@index')->name('dashboard.sell.index');
+
         Route::post('Buy/{id}', 'Yasser\LaravelDashboard\Controllers\LaravelStoreController@buy')->name('dashboard.store.buy');
 
         Route::post('View/device/{id}', 'Yasser\LaravelDashboard\Controllers\LaravelPostController@DevicesStore')->name('dashboard.post.DevicesStore');
@@ -55,5 +54,4 @@
 
         Route::get('ViewsState', 'Yasser\LaravelDashboard\Controllers\LaravelDashboardController@ViewsState')->name('dashboard.views.state');
 
-        Route::get('Sell', 'Yasser\LaravelDashboard\Controllers\LaravelSellController@index')->name('dashboard.sell.index');
     });
