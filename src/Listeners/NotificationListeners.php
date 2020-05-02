@@ -1,12 +1,18 @@
 <?php
+/*
+ * This file is part of the laravelDash package.
+ *
+ * (c) Yasser Ameur El Idrissi <getspookydev@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 namespace Yasser\LaravelDashboard\Listeners;
 
 use Yasser\LaravelDashboard\Events\NotificationEvent;
 use Yasser\LaravelDashboard\Notifications\DashboardNotification;
 use App\User;
-use Carbon\Carbon;
-use Illuminate\Support\Facades\Notification;
 
 class NotificationListeners
 {
@@ -15,7 +21,6 @@ class NotificationListeners
      *
      * @return void
      */
-
     public function __construct()
     {
         //
@@ -30,8 +35,6 @@ class NotificationListeners
 
     public function handle(NotificationEvent $event)
     {
-        //
-
         $user = $event->payload['to'] === 'auth' ? auth()->user() : User::all();
 
         $when = now()->addSeconds(30);
