@@ -10,7 +10,7 @@
 </p>
 
 <div align="center">
-  <sub>Created by <a href="https://github.com/getspooky">getspooky</a> and maintained with ❤️by an amazing <a href="https://github.com/getspooky/laravelDash/graphs/contributors">team of developers</a>.</sub>
+  <sub>Created by <a href="https://github.com/getspooky">getspooky</a> and maintained with ❤️ by an amazing <a href="https://github.com/getspooky/laravelDash/graphs/contributors">team of developers</a>.</sub>
 </div>
 
 ## Table of Contents
