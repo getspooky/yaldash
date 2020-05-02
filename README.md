@@ -3,23 +3,38 @@
 </p>
 
 <p align="center">
-<img src="https://badgen.net/github/issues/getspooky/laravelDash">
-<img src="https://badgen.net/github/commits/getspooky/laravelDash">
-<img src="https://badgen.net/github/stars/getspooky/laravelDash">
-<img src="https://badgen.net/packagist/lang/yal/laraveldash">
-<img src="https://badgen.net/github/license/getspooky/laravelDash">
-<a title="MadeWithLaravel.com Shield" href="https://madewithlaravel.com/p/laraveldash/shield-link"> <img src="https://madewithlaravel.com/storage/repo-shields/1438-shield.svg"/></a>  
+<img alt="GitHub package.json version" src="https://img.shields.io/github/package-json/v/getspooky/laravelDash?style=for-the-badge">
+<img alt="GitHub" src="https://img.shields.io/github/license/getspooky/laraveldash?style=for-the-badge">
+<img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/getspooky/laravelDash?style=for-the-badge">
+<img alt="GitHub issues" src="https://img.shields.io/github/issues/getspooky/laravelDash?style=for-the-badge">
 </p>
+
+<div align="center">
+  <sub>Created by <a href="https://github.com/getspooky">getspooky</a> and maintained with ❤️by an amazing <a href="https://github.com/getspooky/laravelDash/graphs/contributors">team of developers</a>.</sub>
+</div>
+
+## Table of Contents
+
+- [About LaravelDash](#About-LaravelDash)
+- [Quick Introduction](#Quick-Introduction)
+- [Documentation](#Documentation)
+- [Requirements](#Requirements)
+- [Browser Support](#Browser-Support)
+- [Contribute](#Contribute)
+- [Security Vulnerabilities](#Security-Vulnerabilities)
+- [Changelog](#changelog)
+- [License](#license)
+- [Support the Team](#Support-the-Team)
 
 ## About LaravelDash
 
-LaravelDash provides a powerful user interfaces for CRUD (create, read, update, delete) operations for Laravel applications. It offers additonal features including Charts , Panel Management , Settings , Payment System and Store ...
+LaravelDash provides a powerful user interfaces for CRUD (create, read, update, delete) operations for Laravel applications. It offers additonal features including Charts , `Panel Management` , `Settings` , `Payment System` and `Store` ...
 
 ## Quick Introduction
 
-Developers are lazy. No, I’m not kidding—they work hard to create systems that help them avoid more work in the future. Especially, repetitive work. And there are quite extreme examples now—we don’t need to write code anymore; it is being generated for us. 
-LaravelDash provides a powerful user interfaces for CRUD (create, read, update, delete) operations for Laravel applications. It offers additonal features including searching, Charts , Panel Management , Settings , Payment System ... <br>
-Before installing LaravelDash it is very important to take a quick moment to learn what it is. What is ? 
+Developers are lazy. No, I’m not kidding—they work hard to create systems that help them avoid more work in the future. Especially, repetitive work. And there are quite extreme examples now—we don’t need to write code anymore; it is being generated for us. <br />
+LaravelDash provides a powerful user interfaces for CRUD (create, read, update, delete) operations for Laravel applications. It offers additonal features including searching, Charts , Panel Management , Settings , Payment System ... <br />
+Before installing LaravelDash it is very important to take a quick moment to learn what it is. What is ? <br />
 An admin interface for your Laravel app , An easy way to add/edit/delete data for your app , A content management system (CMS) With LaravelDash you can create any kind of application your heart desires. LaravelDash are simply tools to make it easier to build.
 
 ## Documentation
@@ -49,11 +64,15 @@ Anybody can help by doing any of the following: Ask your employer to use Laravel
 
 ## Security Vulnerabilities
 
-If you discover a security vulnerability within LaravelDash, please send an e-mail to Yasser Ameur El Idrissi via getspookydev@gmail.com . All security vulnerabilities will be promptly addressed.
+If you discover a security vulnerability within LaravelDash, please send an e-mail to Yasser Ameur El Idrissi via `getspookydev@gmail.com` . All security vulnerabilities will be promptly addressed.
 
 ## Bug Report
 
 If you've found a problem in LaravelDash which is not a security risk, do a search on GitHub under Issues in case it has already been reported. If you are unable to find any open GitHub issues addressing the problem you found, your next step will be to open a new one. (See the next section for reporting security issues.) your issue should contain a title and a clear description of the issue. You should also include as much relevant information as possible and a code sample that demonstrates the issue. The goal of a bug report is to make it easy for yourself - and others - to replicate the bug and develop a fix. Remember, bug reports are created in the hope that others with the same problem will be able to collaborate with you on solving it. Do not expect that the bug report will automatically see any activity or that others will jump to fix it. Creating a bug report serves to help yourself and others start on the path of fixing the problem.
+
+## Changelog
+
+Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
 
 ## License
 
