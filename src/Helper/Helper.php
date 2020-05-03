@@ -1,9 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: yasser
- * Date: 25/02/19
- * Time: 10:42
+/*
+ * This file is part of the laravelDash package.
+ *
+ * (c) Yasser Ameur El Idrissi <getspookydev@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Yasser\LaravelDashboard\Helper;
@@ -11,7 +13,6 @@ namespace Yasser\LaravelDashboard\Helper;
 use App\User;
 use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\DB;
-use Yasser\LaravelDashboard\Models\Devices;
 use Yasser\LaravelDashboard\Models\Followers;
 use Yasser\LaravelDashboard\Models\Post;
 
@@ -20,10 +21,10 @@ class Helper
 
     /**
      *  Get the image inside the post
+     *
      * @param string $content
      * @return mixed
      */
-
     public static function Scraping($content)
     {
         preg_match_all('/<img[^>]+>/i', $content, $result);
@@ -37,10 +38,10 @@ class Helper
 
     /**
      * Get Image of User
+     *
      * @param \App\User $user
      * @return string
      */
-
     public static function UploadedAvatar(User $user)
     {
         if ($image = $user->attachementUser()->orderByDesc('id')->first()) {
@@ -52,6 +53,7 @@ class Helper
 
     /**
      * Show the categories of users
+     *
      * @param Post $post
      * @return string
      */
@@ -63,10 +65,10 @@ class Helper
 
     /**
      * Show the notification
+     *
      * @param $id
      * @return Notification
      */
-
     public static function Notifications($id)
     {
         return User::find($id)->unreadNotifications;
@@ -74,17 +76,17 @@ class Helper
 
     /**
      * Return User information
+     *
      * @param $field
      * @return mixed
      */
-
     public static function GlobalInformation($field)
     {
         if ($info = auth()->user()->information) {
             return $info[$field];
         }
 
-        return "We don't find any data right now 😢😢😢 ";
+        return "We don't find any data right now ";
     }
 
 
@@ -103,7 +105,6 @@ class Helper
      * @param $id
      * @return string
      */
-
     public static function Subscribers_count($id)
     {
         $number = Followers::where('follow_id', $id)->count();
@@ -116,7 +117,6 @@ class Helper
      * @param $follow_id
      * @return int
      */
-
     public static function Level($follow_id)
     {
         $subscribers_count = self::Subscribers_count($follow_id);
@@ -125,11 +125,11 @@ class Helper
     }
 
     /**
-     * Check if user is already subscribe to another user
+     * Check if user is already subscribe to another user.
+     *
      * @param $id
      * @return boolean
      */
-
     public static function already_subscribe($id)
     {
         return count(auth()->user()->followers()->where('follow_id', $id)->get()) === 0;
@@ -137,11 +137,12 @@ class Helper
 
     /**
      * Get the total amount
+     *
      * @return mixed
      */
-
     public static function amount()
     {
-        return DB::table('stores')->join('buys', 'stores.id', '=', 'buys.store_id')->sum('stores.price');
+        return DB::table('stores')->join('buys', 'stores.id', '=', 'buys.store_id')
+          ->sum('stores.price');
     }
 }
