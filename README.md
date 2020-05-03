@@ -10,13 +10,14 @@
 </p>
 
 <div align="center">
-  <sub>Created by <a href="https://github.com/getspooky">getspooky</a> and maintained with ❤️by an amazing <a href="https://github.com/getspooky/laravelDash/graphs/contributors">team of developers</a>.</sub>
+  <sub>Created by <a href="https://github.com/getspooky">getspooky</a> and maintained with ❤️ by an amazing <a href="https://github.com/getspooky/laravelDash/graphs/contributors">team of developers</a>.</sub>
 </div>
 
 ## Table of Contents
 
 - [About LaravelDash](#About-LaravelDash)
 - [Quick Introduction](#Quick-Introduction)
+- [Features](#Features)
 - [Documentation](#Documentation)
 - [Requirements](#Requirements)
 - [Browser Support](#Browser-Support)
@@ -28,7 +29,7 @@
 
 ## About LaravelDash
 
-LaravelDash provides a powerful user interfaces for CRUD (create, read, update, delete) operations for Laravel applications. It offers additonal features including Charts , `Panel Management` , `Settings` , `Payment System` and `Store` ...
+LaravelDash provides a powerful user interfaces for CRUD (create, read, update, delete) operations for Laravel applications. It offers additonal features including Charts , `Panel Management` , `Settings` , `Payment System` and `Store`
 
 ## Quick Introduction
 
@@ -36,6 +37,22 @@ Developers are lazy. No, I’m not kidding—they work hard to create systems th
 LaravelDash provides a powerful user interfaces for CRUD (create, read, update, delete) operations for Laravel applications. It offers additonal features including searching, Charts , Panel Management , Settings , Payment System ... <br />
 Before installing LaravelDash it is very important to take a quick moment to learn what it is. What is ? <br />
 An admin interface for your Laravel app , An easy way to add/edit/delete data for your app , A content management system (CMS) With LaravelDash you can create any kind of application your heart desires. LaravelDash are simply tools to make it easier to build.
+
+## Features
+
+<dl>
+  <dt>Dashboard Template</dt>
+  <dd>The design don’t just look good though, they are also fully mobile responsive to accommodate users that are accessing your app, software, or website on their smartphones and tablets, no matter what size screen they have.</dd>
+  <dt>Settings Manager</dt>
+  <dd>The Settings section allows you to update your personal information.This can be anything from your First Name , Email , Country , Password , Address or Image.</dd>
+  <dt>Vue2Editor Integration</dt>
+  <dd>Your editor for rich text editing built with Vue.js and Quill.js , Simple setup so you can get started quickly , Offers the options you need for more complex scenarios</dd>
+  <dt>Cross platform and browser support</dt>
+  <dd>Build HTML5 web apps for desktops, tablets and smartphones with touch screen interface which work in all major browsers.</dd>
+  <dt>Stripe Checkout</dt>
+  <dd>Smart payment page that works seamlessly across devices and is designed to increase your conversion.
+Payment methods: credit and debit cards, Apple Pay</dd>
+</dl>
 
 ## Documentation
 
