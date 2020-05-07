@@ -1,4 +1,12 @@
 <?php
+/*
+ * This file is part of the laravelDash package.
+ *
+ * (c) Yasser Ameur El Idrissi <getspookydev@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 namespace Yasser\LaravelDashboard\Notifications;
 
@@ -17,16 +25,14 @@ class DashboardNotification extends Notification implements ShouldQueue
 
     /**
      * Create a new notification instance.
+     *
      * @param $message
      * @param $type
      * @param string $name
      * @return void
      */
-
     public function __construct($message, $type, $name)
     {
-        //
-
         $this->message = $message;
 
         $this->type = $type;
@@ -40,7 +46,6 @@ class DashboardNotification extends Notification implements ShouldQueue
      * @param  mixed  $notifiable
      * @return array
      */
-
     public function via($notifiable)
     {
         return ['database'];
@@ -52,7 +57,6 @@ class DashboardNotification extends Notification implements ShouldQueue
      * @param  mixed  $notifiable
      * @return \Illuminate\Notifications\Messages\MailMessage
      */
-
     public function toMail($notifiable)
     {
         return (new MailMessage)
@@ -67,7 +71,6 @@ class DashboardNotification extends Notification implements ShouldQueue
      * @param  mixed  $notifiable
      * @return array
      */
-
     public function toArray($notifiable)
     {
         return [
