@@ -121,7 +121,7 @@ composer require yal/laraveldash
 
 LaravelDash will automatically register its service provider if you are using Laravel >=5.5. If you are using LaravelDash with Laravel 5.3 or 5.4, add LaravelDash’s service provider in your application’s config/app.php file:
 
-```sh
+```php
 /*
  * Laravel dashboard Service Provider
  */
