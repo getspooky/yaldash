@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-<img alt="GitHub package.json version" src="https://img.shields.io/github/package-json/v/getspooky/laravelDash?style=for-the-badge">
+<img alt="GitHub version" src="https://img.shields.io/github/v/release/getspooky/laravelDash?style=for-the-badge">
 <img alt="GitHub" src="https://img.shields.io/github/license/getspooky/laraveldash?style=for-the-badge">
 <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/getspooky/laravelDash?style=for-the-badge">
 <img alt="GitHub issues" src="https://img.shields.io/github/issues/getspooky/laravelDash?style=for-the-badge">
