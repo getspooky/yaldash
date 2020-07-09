@@ -1,5 +1,5 @@
 <p style="text-align=center;">
-<img src="https://drive.google.com/uc?id=1CMBEUf8d_tfhayVv2-bkoo72LirNGQ_S">
+<img src="./media/Cover.png">
 </p>
 
 <p align="center">
@@ -76,8 +76,7 @@ LaravelDash supports reasonably recent versions of the following browsers::
 
 ## Contribute
 
-The people who contribute to LaravelDash do so for the love of open source, our users and ecosystem, and most importantly, pushing the web forward together.Developers like you can help by contributing to rich and vibrant documentation, issuing pull requests to help us cover niche use cases, and to help sustain what you love about LaravelDash. 
-Anybody can help by doing any of the following: Ask your employer to use LaravelDash in projects,Contribute to the core repository.
+Whether you're helping us fix bugs, improve the docs, or spread the word, we'd love to have you as part of the `CookieScript` community! 💪💜  See CONTRIBUTING.md for more information on what we're looking for and how to get started.
 
 ## Security Vulnerabilities
 
