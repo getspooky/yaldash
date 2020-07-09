@@ -21,6 +21,7 @@
 - [Documentation](#Documentation)
 - [Requirements](#Requirements)
 - [Browser Support](#Browser-Support)
+- [Usage](#Usage)
 - [Contribute](#Contribute)
 - [Security Vulnerabilities](#Security-Vulnerabilities)
 - [Changelog](#changelog)
@@ -71,8 +72,97 @@ LaravelDash has a few requirements you should be aware of before installing:
 LaravelDash supports reasonably recent versions of the following browsers::
 
 - Google Chrome
-- Apple Safari
 - Microsoft Edge
+- Firefox
+- Opera
+- Safari
+
+
+## Usage
+
+> 🚨 The official guide assumes intermediate level knowledge of PHP.
+
+### Minute 1: Create the Laravel application
+
+we assume that you have been able to set up your development environment. There are two ways to install Laravel project
+
+- Via Laravel Installer
+- Via Composer Create-Project
+
+I will be using via composer to create new project
+
+```sh
+composer create-project --prefer-dist laravel/laravel blog 
+```
+
+Laravel provides a quick way to scaffold all of the routes and views you need for authentication using one simple command:
+```sh
+php artisan make:auth
+```
+
+### Minute 2: Configuration
+
+Firstly, make sure to create a new database and add your database credentials to your .env file :
+```sh
+APP_URL=http://localhost
+DB_HOST=localhost
+DB_DATABASE=homestead
+DB_USERNAME=homestead
+DB_PASSWORD=secret
+```
+
+### Minute 3: Install and Configure laravelDash
+
+LaravelDash is super easy to install. After creating your new Laravel application you can include the laravelDash package with the following command:
+
+```sh
+composer require yal/laraveldash
+```
+
+LaravelDash will automatically register its service provider if you are using Laravel >=5.5. If you are using LaravelDash with Laravel 5.3 or 5.4, add LaravelDash’s service provider in your application’s config/app.php file:
+
+```sh
+/*
+ * Laravel dashboard Service Provider
+ */
+ \Yasser\LaravelDashboard\DashboardServiceProvider::class,
+```
+
+Next, you need to publish the laravelDash configuration file:
+
+```sh
+php artisan vendor:publish --provider="Yasser\LaravelDashboard\DashboardServiceProvider" --tag="config"
+```
+
+### Minute 4: Running Migrations and Defining Relationships
+
+Generated migrations are regular Laravel migrations , Run the migrations with:
+
+```sh
+php artisan migrate
+```
+
+Database tables are often related to one another. For example, a blog post may have many comments, or an order could be related to the user who placed it. Eloquent makes managing and working with these relationships easy. so go to App\User.php and add UserRelation
+
+```php
+<?php
+
+namespace App;
+
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Yasser\LaravelDashboard\Traits\UserRelation;
+
+class User extends Authenticatable
+{
+    use Notifiable,UserRelation;
+
+}
+```
+
+### Minute 5:Yah! You’re on LaravelDash !
+
+To see it, you need to start a web server on your development machine. You can do this by running the following command:php artisan serve and then head to `http://localhost:8000/Dashboard`
 
 ## Contribute
 
