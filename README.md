@@ -166,7 +166,7 @@ To see it, you need to start a web server on your development machine. You can d
 
 ## Contribute
 
-Whether you're helping us fix bugs, improve the docs, or spread the word, we'd love to have you as part of the `CookieScript` community! 💪💜  See CONTRIBUTING.md for more information on what we're looking for and how to get started.
+Whether you're helping us fix bugs, improve the docs, or spread the word, we'd love to have you as part of the `LaravelDash` community! 💪💜  See CONTRIBUTING.md for more information on what we're looking for and how to get started.
 
 ## Security Vulnerabilities
 
