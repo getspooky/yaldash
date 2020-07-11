@@ -172,10 +172,6 @@ Whether you're helping us fix bugs, improve the docs, or spread the word, we'd l
 
 If you discover a security vulnerability within LaravelDash, please send an e-mail to Yasser Ameur El Idrissi via `getspookydev@gmail.com` . All security vulnerabilities will be promptly addressed.
 
-## Bug Report
-
-If you've found a problem in LaravelDash which is not a security risk, do a search on GitHub under Issues in case it has already been reported. If you are unable to find any open GitHub issues addressing the problem you found, your next step will be to open a new one. (See the next section for reporting security issues.) your issue should contain a title and a clear description of the issue. You should also include as much relevant information as possible and a code sample that demonstrates the issue. The goal of a bug report is to make it easy for yourself - and others - to replicate the bug and develop a fix. Remember, bug reports are created in the hope that others with the same problem will be able to collaborate with you on solving it. Do not expect that the bug report will automatically see any activity or that others will jump to fix it. Creating a bug report serves to help yourself and others start on the path of fixing the problem.
-
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
