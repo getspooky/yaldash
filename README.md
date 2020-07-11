@@ -7,6 +7,7 @@
 <img alt="GitHub" src="https://img.shields.io/github/license/getspooky/laraveldash?style=for-the-badge">
 <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/getspooky/laravelDash?style=for-the-badge">
 <img alt="GitHub issues" src="https://img.shields.io/github/issues/getspooky/laravelDash?style=for-the-badge">
+<img alt="GitHub Download" src="https://img.shields.io/packagist/dt/yal/laraveldash?style=for-the-badge">
 </p>
 
 <div align="center">
