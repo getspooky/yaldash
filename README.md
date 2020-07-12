@@ -132,7 +132,13 @@ LaravelDash will automatically register its service provider if you are using La
 Next, you need to publish the laravelDash configuration file:
 
 ```sh
-php artisan vendor:publish --provider="Yasser\LaravelDashboard\DashboardServiceProvider" --tag="config"
+php artisan vendor:publish --provider="Yasser\LaravelDashboard\DashboardServiceProvider" --tag="laravelDash-config"
+```
+
+Next, you need to publish the laravelDash assets:
+
+```sh
+php artisan vendor:publish --provider="Yasser\LaravelDashboard\DashboardServiceProvider" --tag="laravelDash-assets"
 ```
 
 ### Minute 4: Running Migrations and Defining Relationships
@@ -141,6 +147,12 @@ Generated migrations are regular Laravel migrations , Run the migrations with:
 
 ```sh
 php artisan migrate
+```
+
+Or run the LaravelDash command, that provides you with what you need to start using LaravelDash
+
+```sh
+php artisan LaravelDash:install
 ```
 
 Database tables are often related to one another. For example, a blog post may have many comments, or an order could be related to the user who placed it. Eloquent makes managing and working with these relationships easy. so go to App\User.php and add UserRelation
