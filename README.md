@@ -17,7 +17,6 @@
 ## Table of Contents
 
 - [About LaravelDash](#About-LaravelDash)
-- [Quick Introduction](#Quick-Introduction)
 - [Features](#Features)
 - [Documentation](#Documentation)
 - [Requirements](#Requirements)
@@ -29,16 +28,9 @@
 - [License](#license)
 - [Support the Team](#Support-the-Team)
 
-## About LaravelDash
+## Introduction 
 
-LaravelDash provides a powerful user interfaces for CRUD (create, read, update, delete) operations for Laravel applications. It offers additonal features including Charts , `Panel Management` , `Settings` , `Payment System` and `Store`
-
-## Quick Introduction
-
-Developers are lazy. No, I’m not kidding—they work hard to create systems that help them avoid more work in the future. Especially, repetitive work. And there are quite extreme examples now—we don’t need to write code anymore; it is being generated for us. <br />
-LaravelDash provides a powerful user interfaces for CRUD (create, read, update, delete) operations for Laravel applications. It offers additonal features including searching, Charts , Panel Management , Settings , Payment System ... <br />
-Before installing LaravelDash it is very important to take a quick moment to learn what it is. What is ? <br />
-An admin interface for your Laravel app , An easy way to add/edit/delete data for your app , A content management system (CMS) With LaravelDash you can create any kind of application your heart desires. LaravelDash are simply tools to make it easier to build.
+LaravelDash is a beautifully designed administration panel for Laravel. It offers additonal features including `Charts` , `Panel Management` , `Settings` , `Payment System` , `Store` and more.
 
 ## Features
 
