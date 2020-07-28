@@ -30,7 +30,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Yasser\\Tests\\": "Tests/"
+            "LaravelDash\\Tests\\": "./tests/"
         }
     },
     "require-dev": {
