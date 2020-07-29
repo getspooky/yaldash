@@ -30,13 +30,13 @@ Vue.use(VueChartkick, {adapter: Chart});
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('editor-component',require('./vuejs/EditorComponent').default);
+Vue.component('editor-component',require('../../src/resources/js/vuejs/EditorComponent').default);
 
-Vue.component('manage-component',require('./vuejs/ManageComponent').default);
+Vue.component('manage-component',require('../../src/resources/js/vuejs/ManageComponent').default);
 
-Vue.component('chart-component',require('./vuejs/ChartComponent').default);
+Vue.component('chart-component',require('../../src/resources/js/vuejs/ChartComponent').default);
 
-Vue.component('stripe-component',require('./vuejs/StripeComponent').default);
+Vue.component('stripe-component',require('../../src/resources/js/vuejs/StripeComponent').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
