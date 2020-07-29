@@ -1,6 +1,15 @@
- let mix = require('laravel-mix');
+/*
+ * This file is part of the laravelDash package.
+ *
+ * (c) Yasser Ameur El Idrissi <getspookydev@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
- /*
+let mix = require('laravel-mix');
+
+/*
  |--------------------------------------------------------------------------
  | Mix Asset Management
  |--------------------------------------------------------------------------
@@ -10,9 +19,8 @@
  | file for the application as well as bundling up all the JS files.
  |
  */
-
-  mix.sass('src/resources/sass/boot.scss','src/published/css/').
-      js('src/resources/js/app.js','src/published/js/');
+ mix.sass('src/resources/sass/app.scss', 'published/css/')
+    .js('src/resources/js/app.js', 'published/js/');
 
 
 
