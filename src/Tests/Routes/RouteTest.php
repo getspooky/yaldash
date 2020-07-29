@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: yasser
- * Date: 23/03/19
- * Time: 22:05
- */
-
 namespace Yasser\Tests\Routes;
 
 use Illuminate\Support\Facades\Auth;
@@ -16,7 +9,6 @@ class RouteTest extends TestCase
     public function testGetRoute()
     {
         $user = Auth::loginUsingId(1);
-
         $routes = [
            route('dashboard.home'),
            route('dashboard.settings.index'),
