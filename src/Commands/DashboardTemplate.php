@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Yasser\LaravelDashboard\Commands;
+namespace LaravelDashboard\Commands;
 
 use Illuminate\Console\Command;
 use  \Illuminate\Support\Facades\File;
@@ -21,7 +21,7 @@ class DashboardTemplate extends Command
      * @var $signature
      * @types {String}
      */
-    protected $signature = 'LaravelDash:resource {name} ';
+    protected $signature = 'LaravelDash:resource {name}';
 
     /**
      * The console command description.
@@ -33,7 +33,7 @@ class DashboardTemplate extends Command
 
     /**
      * Create a new command instance.
-     *
+     * @function
      * @return void
      */
     public function __construct()
@@ -43,7 +43,7 @@ class DashboardTemplate extends Command
 
     /**
      * Execute the console command.
-     *
+     * @function
      * @return mixed
      */
     public function handle()
@@ -56,7 +56,7 @@ class DashboardTemplate extends Command
             File::put($resource, $content);
             $this->info("The file is created successfully");
           } else {
-            $this->error('The file already exists');
+            $this->error('The file already exists!');
           }
         } catch (\Exception $e) {
             $this->error($e->getMessage());
