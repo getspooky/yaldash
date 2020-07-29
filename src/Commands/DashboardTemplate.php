@@ -50,7 +50,7 @@ class DashboardTemplate extends Command
     {
       try {
         $resource = resource_path('views/' . $this->argument('name') . '.blade.php');
-        $stub = dirname(__DIR__) . '/resources/views/stubs/template.blade.php';
+        $stub = dirname(__DIR__) . '../resources/views/stubs/template.blade.php';
           if (!file_exists($resource)) {
             $content = str_replace('Template', ucfirst($this->argument('name')), file_get_contents($stub));
             File::put($resource, $content);

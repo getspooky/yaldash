@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Yasser\LaravelDashboard\Commands;
+namespace LaravelDashboard\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
@@ -44,13 +44,13 @@ class GenerateAuthentication extends Command
 
     /**
      * Execute the console command.
-     *
+     * @function
      * @return mixed
      */
     public function handle()
     {
       try {
-        $auth_folder =  dirname(__DIR__).'/resources/views/auth';
+        $auth_folder =  dirname(__DIR__).'../resources/views/auth';
            if ($this->confirm('Do you want to use LaravelDash authentication ?')) {
              if (File::exists(resource_path('views/auth'))) {
                File::copyDirectory($auth_folder, resource_path('views/auth'));
