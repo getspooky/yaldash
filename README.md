@@ -1,5 +1,5 @@
 <p style="text-align=center;">
-<img src="./docs/assets/Cover.png">
+<img src="./docs/assets/Hello.png">
 </p>
 
 <p align="center">
@@ -16,7 +16,7 @@
 
 ## Table of Contents
 
-- [About LaravelDash](#About-LaravelDash)
+- [Introduction](#Introduction)
 - [Features](#Features)
 - [Documentation](#Documentation)
 - [Requirements](#Requirements)
