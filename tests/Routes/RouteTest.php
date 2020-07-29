@@ -1,5 +1,14 @@
 <?php
-namespace Yasser\Tests\Routes;
+/*
+ * This file is part of the laravelDash package.
+ *
+ * (c) Yasser Ameur El Idrissi <getspookydev@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace LaravelDashboard\Tests\Routes;
 
 use Illuminate\Support\Facades\Auth;
 use Tests\TestCase;
