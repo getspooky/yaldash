@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace YLaravelDash\Tests\Views;
+namespace LaravelDash\Tests\Views;
 
 use Illuminate\Support\Facades\Auth;
 use LaravelDashboard\Kit\BrowserKitTesting;
