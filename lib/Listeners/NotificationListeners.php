@@ -8,11 +8,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Yasser\LaravelDashboard\Listeners;
+namespace LaravelDashboard\Listeners;
 
-use Yasser\LaravelDashboard\Events\NotificationEvent;
-use Yasser\LaravelDashboard\Notifications\DashboardNotification;
 use App\User;
+use LaravelDashboard\Events\NotificationEvent;
+use LaravelDashboard\Notifications\DashboardNotification;
 
 class NotificationListeners
 {
@@ -32,13 +32,14 @@ class NotificationListeners
      * @param  NotificationEvent  $event
      * @return void
      */
-
     public function handle(NotificationEvent $event)
     {
         $user = $event->payload['to'] === 'auth' ? auth()->user() : User::all();
-
         $when = now()->addSeconds(30);
-
-        $user->notify((new DashboardNotification($event->payload['message'], $event->payload['type'], $event->payload['name']))->delay($when));
+        $user->notify((new DashboardNotification(
+          $event->payload['message'],
+          $event->payload['type'],
+          $event->payload['name']))->delay($when)
+        );
     }
 }
