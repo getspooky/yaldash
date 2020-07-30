@@ -8,10 +8,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Yasser\LaravelDashboard\Commands;
+namespace LaravelDashboard\Commands;
 
 use Illuminate\Console\Command;
-use Yasser\LaravelDashboard\DashboardServiceProvider;
+use LaravelDashboard\Providers\DashboardServiceProvider;
 
 class LaravelDashInstall extends Command
 {
@@ -44,21 +44,16 @@ class LaravelDashInstall extends Command
 
     /**
      * Execute the console command.
-     *
+     * @function
      * @return mixed
      */
     public function handle()
     {
         $this->info('Publishing the LaravelDash config file');
-
         $this->call('vendor:publish', ['--provider' => DashboardServiceProvider::class, '--tag' => 'config']);
-
         $this->info('Migrating the database tables into your application');
-
         $this->call('migrate');
-
         $this->info('Creating a symbolic link from "public/storage" to "storage/app/public"');
-
         $this->call('storage:link');
     }
 }
