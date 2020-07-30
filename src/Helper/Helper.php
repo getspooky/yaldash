@@ -8,13 +8,13 @@
  * file that was distributed with this source code.
  */
 
-namespace Yasser\LaravelDashboard\Helper;
+namespace LaravelDashboard\Helper;
 
 use App\User;
 use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\DB;
-use Yasser\LaravelDashboard\Models\Followers;
-use Yasser\LaravelDashboard\Models\Post;
+use LaravelDashboard\Models\Followers;
+use LaravelDashboard\Models\Post;
 
 class Helper
 {
@@ -57,10 +57,10 @@ class Helper
      * @param Post $post
      * @return string
      */
-
     public static function Categories(Post $post)
     {
-        return explode(',', $post->categories->categories)[0]; // show just the first categories
+       // show just the first categories
+       return explode(',', $post->categories->categories)[0];
     }
 
     /**
@@ -85,7 +85,6 @@ class Helper
         if ($info = auth()->user()->information) {
             return $info[$field];
         }
-
         return "We don't find any data right now ";
     }
 
@@ -94,7 +93,6 @@ class Helper
      * Return the devices count
      * @return int
      */
-
     public static function devices()
     {
         return auth()->user()->devices->count()+1;
@@ -108,7 +106,6 @@ class Helper
     public static function Subscribers_count($id)
     {
         $number = Followers::where('follow_id', $id)->count();
-
         return $number >= 1000 ? ($number / 1000) . "k" : $number;
     }
 
@@ -120,7 +117,6 @@ class Helper
     public static function Level($follow_id)
     {
         $subscribers_count = self::Subscribers_count($follow_id);
-
         return ($subscribers_count * 100) / count(User::all());
     }
 

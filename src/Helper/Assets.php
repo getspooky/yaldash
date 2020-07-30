@@ -8,13 +8,13 @@
  * file that was distributed with this source code.
  */
 
-namespace Yasser\LaravelDashboard\Helper;
+namespace LaravelDashboard\Helper;
 
 class Assets
 {
 
     /**
-     * Load Assets
+     * Load Assets.
      *
      * @param $folder
      * @param $file
@@ -35,7 +35,7 @@ class Assets
      */
     public static function loadImg($file)
     {
-        return route('dashboard.assets', ['file' => $file,'folder' => 'img']);
+        return route('dashboard.assets', ['file' => $file, 'folder' => 'img']);
     }
 
 }
