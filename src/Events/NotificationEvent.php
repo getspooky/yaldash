@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Yasser\LaravelDashboard\Events;
+namespace LaravelDashboard\Events;
 
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Foundation\Events\Dispatchable;
@@ -26,7 +26,6 @@ class NotificationEvent
      * @param array $payload
      * @return void
      */
-
     public function __construct(array $payload)
     {
         $this->payload = $payload;
