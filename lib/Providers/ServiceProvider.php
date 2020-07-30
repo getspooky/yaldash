@@ -8,17 +8,16 @@
  * file that was distributed with this source code.
  */
 
-namespace LaravelDashboard;
+namespace LaravelDashboard\Providers;
 
 use Cartalyst\Stripe\Laravel\StripeServiceProvider;
-use \Illuminate\Support\ServiceProvider;
+use \Illuminate\Support\ServiceProvider as LaravelServiceProvider;
 use LaravelDashboard\Commands\DashboardTemplate;
 use LaravelDashboard\Commands\GenerateAuthentication;
 use LaravelDashboard\Commands\LaravelDashInstall;
 use LaravelDashboard\Commands\LaravelDashInstall5;
-use LaravelDashboard\Providers\EventServiceProvider;
 
-class DashboardServiceProvider extends ServiceProvider
+class ServiceProvider extends LaravelServiceProvider
 {
 
     /**
@@ -40,14 +39,14 @@ class DashboardServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadRoutesFrom(__DIR__ . '/Routes/web.php');
-        $this->loadViewsFrom(__DIR__ . '/resources/views', 'LaravelDashboard');
-        $this->loadMigrationsFrom(__DIR__ . '/Migrations');
+        $this->loadRoutesFrom(__DIR__ . '/../../routes/web.php');
+        $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'LaravelDashboard');
+        $this->loadMigrationsFrom(__DIR__ . '/../../migrations');
         $this->publishes([
-            __DIR__ . '/Config/laravelDash.php' => config_path('laravelDash.php')
+            __DIR__ . '/Configuration.php' => config_path('laravelDash.php')
         ], "config");
         $this->publishes([
-            __DIR__ . '/../published' => public_path('published')
+            __DIR__ . '/../../published' => public_path('published')
         ], 'laravelDash-assets');
         if ($this->app->runningInConsole()) {
             $this->commands([
