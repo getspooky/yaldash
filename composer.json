@@ -1,19 +1,25 @@
 {
     "name": "yal/laraveldash",
     "description": "LaravelDash is a beautifully designed administration panel for Laravel",
+    "version": "1.0.2",
     "keywords": [
       "laravel",
+      "laravel-application",
+      "vue",
       "admin",
       "admin-dashboard",
       "crud",
       "panel-dashboard",
-      "payment"
+      "payment",
+      "php"
     ],
     "license": "MIT",
     "authors": [
         {
             "name": "Yasser Ameur el idrissi",
-            "email": "spookyframework@gmail.com"
+            "email": "spookyframework@gmail.com",
+            "role": "Maintainer",
+            "homepage": "https://github.com/getspooky"
         }
     ],
     "require": {
@@ -25,7 +31,7 @@
     },
     "autoload": {
         "psr-4": {
-            "LaravelDash\\": "src/"
+            "LaravelDash\\": "lib/"
         }
     },
     "autoload-dev": {
