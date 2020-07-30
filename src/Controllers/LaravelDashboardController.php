@@ -8,13 +8,13 @@
  * file that was distributed with this source code.
  */
 
-namespace Yasser\LaravelDashboard\Controllers;
+namespace LaravelDashboard\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Yasser\LaravelDashboard\Mail\EmailSupport;
-use Yasser\LaravelDashboard\Traits\Assets;
+use LaravelDashboard\Mail\EmailSupport;
+use LaravelDashboard\Traits\Assets;
 
 class LaravelDashboardController extends Controller
 {
@@ -39,17 +39,13 @@ class LaravelDashboardController extends Controller
     public function index()
     {
         $user = auth()->user();
-
         $points = (int)($user->posts()->count()*4/1500);
-
         $earning = number_format(($points*10/1000), 2);
-
         $state = [
              "POST"     => $user->posts()->count(),
              "EARNINGS" => $earning,
              "POINTS"   => $points
          ];
-
         return view("LaravelDashboard::index", $state);
     }
 
@@ -71,15 +67,11 @@ class LaravelDashboardController extends Controller
     public function ViewsState()
     {
         $user = auth()->user()->devices();
-
         $laptop = $user->where('user_device_information', 'laptop')->count() + 1;
-
         $mobile = $user->where('user_device_information', 'mobile')->count();
-
         return response()->json([
                "laptop" => $laptop,
                "mobile" => $mobile
            ]);
-
     }
 }
