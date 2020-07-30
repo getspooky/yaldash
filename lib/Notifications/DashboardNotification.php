@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Yasser\LaravelDashboard\Notifications;
+namespace LaravelDashboard\Notifications;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
@@ -34,9 +34,7 @@ class DashboardNotification extends Notification implements ShouldQueue
     public function __construct($message, $type, $name)
     {
         $this->message = $message;
-
         $this->type = $type;
-
         $this->name = $name;
     }
 
@@ -62,7 +60,7 @@ class DashboardNotification extends Notification implements ShouldQueue
         return (new MailMessage)
                     ->line('The introduction to the notification.')
                     ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+                    ->line('Thank you for using LaravelDash!');
     }
 
     /**
