@@ -1,12 +1,14 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: yasser
- * Date: 24/03/19
- * Time: 13:15
+/*
+ * This file is part of the laravelDash package.
+ *
+ * (c) Yasser Ameur El Idrissi <getspookydev@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
-namespace Yasser\LaravelDashboard\Kit;
+namespace LaravelDashboard\Kit;
 
 use Laravel\BrowserKitTesting\TestCase as BaseTestCase;
 use Tests\CreatesApplication;
