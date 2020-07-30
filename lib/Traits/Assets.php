@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Yasser\LaravelDashboard\Traits;
+namespace LaravelDashboard\Traits;
 
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\File;
@@ -24,13 +24,10 @@ trait Assets
      */
     public function Dashboard_assets($folder, $file)
     {
-        $path = str_replace(['../','./'], '', $file);
-
-        $path = dirname(__DIR__)."/published/$folder/$path";
-
+        $path = str_replace(['../', './'], '', $file);
+        $path = dirname(__DIR__)."/../published/$folder/$path";
         if (File::exists($path)) {
             $ContentType = null;
-
             if (ends_with($path, '.js')) {
                 $ContentType = 'text/javascript';
             } elseif (ends_with($path, '.css')) {
@@ -38,7 +35,7 @@ trait Assets
             } else {
                 $ContentType = File::mimeType($path);
             }
-            return response(File::get($path), 200, ['Content-Type' => $ContentType]);
+            return response(File::get($path), 200, [ 'Content-Type' => $ContentType ]);
         }
     }
 }
