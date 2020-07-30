@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Yasser\LaravelDashboard\Controllers;
+namespace LaravelDashboard\Controllers;
 
 use App\Http\Controllers\Controller;
 

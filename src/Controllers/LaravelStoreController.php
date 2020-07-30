@@ -8,17 +8,17 @@
  * file that was distributed with this source code.
  */
 
-namespace Yasser\LaravelDashboard\Controllers;
+namespace LaravelDashboard\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\User;
+use Exception;
 use Illuminate\Http\File;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use Yasser\LaravelDashboard\Events\NotificationEvent;
-use Exception;
-use Yasser\LaravelDashboard\Models\Buy;
+use App\User;
+use LaravelDashboard\Events\NotificationEvent;
+use LaravelDashboard\Models\Buy;
 
 class LaravelStoreController extends Controller
 {
@@ -42,7 +42,6 @@ class LaravelStoreController extends Controller
     public function index()
     {
         $store = auth()->user()->store()->orderBy('id', 'desc')->get();
-
         return view('LaravelDashboard::store', compact('store'));
     }
 
@@ -58,10 +57,8 @@ class LaravelStoreController extends Controller
             "user_id"  => auth()->id(),
             "store_id" => $id
          ]);
-
         return redirect()->route('dashboard.checkout.index');
     }
-
 
     /**
      * Store products
@@ -69,16 +66,13 @@ class LaravelStoreController extends Controller
      * @param Request $request
      * @return mixed
      */
-
     public function store(Request $request)
     {
         try {
             Validator::make($request->all(), [
-
                 "price" => "required|integer",
                 "description" => "required|string",
                 "file_name" => "required"
-
             ])->validate();
 
             $store = auth()->user()->store()->create([
@@ -87,14 +81,16 @@ class LaravelStoreController extends Controller
             ]);
 
             if ($store) {
-                event(new NotificationEvent(['message' => 'your Product has been added successfully', 'type' => 'store', 'name' => auth()->user()->name, 'to' => 'auth']));
-
+                event(new NotificationEvent([
+                  'message' => 'your Product has been added successfully',
+                  'type' => 'store',
+                  'name' => auth()->user()->name,
+                  'to' => 'auth'
+                ]));
                 $generate_name = str_random(16) . '.' . $request->file('file_name')->getClientOriginalExtension();
-
                 $store->attachementStore()->create([
                     'file_name' => $generate_name,
                 ]);
-
                 $store->attachementStore()->getRelated()->newInstance()
                     ->UploadFile(new File($request->file('file_name')), $generate_name);
             }

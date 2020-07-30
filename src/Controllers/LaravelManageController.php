@@ -8,14 +8,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Yasser\LaravelDashboard\Controllers;
+namespace LaravelDashboard\Controllers;
 
 use App\User;
-use Yasser\LaravelDashboard\Events\NotificationEvent;
-use Yasser\LaravelDashboard\Models\Post;
 use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
-use Yasser\LaravelDashboard\Models\Store;
+use LaravelDashboard\Events\NotificationEvent;
+use LaravelDashboard\Models\Post;
+use LaravelDashboard\Models\Store;
 
 class LaravelManageController extends Controller
 {
@@ -29,7 +29,6 @@ class LaravelManageController extends Controller
     {
         $this->middleware(['web', 'auth']);
     }
-
 
     /**
      * Display a Manage index .
@@ -49,13 +48,11 @@ class LaravelManageController extends Controller
     public function Response()
     {
         $userPost = auth()->user()->posts()->orderBy('id', 'desc')->get();
-
         $userProduct = auth()->user()->store()->get();
-
         return response()->json([
-             "status" => 200,
-             "posts" => $userPost,
-             "products" => $userProduct
+             'status' => 200,
+             'posts' => $userPost,
+             'products' => $userProduct
          ]);
     }
 
@@ -69,9 +66,13 @@ class LaravelManageController extends Controller
     public function Delete($id, $type)
     {
         $type == "posts" ? Post::destroy([$id]) : Store::destroy([$id]);
-
-        event(new NotificationEvent(["message"=>"Your request has been completed",'type'=>'manage','name'=>auth()->user()->name,'to'=>'auth']));
-
+        event(new NotificationEvent(
+          [
+            'message' => 'Your request has been completed',
+            'type' => 'manage',
+            'name' => auth()->user()->name,
+            'to' => 'auth'
+          ]));
         return response()->json([
               'success'=>"Your request has been completed",
           ]);

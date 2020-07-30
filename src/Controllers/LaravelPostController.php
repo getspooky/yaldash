@@ -8,15 +8,15 @@
  * file that was distributed with this source code.
  */
 
-namespace Yasser\LaravelDashboard\Controllers;
+namespace LaravelDashboard\Controllers;
 
-use Yasser\LaravelDashboard\Events\NotificationEvent;
+use Exception;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
-use Yasser\LaravelDashboard\Models\Post;
+use LaravelDashboard\Events\NotificationEvent;
+use LaravelDashboard\Models\Post;
 use App\User;
-use Exception;
 
 class LaravelPostController extends Controller
 {
@@ -64,11 +64,9 @@ class LaravelPostController extends Controller
     {
         try {
             Validator::make($request->all(), [
-
                 "title" => "required|string|max:200",
                 "content" => "required|string|min:90",
                 "summary" => "required|string|min:30|max:250"
-
             ])->validate();
 
             $create_post = auth()->user()->posts()->create([
@@ -78,17 +76,20 @@ class LaravelPostController extends Controller
             ]);
 
             if ($create_post) {
-
                 $create_post->categories()->create([
                     "categories" => $request->get('categories')
                 ]);
 
-                event(new NotificationEvent(['message'=>'has published a new Post','type'=>'post','name'=>auth()->user()->name,'to'=>'auth']));
+                event(new NotificationEvent([
+                  'message' => 'has published a new Post',
+                  'type' => 'post',
+                  'name' => auth()->user()->name,
+                  'to' => 'auth'
+                ]));
 
                 return response()->json([
                     'success' => 'data was inserted successfully',
                 ]);
-
             }
         } catch (Exception $e) {
             return response()->json(["error"=>$e->getMessage(), "code" => $e->getCode()]);

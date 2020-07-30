@@ -8,13 +8,13 @@
  * file that was distributed with this source code.
  */
 
-namespace Yasser\LaravelDashboard\Controllers;
+namespace LaravelDashboard\Controllers;
 
+use Exception;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
-use Yasser\LaravelDashboard\Helper\Helper;
-use Exception;
+use LaravelDashboard\Helper\Helper;
 
 class LaravelSubscribeController extends Controller
 {
@@ -24,7 +24,6 @@ class LaravelSubscribeController extends Controller
      *
      * @return void
      */
-
     public function __construct()
     {
         $this->middleware(['web', 'auth']);
@@ -38,10 +37,8 @@ class LaravelSubscribeController extends Controller
     public function index()
     {
         $users = User::all();
-
         return view('LaravelDashboard::users', compact('users'));
     }
-
 
     /**
      * Create user followers relationShips
@@ -53,7 +50,6 @@ class LaravelSubscribeController extends Controller
     {
         try {
             $subscribe = auth()->user()->followers();
-
             if (Helper::already_subscribe($request->get('follow_id'))) {
                 $subscribe->create([
                      "follow_id" => $request->get('follow_id')
@@ -61,7 +57,6 @@ class LaravelSubscribeController extends Controller
             } else {
                 $subscribe->where('follow_id', $request->get('follow_id'))->delete();
             }
-
             return redirect()->route("dashboard.users");
 
         } catch (Exception $e) {

@@ -8,16 +8,16 @@
  * file that was distributed with this source code.
  */
 
-namespace Yasser\LaravelDashboard\Controllers;
+namespace LaravelDashboard\Controllers;
 
 use Illuminate\Http\File;
-use Yasser\LaravelDashboard\Events\NotificationEvent;
-use Yasser\LaravelDashboard\Notifications\DashboardNotification;
-use App\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
+use App\User;
+use LaravelDashboard\Events\NotificationEvent;
+use LaravelDashboard\Notifications\DashboardNotification;
 
 class LaravelSettingsController extends Controller
 {
@@ -59,26 +59,26 @@ class LaravelSettingsController extends Controller
      * @param Request $request
      * @return RedirectResponse
      */
-
     public function Update(Request $request)
     {
         $this->Validator($request->all())->validate();
-
         $attach = auth()->user()->information();
-
-        is_null($attach->first()) ? $attach->create($this->Filter($this->user_information, $request->all())) : $attach->Update($this->Filter($this->user_information, $request->all()));
-
+        is_null($attach->first()) ?
+          $attach->create($this->Filter($this->user_information, $request->all())) :
+          $attach->Update($this->Filter($this->user_information, $request->all()));
         User::find(auth()->id())->update(
           $this->Filter($this->user_register_default_information, $request->all()
           ));
-
         User::find(auth()->id())->notify(
           (new DashboardNotification('your account has been updated successfully',
             'settings', \auth()->user()->name))->delay(now()->addSeconds(40)
           ));
-
-        event(new NotificationEvent(['message' => 'your information has benn updated successfully', 'type' => 'settings', 'name' => auth()->user()->name, 'to' => 'auth']));
-
+        event(new NotificationEvent([
+          'message' => 'your information has benn updated successfully',
+          'type' => 'settings',
+          'name' => auth()->user()->name,
+          'to' => 'auth'
+        ]));
         return redirect()->route('dashboard.settings.update');
     }
 
@@ -89,7 +89,6 @@ class LaravelSettingsController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-
     public function Validator(array $data)
     {
         return Validator::make($data, [
@@ -129,26 +128,22 @@ class LaravelSettingsController extends Controller
         return view("LaravelDashboard::dashboard.delete");
     }
 
-
     /**
      * Upload Image
      *
+     * @function
      * @param Request $request
      * @return RedirectResponse
      */
     public function Upload(Request $request)
     {
         $user = auth()->user()->attachementUser();
-
         $generate_name = str_random(16) . '.' . $request->file('file')->getClientOriginalExtension();
-
         $upload_avatar = $user->create(['file_name' => $generate_name]);
-
         if ($upload_avatar) {
             $user->getRelated()->newInstance()
                   ->UploadFile(new File($request->file('file')), $generate_name);
         }
-
         return redirect()->route('dashboard.settings.index');
     }
 }
