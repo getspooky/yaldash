@@ -8,13 +8,13 @@
  * file that was distributed with this source code.
  */
 
-namespace Yasser\LaravelDashboard\Controllers;
+namespace LaravelDashboard\Controllers;
 
 use App\Http\Controllers\Controller;
 use Cartalyst\Stripe\Laravel\Facades\Stripe;
 use Illuminate\Http\Request;
 
-class LaravelCheckoutController extends Controller
+class yLaravelCheckoutController extends Controller
 {
 
     /**
