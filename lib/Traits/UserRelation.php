@@ -8,20 +8,19 @@
  * file that was distributed with this source code.
  */
 
-namespace Yasser\LaravelDashboard\Traits;
+namespace LaravelDashboard\Traits;
 
-use Yasser\LaravelDashboard\Models\Attachement;
-use Yasser\LaravelDashboard\Models\Buy;
-use Yasser\LaravelDashboard\Models\Devices;
-use Yasser\LaravelDashboard\Models\Checkout;
-use Yasser\LaravelDashboard\Models\Followers;
-use Yasser\LaravelDashboard\Models\Post;
-use Yasser\LaravelDashboard\Models\Store;
-use Yasser\LaravelDashboard\Models\UserInformation;
+use LaravelDashboard\Models\Attachement;
+use LaravelDashboard\Models\Buy;
+use LaravelDashboard\Models\Devices;
+use LaravelDashboard\Models\Checkout;
+use LaravelDashboard\Models\Followers;
+use LaravelDashboard\Models\Post;
+use LaravelDashboard\Models\Store;
+use LaravelDashboard\Models\UserInformation;
 
 trait UserRelation
 {
-
     public function posts()
     {
         return $this->hasMany(Post::class);
