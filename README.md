@@ -116,21 +116,21 @@ LaravelDash will automatically register its service provider if you are using La
 
 ```php
 /*
- * Laravel dashboard Service Provider
+ * Laraveldash Service Provider
  */
- \Yasser\LaravelDashboard\DashboardServiceProvider::class,
+ \LaravelDash\DashboardServiceProvider::class,
 ```
 
 Next, you need to publish the laravelDash configuration file:
 
 ```sh
-php artisan vendor:publish --provider="Yasser\LaravelDashboard\DashboardServiceProvider" --tag="laravelDash-config"
+php artisan vendor:publish --provider="LaravelDash\DashboardServiceProvider" --tag="laravelDash-config"
 ```
 
 Next, you need to publish the laravelDash assets:
 
 ```sh
-php artisan vendor:publish --provider="Yasser\LaravelDashboard\DashboardServiceProvider" --tag="laravelDash-assets"
+php artisan vendor:publish --provider="\LaravelDash\DashboardServiceProvider" --tag="laravelDash-assets"
 ```
 
 ### Minute 4: Running Migrations and Defining Relationships
@@ -156,7 +156,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Yasser\LaravelDashboard\Traits\UserRelation;
+use LaravelDash\Traits\UserRelation;
 
 class User extends Authenticatable
 {
