@@ -19,7 +19,7 @@ let mix = require('laravel-mix');
  | file for the application as well as bundling up all the JS files.
  |
  */
- mix.sass('src/resources/sass/app.scss', 'published/css/')
+ mix.sass('src/resources/css/app.css', 'published/css/')
     .js('src/resources/js/app.js', 'published/js/');
 
 
