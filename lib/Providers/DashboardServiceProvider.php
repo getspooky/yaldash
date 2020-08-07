@@ -43,7 +43,7 @@ class DashboardServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'LaravelDashboard');
         $this->loadMigrationsFrom(__DIR__ . '/../../migrations');
         $this->publishes([
-            __DIR__ . '/../Configuration.php' => config_path('laravelDash.php')
+            __DIR__ . '/../Configuration.php' => config_path('laravelDashboard.php')
         ], "config");
         $this->publishes([
             __DIR__ . '/../../published' => public_path('published')
