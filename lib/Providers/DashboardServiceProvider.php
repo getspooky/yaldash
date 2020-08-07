@@ -14,8 +14,7 @@ use Cartalyst\Stripe\Laravel\StripeServiceProvider;
 use \Illuminate\Support\ServiceProvider;
 use LaravelDashboard\Commands\DashboardTemplate;
 use LaravelDashboard\Commands\GenerateAuthentication;
-use LaravelDashboard\Commands\LaravelDashInstall;
-use LaravelDashboard\Commands\LaravelDashInstall5;
+use LaravelDashboard\Commands\LaravelDashboardInstall;
 
 class DashboardServiceProvider extends ServiceProvider
 {
@@ -52,8 +51,7 @@ class DashboardServiceProvider extends ServiceProvider
             $this->commands([
                 DashboardTemplate::class,
                 GenerateAuthentication::class,
-                LaravelDashInstall::class,
-                LaravelDashInstall5::class
+                LaravelDashboardInstall::class
             ]);
         }
     }
