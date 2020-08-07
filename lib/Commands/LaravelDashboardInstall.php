@@ -13,7 +13,7 @@ namespace LaravelDashboard\Commands;
 use Illuminate\Console\Command;
 use LaravelDashboard\Providers\DashboardServiceProvider;
 
-class LaravelDashInstall extends Command
+class LaravelDashboardInstall extends Command
 {
 
     /**
