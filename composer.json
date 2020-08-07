@@ -31,12 +31,12 @@
     },
     "autoload": {
         "psr-4": {
-            "LaravelDash\\": "lib/"
+            "LaravelDashboard\\": "lib/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "LaravelDash\\Tests\\": "./tests/"
+            "LaravelDashboard\\Tests\\": "./tests/"
         }
     },
     "require-dev": {
@@ -49,7 +49,7 @@
         },
         "laravel": {
             "providers": [
-                "Yasser\\LaravelDashboard\\DashboardServiceProvider"
+                "LaravelDashboard\\Providers\\DashboardServiceProvider"
             ]
         }
     },
