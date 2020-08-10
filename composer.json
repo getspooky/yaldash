@@ -27,7 +27,8 @@
         "cartalyst/stripe": "^2.0",
         "nesbot/carbon": "^1.26.3 || ^2.0",
         "laravel/framework": "^5.4 || ^5.8 || ^6.0 || ^7.0",
-        "illuminate/support": "~5.0|^6.0|^7.0"
+        "illuminate/support": "~5.0|^6.0|^7.0",
+        "mitnick/laravel-security": "^1.0"
     },
     "autoload": {
         "psr-4": {
