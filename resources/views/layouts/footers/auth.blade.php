@@ -1,3 +1,3 @@
 <footer class="footer">
-  @include('layouts.footers.nav')
+  @include('LaravelDashboard::layouts.footers.nav')
 </footer>
