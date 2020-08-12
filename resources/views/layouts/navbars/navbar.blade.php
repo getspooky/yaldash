@@ -1,7 +1,7 @@
 @auth()
-  @include('layouts.navbars.navs.auth')
+  @include('LaravelDashboard::layouts.navbars.navs.auth')
 @endauth
 
 @guest()
-  @include('layouts.navbars.navs.guest')
+  @include('LaravelDashboard::layouts.navbars.navs.guest')
 @endguest
