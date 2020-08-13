@@ -34,7 +34,7 @@ class DashboardController extends Controller
              "EARNINGS" => $earning,
              "POINTS"   => $points
          ];
-        return view("LaravelDashboard::dashboard", $state);
+        return view("yal\laraveldash::dashboard", $state);
     }
 
     public function store_draft(Request $request)
