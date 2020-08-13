@@ -8,30 +8,20 @@
  * file that was distributed with this source code.
  */
 
-namespace LaravelDashboard\Controllers;
+namespace yal\laraveldash\Controllers;
 
 use App\Http\Controllers\Controller;
 
-class LaravelSellController extends Controller
+class SellController extends Controller
 {
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         $this->middleware(['web', 'auth']);
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
     public function index()
     {
-        return view('LaravelDashboard::sell');
+        return view('yal\laraveldash\::sell');
     }
 }
