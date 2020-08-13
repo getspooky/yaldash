@@ -8,49 +8,30 @@
  * file that was distributed with this source code.
  */
 
-namespace LaravelDashboard\Controllers;
+namespace yal\laraveldash\Controllers;
 
 use App\Http\Controllers\Controller;
 use Exception;
 use Illuminate\Http\File;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use App\User;
-use LaravelDashboard\Events\NotificationEvent;
-use LaravelDashboard\Models\Buy;
+use yal\laraveldash\Events\NotificationEvent;
+use yal\laraveldash\Models\Buy;
 
-class LaravelStoreController extends Controller
+class StoreController extends Controller
 {
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         $this->middleware(['web', 'auth']);
     }
 
-
-    /**
-     * Display a Manage index .
-     *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
     public function index()
     {
         $store = auth()->user()->store()->orderBy('id', 'desc')->get();
-        return view('LaravelDashboard::store', compact('store'));
+        return view('yal\laraveldash::store', compact('store'));
     }
 
-    /**
-     * Buy Product
-     *
-     * @param int $id
-     * @return RedirectResponse
-     */
     public function buy($id)
     {
         Buy::create([
@@ -60,12 +41,6 @@ class LaravelStoreController extends Controller
         return redirect()->route('dashboard.checkout.index');
     }
 
-    /**
-     * Store products
-     *
-     * @param Request $request
-     * @return mixed
-     */
     public function store(Request $request)
     {
         try {
