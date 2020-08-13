@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace LaravelDashboard\Controllers;
+namespace yal\laraveldash\Controllers;
 
 use Illuminate\Http\File;
 use Illuminate\Http\RedirectResponse;
@@ -16,10 +16,10 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use App\User;
-use LaravelDashboard\Events\NotificationEvent;
-use LaravelDashboard\Notifications\DashboardNotification;
+use yal\laraveldash\Events\NotificationEvent;
+use yal\laraveldash\Notifications\DashboardNotification;
 
-class LaravelSettingsController extends Controller
+class SettingsController extends Controller
 {
 
     private $user_information = [
@@ -33,24 +33,14 @@ class LaravelSettingsController extends Controller
 
     private $user_register_default_information = ['email', 'name'];
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         $this->middleware(['web', 'auth']);
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
     public function index()
     {
-        return view('LaravelDashboard::settings');
+        return view('yal\laraveldash::settings');
     }
 
     /**
@@ -63,16 +53,20 @@ class LaravelSettingsController extends Controller
     {
         $this->Validator($request->all())->validate();
         $attach = auth()->user()->information();
+
         is_null($attach->first()) ?
           $attach->create($this->Filter($this->user_information, $request->all())) :
           $attach->Update($this->Filter($this->user_information, $request->all()));
+
         User::find(auth()->id())->update(
           $this->Filter($this->user_register_default_information, $request->all()
           ));
+
         User::find(auth()->id())->notify(
           (new DashboardNotification('your account has been updated successfully',
             'settings', \auth()->user()->name))->delay(now()->addSeconds(40)
           ));
+
         event(new NotificationEvent([
           'message' => 'your information has benn updated successfully',
           'type' => 'settings',
@@ -82,13 +76,6 @@ class LaravelSettingsController extends Controller
         return redirect()->route('dashboard.settings.update');
     }
 
-
-    /**
-     * Get a validator for updating user account.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
     public function Validator(array $data)
     {
         return Validator::make($data, [
@@ -103,13 +90,6 @@ class LaravelSettingsController extends Controller
          ]);
     }
 
-    /**
-     * Filter Data
-     *
-     * @param array $filter
-     * @param array $request
-     * @return array
-     */
     public function Filter(array $filter, array $request)
     {
         return array_filter($request, function ($element) use ($filter) {
@@ -117,24 +97,11 @@ class LaravelSettingsController extends Controller
         }, ARRAY_FILTER_USE_KEY);
     }
 
-    /**
-     * Delete Account Render
-     *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-
     public function RenderDelete()
     {
-        return view("LaravelDashboard::dashboard.delete");
+        return view("yal\laraveldash::dashboard.delete");
     }
 
-    /**
-     * Upload Image
-     *
-     * @function
-     * @param Request $request
-     * @return RedirectResponse
-     */
     public function Upload(Request $request)
     {
         $user = auth()->user()->attachementUser();
