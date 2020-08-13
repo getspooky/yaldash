@@ -8,44 +8,28 @@
  * file that was distributed with this source code.
  */
 
-namespace LaravelDashboard\Controllers;
+namespace yal\laraveldash\Controllers;
 
 use Exception;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
-use LaravelDashboard\Helper\Helper;
+use yal\laraveldash\Helper\Helper;
 
-class LaravelSubscribeController extends Controller
+class SubscribeController extends Controller
 {
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         $this->middleware(['web', 'auth']);
     }
 
-    /**
-     * Show the application views.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
     public function index()
     {
         $users = User::all();
-        return view('LaravelDashboard::users', compact('users'));
+        return view('yal\laraveldash::users', compact('users'));
     }
 
-    /**
-     * Create user followers relationShips
-     *
-     * @param $request
-     * @return mixed
-     */
     public function store(Request $request)
     {
         try {
