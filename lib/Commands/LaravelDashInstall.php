@@ -11,9 +11,9 @@
 namespace yal\laraveldash\Commands;
 
 use Illuminate\Console\Command;
-use LaravelDashboard\Providers\DashboardServiceProvider;
+use yal\laraveldash\Providers\DashboardServiceProvider;
 
-class LaravelDashboardInstall extends Command
+class LaravelDashInstall extends Command
 {
 
     /**
@@ -22,7 +22,7 @@ class LaravelDashboardInstall extends Command
      * @var $signature
      * @types {String}
      */
-    protected $signature = 'LaravelDash:install';
+    protected $signature = 'laraveldash:install';
 
     /**
      * The console command description.
@@ -30,7 +30,7 @@ class LaravelDashboardInstall extends Command
      * @var $description
      * @types {String}
      */
-    protected $description = 'Install the LaravelDash package';
+    protected $description = 'Install the laraveldash package';
 
     /**
      * Create a new command instance.
@@ -49,7 +49,7 @@ class LaravelDashboardInstall extends Command
      */
     public function handle()
     {
-        $this->info('Publishing the LaravelDash config file');
+        $this->info('Publishing the laraveldash config file');
         $this->call('vendor:publish', ['--provider' => DashboardServiceProvider::class, '--tag' => 'config']);
         $this->info('Migrating the database tables into your application');
         $this->call('migrate');
