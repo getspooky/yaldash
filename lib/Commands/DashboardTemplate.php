@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace LaravelDashboard\Commands;
+namespace yal\laraveldash\Commands;
 
 use Illuminate\Console\Command;
 use  \Illuminate\Support\Facades\File;
@@ -21,7 +21,7 @@ class DashboardTemplate extends Command
      * @var $signature
      * @types {String}
      */
-    protected $signature = 'LaravelDash:resource {name}';
+    protected $signature = 'laraveldash:resource {name}';
 
     /**
      * The console command description.
@@ -51,6 +51,7 @@ class DashboardTemplate extends Command
       try {
         $resource = resource_path('views/' . $this->argument('name') . '.blade.php');
         $stub = dirname(__DIR__) . '../resources/views/stubs/template.blade.php';
+
           if (!file_exists($resource)) {
             $content = str_replace('Template', ucfirst($this->argument('name')), file_get_contents($stub));
             File::put($resource, $content);
@@ -58,6 +59,7 @@ class DashboardTemplate extends Command
           } else {
             $this->error('The file already exists!');
           }
+
         } catch (\Exception $e) {
             $this->error($e->getMessage());
         }
