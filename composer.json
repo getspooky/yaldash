@@ -37,7 +37,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "LaravelDashboard\\Tests\\": "./tests/"
+            "yal\\laraveldash\\Tests\\": "./tests/"
         }
     },
     "require-dev": {
@@ -50,7 +50,7 @@
         },
         "laravel": {
             "providers": [
-                "LaravelDashboard\\Providers\\DashboardServiceProvider"
+                "yal\\laraveldash\\Providers\\DashboardServiceProvider"
             ]
         }
     },
