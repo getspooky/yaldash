@@ -8,57 +8,33 @@
  * file that was distributed with this source code.
  */
 
-namespace LaravelDashboard\Controllers;
+namespace yal\laraveldash\Controllers;
 
 use Exception;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
-use LaravelDashboard\Events\NotificationEvent;
-use LaravelDashboard\Models\Post;
-use App\User;
+use yal\laraveldash\Events\NotificationEvent;
+use yal\laraveldash\Models\Post;
 
-class LaravelPostController extends Controller
+class PostController extends Controller
 {
 
-   /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         $this->middleware(['web', 'auth']);
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
     public function index()
     {
         $post = Post::all();
-        return view('LaravelDashboard::display_posts', compact('post'));
+        return view('yal\laraveldash::display_posts', compact('post'));
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
 
     public function create()
     {
         return view('LaravelDashboard::post');
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param Request  $request
-     * @return \Illuminate\Http\JsonResponse
-     */
 
     public function store(Request $request)
     {
@@ -96,41 +72,19 @@ class LaravelPostController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-
     public function show($id)
     {
        $post = Post::find($id);
-
         if (!is_null($post)) {
-            return view('LaravelDashboard::post_show', compact('post'));
+            return view('yal\laraveldash::post_show', compact('post'));
         }
     }
-
-  /**
-   * Show the form for editing the specified resource.
-   *
-   * @param int $id
-   * @return void
-   */
 
     public function edit($id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  Request  $request
-     * @param  int  $id
-     * @return void
-     */
     public function update(Request $request, $id)
     {
         //
@@ -138,9 +92,7 @@ class LaravelPostController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     *
      * @param  int  $id
-     * @return \Illuminate\Http\RedirectResponse
      */
 
     public function destroy($id)
@@ -149,11 +101,6 @@ class LaravelPostController extends Controller
         return redirect()->route("post.index");
     }
 
-    /**
-     * Save user devices
-     * @param int $id
-     * @return \Illuminate\Http\RedirectResponse
-     */
     public function DevicesStore($id)
     {
         $device = null;
