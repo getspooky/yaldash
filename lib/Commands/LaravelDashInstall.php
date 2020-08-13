@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace LaravelDashboard\Commands;
+namespace yal\laraveldash\Commands;
 
 use Illuminate\Console\Command;
 use LaravelDashboard\Providers\DashboardServiceProvider;
