@@ -8,31 +8,16 @@
  * file that was distributed with this source code.
  */
 
-namespace LaravelDashboard\Helper;
+namespace yal\laraveldash\Helper;
 
 class Assets
 {
 
-    /**
-     * Load Assets.
-     *
-     * @param $folder
-     * @param $file
-     * @return string
-     *
-     */
     public static function load($folder, $file)
     {
         return route('dashboard.assets', ['file' => $file, 'folder' => $folder]);
     }
 
-    /**
-     * Load Image
-     *
-     * @param $file
-     * @return string
-     *
-     */
     public static function loadImg($file)
     {
         return route('dashboard.assets', ['file' => $file, 'folder' => 'img']);
