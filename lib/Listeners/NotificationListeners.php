@@ -8,30 +8,20 @@
  * file that was distributed with this source code.
  */
 
-namespace LaravelDashboard\Listeners;
+namespace yal\laraveldash\Listeners;
 
 use App\User;
-use LaravelDashboard\Events\NotificationEvent;
-use LaravelDashboard\Notifications\DashboardNotification;
+use yal\laraveldash\Events\NotificationEvent;
+use yal\laraveldash\Notifications\DashboardNotification;
 
 class NotificationListeners
 {
-    /**
-     * Create the event listener.
-     *
-     * @return void
-     */
+
     public function __construct()
     {
         //
     }
 
-    /**
-     * Handle the event.
-     *
-     * @param  NotificationEvent  $event
-     * @return void
-     */
     public function handle(NotificationEvent $event)
     {
         $user = $event->payload['to'] === 'auth' ? auth()->user() : User::all();
