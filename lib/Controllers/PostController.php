@@ -28,7 +28,7 @@ class PostController extends Controller
     public function index()
     {
         $post = Post::all();
-        return view('yal\laraveldash::display_posts', compact('post'));
+        return view('yal\laraveldash::display-posts', compact('post'));
     }
 
     public function create()
@@ -76,7 +76,7 @@ class PostController extends Controller
     {
        $post = Post::find($id);
         if (!is_null($post)) {
-            return view('yal\laraveldash::post_show', compact('post'));
+            return view('yal\laraveldash::post-show', compact('post'));
         }
     }
 
