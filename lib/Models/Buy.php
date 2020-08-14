@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Yasser\LaravelDashboard\Models;
+namespace yal\laraveldash\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -19,12 +19,14 @@ class Buy extends Model
 
     protected $fillable = ['store_id','user_id'];
 
-    /**
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
     public function store()
     {
         return $this->belongsTo(Store::class);
     }
+
+    public function resolveChildRouteBinding($childType, $value, $field)
+    {
+      // TODO: Implement resolveChildRouteBinding() method.
+    }
+
 }
