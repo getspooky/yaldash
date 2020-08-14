@@ -8,14 +8,19 @@
  * file that was distributed with this source code.
  */
 
-namespace Yasser\LaravelDashboard\Models;
+namespace yal\laraveldash\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 class Categories extends Model
 {
-
     protected $fillable = ['categories','post_id'];
 
     protected $guarded = ['id'];
+
+   public function resolveChildRouteBinding($childType, $value, $field)
+   {
+    // TODO: Implement resolveChildRouteBinding() method.
+   }
+
 }
