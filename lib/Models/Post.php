@@ -1,60 +1,48 @@
 <?php
+/*
+ * This file is part of the laravelDash package.
+ *
+ * (c) Yasser Ameur El Idrissi <getspookydev@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
-namespace Yasser\LaravelDashboard\Models;
+namespace yal\laraveldash\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use App\User;
+use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    //
-    protected $fillable = ["user_id","title","content","summary"];
+
+    protected $fillable = ['user_id','title','content','summary'];
 
     protected $guarded = ['id'];
-
-    /**
-     *  Eloquent: Relationships
-     */
-
-
-    /**
-     * Get the user that owns the post
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
 
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    /**
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
-     */
-
     public function attachements()
     {
         return $this->morphMany(Attachement::class, "attachable");
     }
-
-    /**
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
 
     public function categories()
     {
         return $this->hasOne(Categories::class);
     }
 
-
-    /**
-     * Get the devices for the blog post
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-
     public function devices()
     {
         return $this->hasMany(Devices::class);
     }
+
+   public function resolveChildRouteBinding($childType, $value, $field)
+   {
+     // TODO: Implement resolveChildRouteBinding() method.
+   }
+
 }
