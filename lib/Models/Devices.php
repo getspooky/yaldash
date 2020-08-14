@@ -1,14 +1,15 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: yasser
- * Date: 26/02/19
- * Time: 00:01
+/*
+ * This file is part of the laravelDash package.
+ *
+ * (c) Yasser Ameur El Idrissi <getspookydev@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
-namespace Yasser\LaravelDashboard\Models;
+namespace yal\laraveldash\Models;
 
-use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Devices extends Model
@@ -17,13 +18,14 @@ class Devices extends Model
 
     protected $guarded = ['id'];
 
-    /**
-     * Get the post that owns the devices.
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-
     public function post()
     {
         return $this->belongsTo(Post::class);
     }
+
+    public function resolveChildRouteBinding($childType, $value, $field)
+    {
+      // TODO: Implement resolveChildRouteBinding() method.
+    }
+
 }
