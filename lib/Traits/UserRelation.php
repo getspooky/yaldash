@@ -8,16 +8,16 @@
  * file that was distributed with this source code.
  */
 
-namespace LaravelDashboard\Traits;
+namespace yal\laraveldash\Traits;
 
-use LaravelDashboard\Models\Attachement;
-use LaravelDashboard\Models\Buy;
-use LaravelDashboard\Models\Devices;
-use LaravelDashboard\Models\Checkout;
-use LaravelDashboard\Models\Followers;
-use LaravelDashboard\Models\Post;
-use LaravelDashboard\Models\Store;
-use LaravelDashboard\Models\UserInformation;
+use yal\laraveldash\Models\Attachement;
+use yal\laraveldash\Models\Buy;
+use yal\laraveldash\Models\Devices;
+use yal\laraveldash\Models\Checkout;
+use yal\laraveldash\Models\Followers;
+use yal\laraveldash\Models\Post;
+use yal\laraveldash\Models\Store;
+use yal\laraveldash\Models\UserInformation;
 
 trait UserRelation
 {
