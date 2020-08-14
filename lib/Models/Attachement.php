@@ -8,12 +8,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Yasser\LaravelDashboard\Models;
+namespace yal\laraveldash\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\File;
 use Illuminate\Support\Facades\Storage;
-use \Illuminate\Support\Facades\File as FacadeFile;
+use Illuminate\Support\Facades\File as FacadeFile;
 
 class Attachement extends Model
 {
@@ -22,24 +22,11 @@ class Attachement extends Model
 
     protected $fillable = ['file_name'];
 
-
-    /**
-     * Get all of the owning attachable models
-     * @return \Illuminate\Database\Eloquent\Relations\MorphTo
-     */
     public function attachable()
     {
         return $this->morphTo();
     }
 
-
-    /**
-     * Upload File
-     *
-     * @param File $file
-     * @param string $name
-     * @return mixed
-     */
     public function UploadFile(File $file, $name)
     {
         $upload = Storage::putFileAs('public/avatars', $file, $name);
@@ -51,12 +38,6 @@ class Attachement extends Model
         return false;
     }
 
-    /**
-     * Delete File
-     *
-     * @param string $file
-     * @return mixed
-     */
     public function DeleteFile($file)
     {
         if (FacadeFile::exists($file)) {
@@ -66,13 +47,6 @@ class Attachement extends Model
         return false;
     }
 
-
-    /**
-     * Delete File
-     * @param string $file
-     * @param string $file_rename
-     * @return mixed
-     */
     public function UpdateFile($file, $file_rename)
     {
         if (FacadeFile::exists($file) && FacadeFile::isFile($file)) {
@@ -81,4 +55,10 @@ class Attachement extends Model
 
         return false;
     }
+
+    public function resolveChildRouteBinding($childType, $value, $field)
+    {
+     // TODO: Implement resolveChildRouteBinding() method.
+    }
+
 }
