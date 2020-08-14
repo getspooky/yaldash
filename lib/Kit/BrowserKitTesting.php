@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace LaravelDashboard\Kit;
+namespace yal\laraveldash\Kit;
 
 use Laravel\BrowserKitTesting\TestCase as BaseTestCase;
 use Tests\CreatesApplication;
