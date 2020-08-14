@@ -8,11 +8,11 @@
  * file that was distributed with this source code.
  */
 
-namespace LaravelDashboard\Providers;
+namespace yal\laraveldash\Providers;
 
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
-use LaravelDashboard\Events\NotificationEvent;
-use LaravelDashboard\Listeners\NotificationListeners;
+use yal\laraveldash\Events\NotificationEvent;
+use yal\laraveldash\Listeners\NotificationListeners;
 
 class EventServiceProvider extends ServiceProvider
 {
