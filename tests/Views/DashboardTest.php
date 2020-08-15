@@ -8,10 +8,10 @@
  * file that was distributed with this source code.
  */
 
-namespace LaravelDash\Tests\Views;
+namespace yal\laraveldash\Tests\Views;
 
 use Illuminate\Support\Facades\Auth;
-use LaravelDashboard\Kit\BrowserKitTesting;
+use yal\laraveldash\Kit\BrowserKitTesting;
 
 class DashboardTest extends BrowserKitTesting
 {
