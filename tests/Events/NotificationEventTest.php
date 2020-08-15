@@ -8,12 +8,12 @@
  * file that was distributed with this source code.
  */
 
-namespace LaravelDashboard\Tests\Events;
+namespace yal\laraveldash\Tests\Events;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Event;
 use Tests\TestCase;
-use LaravelDashboard\Events\NotificationEvent;
+use yal\laraveldash\Events\NotificationEvent;
 
 class NotificationEventTest extends TestCase
 {
