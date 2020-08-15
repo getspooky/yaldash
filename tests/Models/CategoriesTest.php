@@ -8,12 +8,12 @@
  * file that was distributed with this source code.
  */
 
-namespace LaravelDashboard\Tests\Models;
+namespace yal\laraveldash\Tests\Models;
 
 use Illuminate\Support\Facades\Auth;
 use Tests\TestCase;
-use LaravelDashboard\Models\Categories;
-use LaravelDashboard\Models\Post;
+use yal\laraveldash\Models\Categories;
+use yal\laraveldash\Models\Post;
 
 class CategoriesTest extends TestCase
 {
