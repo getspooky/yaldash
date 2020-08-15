@@ -8,13 +8,12 @@
  * file that was distributed with this source code.
  */
 
-namespace LaravelDashboard\Providers;
+namespace yal\laraveldash\Providers;
 
 use Cartalyst\Stripe\Laravel\StripeServiceProvider;
 use \Illuminate\Support\ServiceProvider;
-use LaravelDashboard\Commands\DashboardTemplate;
-use LaravelDashboard\Commands\GenerateAuthentication;
-use LaravelDashboard\Commands\LaravelDashboardInstall;
+use yal\laraveldash\Commands\DashboardTemplate;
+use yal\laraveldash\Commands\LaravelDashInstall;
 
 class DashboardServiceProvider extends ServiceProvider
 {
@@ -39,10 +38,10 @@ class DashboardServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->loadRoutesFrom(__DIR__ . '/../../routes/web.php');
-        $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'LaravelDashboard');
+        $this->loadViewsFrom(__DIR__ . '/../../resources/views', '\yal\laraveldash');
         $this->loadMigrationsFrom(__DIR__ . '/../../migrations');
         $this->publishes([
-            __DIR__ . '/../Configuration.php' => config_path('laravelDashboard.php')
+            __DIR__ . '/../Configuration.php' => config_path('laraveldash.php')
         ], "config");
         $this->publishes([
             __DIR__ . '/../../published' => public_path('published')
@@ -50,8 +49,7 @@ class DashboardServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->commands([
                 DashboardTemplate::class,
-                GenerateAuthentication::class,
-                LaravelDashboardInstall::class
+                LaravelDashInstall::class
             ]);
         }
     }
