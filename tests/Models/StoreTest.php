@@ -8,11 +8,11 @@
  * file that was distributed with this source code.
  */
 
-namespace LaravelDashboard\Tests\Models;
+namespace yal\laraveldash\Tests\Models;
 
 use Illuminate\Support\Facades\Auth;
 use Tests\TestCase;
-use LaravelDashboard\Models\Store;
+use yal\laraveldash\Models\Store;
 
 class StoreTest extends TestCase
 {
