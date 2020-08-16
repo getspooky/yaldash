@@ -15,7 +15,7 @@
             </p>
           </div>
           <div class="col-sm-4 text-sm-right mt-3 mt-sm-0">
-            <img src="{{\yal\laraveldash\Helper\Assets::loadImg('Visa_1156753.png')}}" height="90" width="90">
+            <img src="{{\yal\laraveldash\Helper\Assets::loadImg('Visa.png')}}" height="90" width="90">
           </div>
         </div>
       </div>
@@ -31,7 +31,7 @@
             </p>
           </div>
           <div class="col-sm-4 text-sm-right mt-3 mt-sm-0">
-            <img src="{{\yal\laraveldash\Helper\Assets::loadImg('Mastercard_1156750.png')}}" height="90" width="90">
+            <img src="{{\yal\laraveldash\Helper\Assets::loadImg('Mastercard.png')}}" height="90" width="90">
           </div>
         </div>
       </div>
