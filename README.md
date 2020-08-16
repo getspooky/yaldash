@@ -1,5 +1,5 @@
 <p style="text-align=center;">
-<img src="./docs/assets/Hello.png">
+<img src="docs/screens/Hello.png">
 </p>
 
 <p align="center">
@@ -30,7 +30,7 @@
 
 ## Introduction 
 
-LaravelDash is a beautifully designed administration panel for Laravel. It offers additonal features including `Charts` , `Panel Management` , `Settings` , `Payment System` , `Store` and more.
+🐳 It's never been easier to build and customize admin panels. Yah! laravelDash is a beautifully designed administration panel for Laravel.
 
 ## Features
 
@@ -90,7 +90,9 @@ composer create-project --prefer-dist laravel/laravel blog
 
 Laravel provides a quick way to scaffold all of the routes and views you need for authentication using one simple command:
 ```sh
-php artisan make:auth
+composer require laravel/ui
+
+php artisan ui --auth
 ```
 
 ### Minute 2: Configuration
@@ -118,19 +120,19 @@ LaravelDash will automatically register its service provider if you are using La
 /*
  * Laraveldash Service Provider
  */
- \LaravelDash\DashboardServiceProvider::class,
+yal\laraveldash\Providers\DashboardServiceProvider::class, 
 ```
 
 Next, you need to publish the laravelDash configuration file:
 
 ```sh
-php artisan vendor:publish --provider="LaravelDash\DashboardServiceProvider" --tag="laravelDash-config"
+php artisan vendor:publish --provider="yal\laraveldash\Providers\DashboardServiceProvider" --tag="laravelDash-config"
 ```
 
 Next, you need to publish the laravelDash assets:
 
 ```sh
-php artisan vendor:publish --provider="\LaravelDash\DashboardServiceProvider" --tag="laravelDash-assets"
+php artisan vendor:publish --provider="yal\laraveldash\Providers\DashboardServiceProvider" --tag="laravelDash-assets"
 ```
 
 ### Minute 4: Running Migrations and Defining Relationships
@@ -144,7 +146,7 @@ php artisan migrate
 Or run the LaravelDash command, that provides you with what you need to start using LaravelDash
 
 ```sh
-php artisan LaravelDash:install
+php artisan laraveldash:install
 ```
 
 Database tables are often related to one another. For example, a blog post may have many comments, or an order could be related to the user who placed it. Eloquent makes managing and working with these relationships easy. so go to App\User.php and add UserRelation
@@ -156,7 +158,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use LaravelDash\Traits\UserRelation;
+use yal\laraveldash\Traits\UserRelation;
 
 class User extends Authenticatable
 {
