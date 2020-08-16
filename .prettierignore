@@ -4,3 +4,4 @@ vendor/
 package-lock.json
 yarn.lock
 package.json
+./idea

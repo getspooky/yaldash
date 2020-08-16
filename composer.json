@@ -1,19 +1,25 @@
 {
     "name": "yal/laraveldash",
-    "description": "LaravelDash provides a powerful user interfaces for CRUD (create, read, update, delete) operations for Laravel applications. It offers additonal features including Charts , Panel Management , Settings , Payment System , Store ...",
+    "description": "laraveldash is a beautifully designed administration panel for Laravel",
+    "version": "2.0.0",
     "keywords": [
       "laravel",
+      "laravel-application",
+      "vue",
       "admin",
       "admin-dashboard",
       "crud",
       "panel-dashboard",
-      "payment"
+      "payment",
+      "php"
     ],
     "license": "MIT",
     "authors": [
         {
             "name": "Yasser Ameur el idrissi",
-            "email": "spookyframework@gmail.com"
+            "email": "spookyframework@gmail.com",
+            "role": "Maintainer",
+            "homepage": "https://github.com/getspooky"
         }
     ],
     "require": {
@@ -21,16 +27,17 @@
         "cartalyst/stripe": "^2.0",
         "nesbot/carbon": "^1.26.3 || ^2.0",
         "laravel/framework": "^5.4 || ^5.8 || ^6.0 || ^7.0",
-        "illuminate/support": "~5.0|^6.0|^7.0"
+        "illuminate/support": "~5.0|^6.0|^7.0",
+        "mitnick/laravel-security": "^1.0"
     },
     "autoload": {
         "psr-4": {
-            "Yasser\\LaravelDashboard\\": "src/"
+            "yal\\laraveldash\\": "lib/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Yasser\\Tests\\": "Tests/"
+            "yal\\laraveldash\\Tests\\": "./tests/"
         }
     },
     "require-dev": {
@@ -43,7 +50,7 @@
         },
         "laravel": {
             "providers": [
-                "Yasser\\LaravelDashboard\\DashboardServiceProvider"
+                "yal\\laraveldash\\Providers\\DashboardServiceProvider"
             ]
         }
     },

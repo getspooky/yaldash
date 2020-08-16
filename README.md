@@ -1,5 +1,5 @@
 <p style="text-align=center;">
-<img src="./media/Cover.png">
+<img src="docs/screens/Hello.png">
 </p>
 
 <p align="center">
@@ -16,8 +16,7 @@
 
 ## Table of Contents
 
-- [About LaravelDash](#About-LaravelDash)
-- [Quick Introduction](#Quick-Introduction)
+- [Introduction](#Introduction)
 - [Features](#Features)
 - [Documentation](#Documentation)
 - [Requirements](#Requirements)
@@ -29,16 +28,9 @@
 - [License](#license)
 - [Support the Team](#Support-the-Team)
 
-## About LaravelDash
+## Introduction 
 
-LaravelDash provides a powerful user interfaces for CRUD (create, read, update, delete) operations for Laravel applications. It offers additonal features including Charts , `Panel Management` , `Settings` , `Payment System` and `Store`
-
-## Quick Introduction
-
-Developers are lazy. No, I’m not kidding—they work hard to create systems that help them avoid more work in the future. Especially, repetitive work. And there are quite extreme examples now—we don’t need to write code anymore; it is being generated for us. <br />
-LaravelDash provides a powerful user interfaces for CRUD (create, read, update, delete) operations for Laravel applications. It offers additonal features including searching, Charts , Panel Management , Settings , Payment System ... <br />
-Before installing LaravelDash it is very important to take a quick moment to learn what it is. What is ? <br />
-An admin interface for your Laravel app , An easy way to add/edit/delete data for your app , A content management system (CMS) With LaravelDash you can create any kind of application your heart desires. LaravelDash are simply tools to make it easier to build.
+🐳 It's never been easier to build and customize admin panels. Yah! laravelDash is a beautifully designed administration panel for Laravel.
 
 ## Features
 
@@ -98,7 +90,9 @@ composer create-project --prefer-dist laravel/laravel blog
 
 Laravel provides a quick way to scaffold all of the routes and views you need for authentication using one simple command:
 ```sh
-php artisan make:auth
+composer require laravel/ui
+
+php artisan ui --auth
 ```
 
 ### Minute 2: Configuration
@@ -124,21 +118,21 @@ LaravelDash will automatically register its service provider if you are using La
 
 ```php
 /*
- * Laravel dashboard Service Provider
+ * Laraveldash Service Provider
  */
- \Yasser\LaravelDashboard\DashboardServiceProvider::class,
+yal\laraveldash\Providers\DashboardServiceProvider::class, 
 ```
 
 Next, you need to publish the laravelDash configuration file:
 
 ```sh
-php artisan vendor:publish --provider="Yasser\LaravelDashboard\DashboardServiceProvider" --tag="laravelDash-config"
+php artisan vendor:publish --provider="yal\laraveldash\Providers\DashboardServiceProvider" --tag="laravelDash-config"
 ```
 
 Next, you need to publish the laravelDash assets:
 
 ```sh
-php artisan vendor:publish --provider="Yasser\LaravelDashboard\DashboardServiceProvider" --tag="laravelDash-assets"
+php artisan vendor:publish --provider="yal\laraveldash\Providers\DashboardServiceProvider" --tag="laravelDash-assets"
 ```
 
 ### Minute 4: Running Migrations and Defining Relationships
@@ -152,7 +146,7 @@ php artisan migrate
 Or run the LaravelDash command, that provides you with what you need to start using LaravelDash
 
 ```sh
-php artisan LaravelDash:install
+php artisan laraveldash:install
 ```
 
 Database tables are often related to one another. For example, a blog post may have many comments, or an order could be related to the user who placed it. Eloquent makes managing and working with these relationships easy. so go to App\User.php and add UserRelation
@@ -164,7 +158,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Yasser\LaravelDashboard\Traits\UserRelation;
+use yal\laraveldash\Traits\UserRelation;
 
 class User extends Authenticatable
 {
