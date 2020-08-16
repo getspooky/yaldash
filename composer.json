@@ -1,7 +1,7 @@
 {
     "name": "yal/laraveldash",
     "description": "laraveldash is a beautifully designed administration panel for Laravel",
-    "version": "1.0.2",
+    "version": "2.0.0",
     "keywords": [
       "laravel",
       "laravel-application",
