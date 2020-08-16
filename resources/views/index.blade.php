@@ -67,7 +67,7 @@
               </div>
               <div class="card-footer border-top">
                 <div class="row">
-                  <img src="{{ \yal\laraveldash\Helper\Assets::loadImg('post.png') }}" style="position:relative;width:100%;height:100%;object-fit:cover;margin-bottom:30px;">
+                  <img src="{{ \yal\laraveldash\Helper\Assets::loadImg('Post.png') }}" style="position:relative;width:100%;height:100%;object-fit:cover;margin-bottom:30px;">
                   <div class="col text-right view-report">
                     <a href="{{route('post.create')}}">Create One &rarr;</a>
                   </div>
