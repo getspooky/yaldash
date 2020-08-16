@@ -20,7 +20,7 @@ class Assets
 
     public static function loadImg($file)
     {
-        return route('dashboard.assets', ['file' => $file, 'folder' => 'img']);
+        return route('dashboard.assets', ['file' => $file, 'folder' => 'images']);
     }
 
 }
