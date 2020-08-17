@@ -1,6 +1,11 @@
 ## Release Notes
 
-- Version 2.1
+- Version 2.0.2
+    - Compile Js and Sass files
+    - Install new version of vue-stripe-elements-plus
+    - Fix Stripe component
+
+- Version 2.0.1
     - Add laravelDash documentation website
     - Remove .gitignore file from published directory
 
