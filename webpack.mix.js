@@ -20,8 +20,8 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.sass('resources/sass/app.scss','src/published/css/')
-  .js('resources/js/app.js','src/published/js/');
+mix.sass('resources/sass/app.scss','./published/css/')
+  .js('resources/js/app.js','./published/js/');
 
 
 
