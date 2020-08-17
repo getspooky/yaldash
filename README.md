@@ -34,12 +34,12 @@
 
 <table>
   <tr>
-    <td><img src="./docs/screens/Dashboard-Interface.jpg"  alt="1" width="430px" height="290px" ></td>
-    <td><img src="./docs/screens/Checkout-Interface.jpg" alt="2" width="430px" height="290px"></td>
+    <td><img src="./docs/screens/Dashboard-Interface.jpg"  alt="Dashboard Interface" width="430px" height="290px" ></td>
+    <td><img src="./docs/screens/Checkout-Interface.jpg" alt="Checkout Interface" width="430px" height="290px"></td>
    </tr> 
    <tr>
-      <td><img src="./docs/screens/CRUD-Interface.png" alt="3" width="430px" height="290px"></td>
-      <td><img src="./docs/screens/Post-Interface.jpg" align="right" alt="4" width="430px" height="290px"></td>
+      <td><img src="./docs/screens/CRUD-Interface.png" alt="CRUD Interface" width="430px" height="290px"></td>
+      <td><img src="./docs/screens/Post-Interface.jpg" align="right" alt="Post Interface" width="430px" height="290px"></td>
   </tr>
 </table>
 
