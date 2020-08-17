@@ -1,0 +1,250 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LaravelDash Documentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="laraveldash-global.css">
+    <link rel="stylesheet" href="laraveldash-doc.css">
+  </head>
+  <body>
+    <div class="doc__bg"></div>
+    <nav class="header">
+      <h1 class="logo"><span class="logo__thin">Documentation</span></h1>
+      <ul class="menu">
+        <div class="menu__item toggle"><span></span></div>
+        <li class="menu__item"><a href="" class="link link--dark"><i class="fa fa-github"></i> Github</a></li>
+        <li class="menu__item"><a href="index.html" class="link link--dark"><i class="fa fa-home"></i> Home</a></li>
+      </ul>
+    </nav>
+    <div class="wrapper">
+      <aside class="doc__nav">
+        <ul>
+          <li class="js-btn selected">Get Started</li>
+          <li class="js-btn">About</li>
+          <li class="js-btn">Installation</li>
+          <li class="js-btn">Configuration</li>
+          <li class="js-btn">Relationships</li>
+          <li class="js-btn">Routing</li>
+          <li class="js-btn">Resources</li>
+          <li class="js-btn">Migrations</li>
+          <li class="js-btn">Stripe Pay</li>
+          <li class="js-btn">Yah!</li>
+          <li class="js-btn">Contribute</li>
+          <li class="js-btn">Support Us</li>
+        </ul>
+      </aside>
+      <article class="doc__content">
+        <section class="js-section">
+          <h3 class="section__title">Get Started</h3>
+          <p>This documentation is designed for beginners who want to get started with laravel dashboard from scratch. It assume that you have prior experience with Laravel framework . This documentation covers getting up and running with laravel dashboard. After reading this guide, you will know:</p>
+          <ol>
+            <li>How to install and how configure laravelDash.</li>
+            <li>The general layout of laravelDash.</li>
+            <li>How to customize Routes , Views , Controllers and Events.</li>
+            <li>How to contribute to laravelDash.</li>
+          </ol> 
+        </section>
+      
+        <section class="js-section">
+          <h3 class="section__title">About</h3>
+          <p>Developers are lazy. No, I’m not kidding—they work hard to create systems that help them avoid more work in the future. Especially, repetitive work. And there are quite extreme examples now—we don’t need to write code anymore; it is being generated for us. laravelDash is a beautifully designed administration panel for Laravel. It offers additonal features including <span class="code code--inline">Charts</span>, <span class="code code--inline">Panel Management</span>, <span class="code code--inline">Settings</span> , <span class="code code--inline">Payment System</span> and more.</p>
+        </section>
+
+        <section class="js-section">
+          <h3 class="section__title">Installation</h3>
+          <p>Before you install laravelDash, you should check to make sure that your system has the proper prerequisites installed. These include          </p>
+          <ol>
+            <li><a href="https://laravel.com/" target="_blank">Laravel Framework 5.4+</a></li>
+            <li><a href="https://getcomposer.org/" target="_blank">Composer</a></li>
+            <li><a href="https://laravel-mix.com/" target="_blank">Laravel Mix</a></li>
+            <li><a href="https://nodejs.org/en/" target="_blank">Node.js</a> & <a href="https://docs.npmjs.com/" target="_blank">NPM</a></li>
+          </ol> 
+          <p>laravelDash is super easy to install. After creating your new Laravel application you can include the package with the following command:</p>
+          <div class="code__block code__block--notabs">
+            <pre class="code code--block">
+              <code>
+                $ composer require yal/laraveldash
+              </code>
+            </pre>
+          </div>
+        </section>
+
+        <section class="js-section">
+          <h3 class="section__title">Configuration</h3>
+          <p>Firstly, make sure to create a new database and add your database credentials to your .env file :</p>
+          <div class="code__block code__block--notabs">
+            <pre class="code code--block">
+              <code>
+                APP_URL=http://localhost
+                DB_HOST=localhost
+                DB_DATABASE=homestead
+                DB_USERNAME=homestead
+                DB_PASSWORD=secret
+              </code>
+            </pre>
+          </div>
+          <p>laravelDash will automatically register its service provider if you are using Laravel >=<span class="code code--inline">5.5</span>. If you are using Laravel dashboard with Laravel <span class="code code--inline">5.3</span> or <span class="code code--inline">5.4</span>, add Laravel dashboard's service provider in your application's <span class="code code--inline">config/app.php</span> file:</p>
+          <div class="code__block code__block--notabs">
+            <pre class="code code--block">
+              <code>
+                /*
+                |--------------------------------------------------------------------------
+                | Autoloaded Service Providers
+                |--------------------------------------------------------------------------
+                |
+                | The service providers listed here will be automatically loaded on the
+                | request to your application. Feel free to add your own services to
+                | this array to grant expanded functionality to your applications.
+                |
+                */
+                'providers' => [ yal\laraveldash\Providers\DashboardServiceProvider::class, ]
+              </code>
+            </pre>
+          </div>
+          <p>Next, you need to publish the laraveldash configuration file:</p>
+          <div class="code__block code__block--notabs">
+            <pre class="code code--block">
+              <code>
+                php artisan vendor:publish --provider="yal\laraveldash\Providers\DashboardServiceProvider" --tag="config"
+              </code>
+            </pre>
+          </div>
+          <p>This is the default content of the config file that will be published as <span class="code code--inline">config/laraveldash.php</span>:</p>
+          <hr />
+        </section>
+        <section class="js-section">
+          <h3 class="section__title">Defining Relationships</h3>
+          <p>Database tables are often related to one another. For example, a blog post may have many comments, or an order could be related to the user who placed it. Eloquent makes managing and working with these relationships easy. so go to <span class="code code--inline">App\User.php</span> and add <span class="code code--inline">UserRelation</span>.</p>
+          <div class="code__block code__block--notabs">
+            <pre class="code code--block">
+              <code>
+                  namespace App; 
+                  use Illuminate\Notifications\Notifiable; 
+                  use Illuminate\Foundation\Auth\User as Authenticatable; 
+                  use yal\laraveldash\Traits\UserRelation; 
+                  class User extends Authenticatable { 
+                      use Notifiable,UserRelation; 
+                  }
+              </code>
+            </pre>
+          </div>
+          <hr />
+        </section>
+        <section class="js-section">
+          <h3 class="section__title">Routing</h3>
+          <p>After running <span class="code code--inline">php artisan route:list</span> you will see a few new routes that have been added to your project which look like the following:</p>
+          <table id="customers">
+            <tr>
+              <th>URI</th>
+              <th>HTTP verbs</th>
+            </tr>
+            <tr>
+              <td>Dashboard</td>
+              <td>GET</td>
+            </tr>
+            <tr>
+              <td>Manage</td>
+              <td>GET</td>
+            </tr>
+            <tr>
+              <td>post</td>
+              <td>GET-POST-PUT</td>
+            </tr>
+            <tr>
+              <td>Settings</td>
+              <td>GET-POST</td>
+            </tr>
+            <tr>
+              <td>Users</td>
+              <td>GET-POST</td>
+            </tr>
+            <tr>
+              <td>Checkout</td>
+              <td>GET</td>
+            </tr>
+            <tr>
+              <td>Store</td>
+              <td>GET-POST</td>
+            </tr>
+          </table>
+        </section>
+        <section class="js-section">
+          <h3 class="section__title">Defining Resources</h3>
+          <p>By default, laraveldash resources are stored in the resources directory of your application. You may generate a new resource using the command:</p>
+          <div class="code__block code__block--notabs">
+            <pre class="code code--block">
+              <code>
+                php artisan laraveldash:resource {name}
+              </code>
+            </pre>
+          </div>
+          <hr />
+        </section>
+        <section class="js-section">
+          <h3 class="section__title">Migrations</h3>
+          <p>Generated migrations are regular Laravel migrations , Run the migrations with:</p>
+          <div class="code__block code__block--notabs">
+            <pre class="code code--block">
+              <code>
+                php artisan migrate
+              </code>
+            </pre>
+          </div>
+          <hr />
+        </section>
+        <section class="js-section">
+          <h3 class="section__title">Stripe Payment</h3>
+          <p>Stripe is a very popular and secure internet payment gateway company which helps to accept payment worldwide. 
+            Stripe provide really nice development interface to start and you don’t have to pay subscription charges to learn it provides free developer account, before starting to code in your app. laraveldash integrate Stripe , we need to set stripe key and secret.
+            so first you can go on Stripe website and create development stripe account key and secret and add bellow:</p>
+          <div class="code__block code__block--notabs">
+            <pre class="code code--block">
+              <code>
+                STRIPE_KEY=
+                STRIPE_SECRET=
+              </code>
+            </pre>
+          </div>
+          <hr />
+        </section>
+        <section class="js-section">
+          <h3 class="section__title">Yah! You're on LaravelDash</h3>
+          <p>To see it, you need to start a web server on your development machine. You can do this by running the following command:           :</p>
+          <div class="code__block code__block--notabs">
+            <pre class="code code--block">
+              <code>
+                php artisan serve
+              </code>
+            </pre>
+          </div>
+          Open a browser window and navigate to <span class="code code--inline">http://localhost:8000</span>. You should see the laravelDash default information page:
+          <img src="https://github.com/getspooky/getspooky/laravelDash/raw/master/docs/screens/Yah.jpg" />
+          <hr />        
+        </section>
+        <section class="js-section">
+          <h3 class="section__title">Contribute on GitHub</h3>
+          <p>The biggest core feature we'd like to provide is an enjoyable development experience. Developers like you can help by contributing to rich and vibrant documentation, issuing pull requests to help us cover niche use cases, and to help sustain what you love about laravelDash.
+           See <span class="code code--inline">CONTRIBUTING.md</span> for more information on what we're looking for and how to get started.</p>
+          <hr />
+        </section>
+        <section class="js-section">
+          <h3 class="section__title">Support Us</h3>
+          <p>The people who support laravelDash do so for the love of open source, our users and ecosystem, and most importantly, pushing the web forward together.
+            Because of our <a href="https://opencollective.com/" target="_blank">Open Collective</a> model for funding and transparency, we are able to funnel support and funds through contributors, dependent projects, and the contributor and core teams. To make a donation, simply click the button below...
+          </p>
+          <img src="" />
+          <hr />
+        </section>
+      </article>
+    </div>
+
+    <footer class="footer">Released under the <a href="https://opensource.org/licenses/MIT" target="_blank">MIT License</a>. Copyright © 2018-2020 getspooky</footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="laraveldash.js"></script>
+  </body>
+</html>
