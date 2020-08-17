@@ -1,11 +1,13 @@
 <template>
-   <card class='stripe-card'
-          :class='{ complete }'
-          :stripe=stripekey
-          :options='stripeOptions'
-          @change='complete = $event.complete'
-    />
-    <button class='pay-with-stripe' @click='pay' :disabled='!complete'>Pay with credit card</button>
+   <div>
+     <card class='stripe-card'
+           :class='{ complete }'
+           :stripe=stripekey
+           :options='stripeOptions'
+           @change='complete = $event.complete'
+     />
+     <button class='pay-with-stripe' @click="pay" :disabled='!complete'>Pay with credit card</button>
+   </div>
 </template>
 
 <script>
