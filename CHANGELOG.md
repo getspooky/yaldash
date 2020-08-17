@@ -1,5 +1,9 @@
 ## Release Notes
 
+- Version 2.1
+    - Add laravelDash documentation website
+    - Remove .gitignore file from published directory
+
 - Version 2.0
     - Fix validation for array elements
     - Added Laravel 7 support
