@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+  <head>
+      <meta charset="utf-8">
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>A beautifully designed administration panel for Laravel.</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800,900" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css">
+      <link rel="stylesheet" href="laraveldash-global.css">
+      <link rel="stylesheet" href="laraveldash-landing.css">
+  </head>
+  <body>
+    <nav>
+      <div class="logo"></div>
+      <ul class="menu">
+        <div class="menu__item toggle"><span></span></div>
+        <li class="menu__item"><a href="doc.html" class="link link--dark"><i class="fa fa-book"></i> Documentation</a></li>
+        <li class="menu__item"><a href="https://github.com/getspooky/laravelDash" target="_blank" class="link link--dark"><i class="fa fa-github"></i> Github</a></li>
+      </ul>
+    </nav>
+    <div class="hero">
+      <h1 class="hero__title">Yah! LaravelDash</h1>
+      <p class="hero__description">A beautifully designed administration panel for Laravel.</p>
+    </div>
+    <div class="hero__terminal">
+      <pre>
+        <!-- Place your demo code here -->
+        <code class="shell-session demo">Laravel ~ $ </code>
+      </pre>
+    </div>
+    <div class="wrapper">
+      <div class="installation">
+        <h3 class="section__title">Installation</h3>
+        <div class="tab__container">
+          <ul class="tab__menu">
+            <li class="tab active" data-tab="mac">Packagist</li>
+          </ul>
+          <pre class="nohighlight code">
+            <code class="tab__pane active mac">$ composer require yal/laraveldash</code>
+          </pre>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature__item">
+          <h3 class="section__title">Modern UI</h3>
+          <p>The design don’t just look good though, they are also fully mobile responsive to accommodate users that are accessing your app ,no matter what size screen they have.</p>
+        </div>
+        <div class="feature__item">
+          <h3 class="section__title">Stripe Checkout</h3>
+          <p>Smart payment page that works seamlessly across devices and is designed to increase your conversion.</p>
+        </div>
+        <div class="feature__item">
+          <h3 class="section__title">Simple MVC Architecture</h3>
+          <p>Similar to how you'd build it without laravelDash. To create a management page (aka CRUD), you create a CrudController</p>
+        </div>
+        <div class="feature__item">
+          <h3 class="section__title">Vue2Editor Integration</h3>
+          <p>Your editor for rich text editing built with Vue.js and Quill.js , Simple setup so you can get started quickly , Offers the options you need for more complex scenarios</p>
+        </div>
+        <div class="feature__item">
+          <h3 class="section__title">Minimal Technology Stack</h3>
+          <p><span class="code code--inline">PHP</span>, <span class="code code--inline">HTML</span>, <span class="code code--inline">SASS</span>. Those are all the technologies you need to know, to customize anything in laravelDash.</p>
+        </div>
+        <div class="feature__item">
+          <h3 class="section__title">Simple Configuration</h3>
+          <p>Configurations allows you to set various themes and layout options. It also allow setting site name and default outgoing email address.</p>
+        </div>
+      </div>
+      <div class="keybinding">
+        <ul class="keybinding__detail">
+          <h3 class="keybinding__title">Requirements</h3>
+          <li>Composer <span class="keybinding__label">✅</span></li>
+          <li>Laravel Framework 5.4+ <span class="keybinding__label">✅</span></li>
+          <li>Laravel Mix <span class="keybinding__label">✅</span></li>
+          <li>Node.js & NPM <span class="keybinding__label">✅</span></li>
+        </ul>
+        <ul class="keybinding__detail">
+          <h3 class="keybinding__title">Browser Support</h3>
+          <li><span class="keybinding__label">🔱</span> Google Chrome</li>
+          <li><span class="keybinding__label">🔱</span> Microsoft Edge</li>
+          <li><span class="keybinding__label">🔱</span> Firefox</li>
+          <li><span class="keybinding__label">🔱</span> Opera & Safari</li>
+        </ul>
+      </div>
+      <div class="callout">
+        <p>Read our documentation for advanced topics with simple, but detailed explanations</p>
+        <a href="doc.html" class="button--primary">Documentation</a>
+      </div>
+    </div>
+    <div class="changelog">
+      <div class="wrapper">
+        <h3 class="section__title">Changelog</h3>
+        iv class="changelog__item">
+        <div class="changelog__meta">
+          <h4 class="changelog__title">v2.0.1</h4>
+          <small class="changelog__date">17/08/2020</small>
+        </div>
+        <div class="changelog__detail">
+          <ul>
+            <li>Add laravelDash documentation website</li>
+            <li>Remove .gitignore file from published directory</li>
+          </ul>
+        </div>
+      </div>
+        <div class="changelog__item">
+          <div class="changelog__meta">
+            <h4 class="changelog__title">v2.0</h4>
+            <small class="changelog__date">16/08/2020</small>
+          </div>
+          <div class="changelog__detail">
+            <ul>
+              <li>Fix validation for array elements</li>
+              <li>Added Laravel 7 support</li>
+              <li>Fix models not returning save result</li>
+              <li>Big refactoring</li>
+            </ul>
+          </div>
+        </div>
+        <div class="changelog__item">
+          <div class="changelog__meta">
+            <h4 class="changelog__title">v1.0</h4>
+            <small class="changelog__date">06/09/2018</small>
+          </div>
+          <div class="changelog__detail">
+            <ul>
+              <li>Laravel 5.4 support</li>
+              <li>Add Vue2Editor Integration</li>
+              <li>Add Stripe Checkout</li>
+            </ul>
+          </div>
+        </div>
+        <div class="changelog__callout">
+          <a href="https://github.com/getspooky/laravelDash/blob/master/CHANGELOG.md" target="_blank" class="button--secondary">Checkout Full Log</a>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">Released under the <a href="https://opensource.org/licenses/MIT" target="_blank">MIT License</a>. Copyright © 2018-2020 getspooky</footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="laraveldash.js"></script>
+  </body>
+</html>
