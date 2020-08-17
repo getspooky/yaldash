@@ -1,1 +1,13 @@
 ## Release Notes
+
+- Version 1.0
+    - Fix validation for array elements
+    - Added Laravel 7 support
+    - Fix models not returning save result
+    - Big refactoring
+
+- Version 1.0
+    - Laravel 5.4 support
+    - Add Vue2Editor Integration
+    - Add Stripe Checkout
+
