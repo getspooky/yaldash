@@ -137,7 +137,7 @@ yal\laraveldash\Providers\DashboardServiceProvider::class,
 Next, you need to publish the laravelDash configuration file:
 
 ```sh
-php artisan vendor:publish --provider="yal\laraveldash\Providers\DashboardServiceProvider" --tag="laravelDash-config"
+php artisan vendor:publish --provider="yal\laraveldash\Providers\DashboardServiceProvider" --tag="config"
 ```
 
 Next, you need to publish the laravelDash assets:
