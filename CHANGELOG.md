@@ -1,5 +1,8 @@
 ## Release Notes
 
+- Version 2.0.3
+    - Fix views namespace bug
+
 - Version 2.0.2
     - Compile Js and Sass files
     - Install new version of vue-stripe-elements-plus
