@@ -1,22 +1,22 @@
-@extends("yal\laraveldash::home")
+@extends('laravelDash::layouts.master')
 
 @section("content")
 
-  @component("yal\laraveldash::components.navbar")
+  @component("laravelDash::components.navbar")
     <div class="page-header row no-gutters py-4">
       <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
         <span class="text-uppercase page-subtitle">Laravel Dashboard</span>
         <h3 class="page-title" style="margin-top:10px;">Checkout Overview</h3>
       </div>
-    @endcomponent
+      @endcomponent
 
       <div class="row">
         <div class="col-12">
           <div class="card mb-5">
             <div class="card-body">
               <div class="tab-content">
-              @component("yal\laraveldash::components.payment")
-                  @component("yal\laraveldash::components.order",['products'=>$products])
+                @component("laravelDash::components.payment")
+                  @component("laravelDash::components.order",['products'=>$products])
                     <tr class="text-right">
                       <td>
                         <h6 class="m-0">Shipping:</h6>
@@ -25,8 +25,8 @@
                         FREE
                       </td>
                     </tr>
+                  @endcomponent
                 @endcomponent
-              @endcomponent
               </div>
             </div>
           </div>
@@ -34,7 +34,7 @@
       </div>
     </div>
 
-    @component("yal\laraveldash::components.footer",["top"=>"50px"])
+    @component("laravelDash::components.footer",["top"=>"50px"])
       <div class="col-md-3 col-sm-6 footer-col">
         <h6 class="heading7">Social Media</h6>
         <ul class="footer-social">

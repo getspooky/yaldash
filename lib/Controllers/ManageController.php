@@ -25,7 +25,7 @@ class ManageController extends Controller
 
     public function index()
     {
-        return view('yal\laraveldash::manage');
+        return view('laravelDash::manage');
     }
 
     public function Response()
