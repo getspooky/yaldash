@@ -38,11 +38,11 @@ class DashboardServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->loadRoutesFrom(__DIR__ . '/../../routes/web.php');
-        $this->loadViewsFrom(__DIR__ . '/../../resources/views', '\yal\laraveldash');
+        $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'laravelDash');
         $this->loadMigrationsFrom(__DIR__ . '/../../migrations');
         $this->publishes([
             __DIR__ . '/../Configuration.php' => config_path('laraveldash.php')
-        ], "config");
+        ], "laravelDash-config");
         $this->publishes([
             __DIR__ . '/../../published' => public_path('published')
         ], 'laravelDash-assets');

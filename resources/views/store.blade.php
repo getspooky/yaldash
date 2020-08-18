@@ -1,8 +1,8 @@
-@extends("yal\laraveldash::home")
+@extends('laravelDash::layouts.master')
 
 @section("content")
 
-  @component("yal\laraveldash::components.navbar")
+  @component("laravelDash::components.navbar")
     <div class="page-header row no-gutters py-4">
       <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
         <span class="text-uppercase page-subtitle">laraveldash</span>
@@ -18,12 +18,14 @@
               <div class="product-grid8">
                 <div class="product-image8">
                   <a href="#">
-                    <img class="pic-1" src="{{ asset('storage/avatars/'.$store->attachementStore()->first()['file_name'])}}">
+                    <img class="pic-1"
+                         src="{{ asset('storage/avatars/'.$store->attachementStore()->first()['file_name'])}}">
                   </a>
                   <form method="post" id="card-store" action="{{ route('dashboard.store.buy',['id'=>$store->id]) }}">
                     @csrf
                     <ul class="social">
-                      <li><a href="#" onclick="document.getElementById('card-store').submit();" class="fa fa-cart-plus"></a></li>
+                      <li><a href="#" onclick="document.getElementById('card-store').submit();"
+                             class="fa fa-cart-plus"></a></li>
                     </ul>
                   </form>
                   <span class="product-discount-label">0%</span>
@@ -57,7 +59,7 @@
 
     <br>
 
-    @component("LaravelDashboard::components.footer",["top"=>"50px"])
+    @component("laravelDash::components.footer",["top"=>"50px"])
       <div class="col-md-3 col-sm-6 footer-col">
         <h6 class="heading7">Social Media</h6>
         <ul class="footer-social">
@@ -67,8 +69,8 @@
           <li><i class="fa fa-google-plus social-icon google" aria-hidden="true"></i></li>
         </ul>
       </div>
-    @endcomponent
+      @endcomponent
 
-    </div>
+      </div>
 
 @endsection

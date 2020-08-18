@@ -15,13 +15,13 @@ use App\Http\Controllers\Controller;
 class SellController extends Controller
 {
 
-    public function __construct()
-    {
-        $this->middleware(['web', 'auth']);
-    }
+  public function __construct()
+  {
+    $this->middleware(['web', 'auth']);
+  }
 
-    public function index()
-    {
-        return view('yal\laraveldash\::sell');
-    }
+  public function index()
+  {
+    return view('laravelDash::sell');
+  }
 }

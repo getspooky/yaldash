@@ -17,39 +17,39 @@ use yal\laraveldash\Traits\Assets;
 
 class DashboardController extends Controller
 {
-    use Assets;
+  use Assets;
 
-    public function __construct()
-    {
-        $this->middleware(['web', 'auth'])->except(['Dashboard_assets']);
-    }
+  public function __construct()
+  {
+    $this->middleware(['web', 'auth'])->except(['Dashboard_assets']);
+  }
 
-    public function index()
-    {
-        $user = auth()->user();
-        $points = (int)($user->posts()->count()*4/1500);
-        $earning = number_format(($points*10/1000), 2);
-        $state = [
-             "POST"     => $user->posts()->count(),
-             "EARNINGS" => $earning,
-             "POINTS"   => $points
-         ];
-        return view("yal\laraveldash::dashboard", $state);
-    }
+  public function index()
+  {
+    $user = auth()->user();
+    $points = (int)($user->posts()->count() * 4 / 1500);
+    $earning = number_format(($points * 10 / 1000), 2);
+    $state = [
+      "POST" => $user->posts()->count(),
+      "EARNINGS" => $earning,
+      "POINTS" => $points
+    ];
+    return view("laravelDash::index", $state);
+  }
 
-    public function store_draft(Request $request)
-    {
-        return redirect()->route('dashboard.home');
-    }
+  public function store_draft(Request $request)
+  {
+    return redirect()->route('dashboard.home');
+  }
 
-    public function ViewsState()
-    {
-        $user = auth()->user()->devices();
-        $laptop = $user->where('user_device_information', 'laptop')->count() + 1;
-        $mobile = $user->where('user_device_information', 'mobile')->count();
-        return response()->json([
-               "laptop" => $laptop,
-               "mobile" => $mobile
-           ]);
-    }
+  public function ViewsState()
+  {
+    $user = auth()->user()->devices();
+    $laptop = $user->where('user_device_information', 'laptop')->count() + 1;
+    $mobile = $user->where('user_device_information', 'mobile')->count();
+    return response()->json([
+      "laptop" => $laptop,
+      "mobile" => $mobile
+    ]);
+  }
 }

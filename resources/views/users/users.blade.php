@@ -1,14 +1,14 @@
-@extends("yal\laraveldash::home")
+@extends('laravelDash::layouts.master')
 
 @section("content")
 
-  @component("yal\laraveldash::components.navbar")
+  @component("laravelDash::components.navbar")
     <div class="page-header row no-gutters py-4">
       <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
         <span class="text-uppercase page-subtitle">Dashboard</span>
         <h3 class="page-title" style="margin-top:10px;">Users Overview</h3>
       </div>
-    @endcomponent
+      @endcomponent
 
       @if(count($users) > 1)
 
@@ -24,15 +24,20 @@
 
                   <div class="card-header border-bottom text-center">
                     <div class="mb-3 mx-auto">
-                      <img class="rounded-circle" src="{{ \yal\laraveldash\Helper\Helper::UploadedAvatar(\App\User::find($followers->id)) }}" alt="User Avatar" width="110">
+                      <img class="rounded-circle"
+                           src="{{ \yal\laraveldash\Helper\Helper::UploadedAvatar(\App\User::find($followers->id)) }}"
+                           alt="User Avatar" width="110">
                     </div>
                     <h4 class="mb-0">{{ $followers->name }}</h4>
                     <span class="text-muted d-block mb-2">Active User 🙂</span>
                     <form method="post" action="{{ route('dashboard.users.store') }}">
                       @csrf
                       <input type="hidden" name="follow_id" value="{{ $followers->id }}">
-                      <button type="submit" class="mb-2 btn btn-sm btn-pill {{ \yal\laraveldash\Helper\Helper::already_subscribe($followers->id) === false ? 'btn-danger color-a' : 'btn-outline-danger' }}  mr-2">
-                        <i class="material-icons mr-1">person_add</i>{{ \yal\laraveldash\Helper\Helper::already_subscribe($followers->id) === false ? 'Unsubscribe' : 'Subscribe'  }}</button>
+                      <button type="submit"
+                              class="mb-2 btn btn-sm btn-pill {{ \yal\laraveldash\Helper\Helper::already_subscribe($followers->id) === false ? 'btn-danger color-a' : 'btn-outline-danger' }}  mr-2">
+                        <i
+                          class="material-icons mr-1">person_add</i>{{ \yal\laraveldash\Helper\Helper::already_subscribe($followers->id) === false ? 'Unsubscribe' : 'Subscribe'  }}
+                      </button>
                     </form>
                   </div>
 
@@ -41,8 +46,11 @@
                       <div class="progress-wrapper">
                         <strong class="text-muted d-block mb-2">Subscribers</strong>
                         <div class="progress progress-sm">
-                          <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="74" aria-valuemin="0" aria-valuemax="100" style="width:{{ \yal\laraveldash\Helper\Helper::Level($followers->id) }}%;">
-                            <span class="progress-value">{{ \yal\laraveldash\Helper\Helper::Subscribers_count($followers->id) }}</span>
+                          <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="74" aria-valuemin="0"
+                               aria-valuemax="100"
+                               style="width:{{ \yal\laraveldash\Helper\Helper::Level($followers->id) }}%;">
+                            <span
+                              class="progress-value">{{ \yal\laraveldash\Helper\Helper::Subscribers_count($followers->id) }}</span>
                           </div>
                         </div>
                       </div>
@@ -63,7 +71,7 @@
 
         </div>
 
-    @else
+      @else
 
         <div class="alert alert-danger">
           <strong>
@@ -72,7 +80,7 @@
             </i> Sorry!</strong> We didn't found any users please try again later
         </div>
 
-    @endif
+      @endif
 
     </div>
 

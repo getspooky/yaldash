@@ -1,8 +1,8 @@
-@extends("yal\laraveldash::home")
+@extends('laravelDash::layouts.master')
 
 @section("content")
 
-  @component("yal\laraveldash::components.navbar")
+  @component("laravelDash::components.navbar")
     <div class="page-header row no-gutters py-4">
       <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
         <span class="text-uppercase page-subtitle">Dashboard</span>
@@ -10,20 +10,24 @@
       </div>
     @endcomponent
 
-    @component("yal\laraveldash::components.validation")
+    @component("laravelDash::components.validation")
       <!-- empty component -->
-    @endcomponent
+      @endcomponent
 
       <div class="row">
         <div class="col-lg-4">
           <div class="card card-small mb-4 pt-3">
             <div class="card-header border-bottom text-center">
               <div class="mb-3 mx-auto">
-                <img class="rounded-circle" onclick="document.getElementById('file').click()" src="{{ \yal\laraveldash\Helper\Helper::UploadedAvatar(\App\User::find(auth()->id())) }}" alt="User Avatar" width="110" height="110">
+                <img class="rounded-circle" onclick="document.getElementById('file').click()"
+                     src="{{ \yal\laraveldash\Helper\Helper::UploadedAvatar(\App\User::find(auth()->id())) }}"
+                     alt="User Avatar" width="110" height="110">
               </div>
-              <form method="post" id="settings_upload_image" action="{{route('dashboard.settings.upload_avatar')}}" enctype="multipart/form-data">
+              <form method="post" id="settings_upload_image" action="{{route('dashboard.settings.upload_avatar')}}"
+                    enctype="multipart/form-data">
                 @csrf
-                <input type="file" name="file" id="file" onchange="document.getElementById('settings_upload_image').submit()" style="display:none;" />
+                <input type="file" name="file" id="file"
+                       onchange="document.getElementById('settings_upload_image').submit()" style="display:none;"/>
               </form>
               <h4 class="mb-0">{{ auth()->user()->name }}</h4>
               <span class="text-muted d-block mb-2">Active User 🙂</span>
@@ -33,8 +37,10 @@
                 <div class="progress-wrapper">
                   <strong class="text-muted d-block mb-2">Subscribers</strong>
                   <div class="progress progress-sm">
-                    <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="74" aria-valuemin="0" aria-valuemax="100" style="width:{{ \yal\laraveldash\Helper\Helper::Level(auth()->id()) }}%;">
-                      <span class="progress-value">{{ \yal\laraveldash\Helper\Helper::Subscribers_count(auth()->id()) }}</span>
+                    <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="74" aria-valuemin="0"
+                         aria-valuemax="100" style="width:{{ \yal\laraveldash\Helper\Helper::Level(auth()->id()) }}%;">
+                      <span
+                        class="progress-value">{{ \yal\laraveldash\Helper\Helper::Subscribers_count(auth()->id()) }}</span>
                     </div>
                   </div>
                 </div>
@@ -57,30 +63,35 @@
                 <div class="row">
                   <div class="col">
                     <form method="post" action="{{ route('dashboard.settings.update') }}">
-                      {{method_field('PUT')}}
+                      @method('PUT')
                       @csrf
 
                       <div class="form-row">
                         <div class="form-group col-md-6">
                           <label for="feFirstName">First Name</label>
-                          <input type="text" class="form-control" placeholder="{{ auth()->user()->name }}" id="feFirstName" name="name" value="{{ old('name') }}"> </div>
+                          <input type="text" class="form-control" placeholder="{{ auth()->user()->name }}"
+                                 id="feFirstName" name="name" value="{{ old('name') }}"></div>
                         <div class="form-group col-md-6">
                           <label for="feLastName">Last Name</label>
-                          <input type="text" class="form-control" id="feLastName" name="LastName" placeholder="Last Name" value="{{ old('LastName') }}"> </div>
+                          <input type="text" class="form-control" id="feLastName" name="LastName"
+                                 placeholder="Last Name" value="{{ old('LastName') }}"></div>
                       </div>
 
                       <div class="form-row">
                         <label for="feEmailAddress">Email</label>
-                        <input type="email" class="form-control" id="feEmailAddress" placeholder="{{ auth()->user()->email }}" name="email" value="{{ old('email') }}"> </div>
+                        <input type="email" class="form-control" id="feEmailAddress"
+                               placeholder="{{ auth()->user()->email }}" name="email" value="{{ old('email') }}"></div>
 
                       <div class="form-group">
                         <label for="feInputAddress " style="margin-top:10px;">Address</label>
-                        <input type="text" class="form-control" id="feInputAddress" placeholder="1234 Main St" name="Address" value="{{ old('Address') }}"> </div>
+                        <input type="text" class="form-control" id="feInputAddress" placeholder="1234 Main St"
+                               name="Address" value="{{ old('Address') }}"></div>
 
                       <div class="form-row">
                         <div class="form-group col-md-6">
                           <label for="feInputCity">City</label>
-                          <input type="text" name="City" class="form-control" value="{{ old('City') }}" id="feInputCity"> </div>
+                          <input type="text" name="City" class="form-control" value="{{ old('City') }}"
+                                 id="feInputCity"></div>
                         <div class="form-group col-md-4">
                           <label for="feInputState">Country</label>
                           <select id="feInputState" class="form-control" name="Country">
@@ -197,7 +208,9 @@
                             <option value="Kazakhstan">Kazakhstan</option>
                             <option value="Kenya">Kenya</option>
                             <option value="Kiribati">Kiribati</option>
-                            <option value="Democratic People's Republic of Korea">Korea, Democratic People's Republic of</option>
+                            <option value="Democratic People's Republic of Korea">Korea, Democratic People's Republic
+                              of
+                            </option>
                             <option value="Korea">Korea, Republic of</option>
                             <option value="Kuwait">Kuwait</option>
                             <option value="Kyrgyzstan">Kyrgyzstan</option>
@@ -309,7 +322,8 @@
                             <option value="United Arab Emirates">United Arab Emirates</option>
                             <option value="United Kingdom">United Kingdom</option>
                             <option value="United States">United States</option>
-                            <option value="United States Minor Outlying Islands">United States Minor Outlying Islands</option>
+                            <option value="United States Minor Outlying Islands">United States Minor Outlying Islands
+                            </option>
                             <option value="Uruguay">Uruguay</option>
                             <option value="Uzbekistan">Uzbekistan</option>
                             <option value="Vanuatu">Vanuatu</option>
@@ -328,7 +342,8 @@
 
                         <div class="form-group col-md-2">
                           <label for="inputZip">Zip</label>
-                          <input type="text" class="form-control" name="Zip" id="inputZip" value="{{ old('Zip') }}"> </div>
+                          <input type="text" class="form-control" name="Zip" id="inputZip" value="{{ old('Zip') }}">
+                        </div>
                       </div>
 
                       <div class="form-row">
@@ -349,7 +364,7 @@
 
     </div>
 
-    @component("yal\laraveldash::components.footer",["top"=>"50px"])
+    @component("laravelDash::components.footer",["top"=>"50px"])
       <div class="col-md-3 col-sm-6 footer-col">
         <h6 class="heading7">Social Media</h6>
         <ul class="footer-social">

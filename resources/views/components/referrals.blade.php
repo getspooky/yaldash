@@ -5,9 +5,10 @@
     </div>
     <div class="card-footer border-top">
       <div class="row">
-        <img src="https://coderthemes.com/hyper/layouts/default/assets/images/email-campaign.svg" style="position:relative;width:100%;height:100%;object-fit:cover;margin-bottom:30px;">
+        <img src="https://coderthemes.com/hyper/layouts/default/assets/images/email-campaign.svg"
+             style="position:relative;width:100%;height:100%;object-fit:cover;margin-bottom:30px;">
         <div class="col text-right view-report">
-          <a href="{{route('dashboard.sell.index')}}">Create One &rarr;</a>
+          <a href="{{ route('dashboard.sell.index') }}">Create One &rarr;</a>
         </div>
       </div>
     </div>

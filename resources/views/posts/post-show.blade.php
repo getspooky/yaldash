@@ -1,8 +1,8 @@
-@extends("yal\laraveldash::home")
+@extends('laravelDash::layouts.master')
 
 @section("content")
 
-  @component("yal\laraveldash::components.navbar")
+  @component("laravelDash::components.navbar")
     <div class="page-header row no-gutters py-4">
       <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
         <span class="text-uppercase page-subtitle">Dashboard</span>
@@ -12,7 +12,7 @@
 
     <!-- show all posts order by id -->
 
-    @if($post->count()>0)
+      @if($post->count()>0)
         <div class="row">
           <div class="col-lg-12">
             <div class="mb-2">
@@ -26,7 +26,7 @@
 
     </div>
 
-    @component("yal\laraveldash::components.footer",["top"=>"50px"])
+    @component("laravelDash::components.footer",["top"=>"50px"])
       <div class="col-md-3 col-sm-6 footer-col">
         <h6 class="heading7">Social Media</h6>
         <ul class="footer-social">
@@ -36,8 +36,8 @@
           <li><i class="fa fa-google-plus social-icon google" aria-hidden="true"></i></li>
         </ul>
       </div>
-    @endcomponent
+      @endcomponent
 
-    </div>
+      </div>
 
 @endsection

@@ -6,10 +6,12 @@
 
   <ul class="navbar-nav border-left flex-row ">
     <li class="nav-item border-right dropdown notifications">
-      <a class="nav-link nav-link-icon text-center" data-toggle="dropdown" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <a class="nav-link nav-link-icon text-center" data-toggle="dropdown" href="#" role="button" id="dropdownMenuLink"
+         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <div class="nav-link-icon__wrapper">
           <i class="material-icons">&#xE7F4;</i>
-          <span class="badge badge-pill badge-danger">{{ optional(\yal\laraveldash\Helper\Helper::Notifications(auth()->id()))->count() }}</span>
+          <span
+            class="badge badge-pill badge-danger">{{ optional(\yal\laraveldash\Helper\Helper::Notifications(auth()->id()))->count() }}</span>
         </div>
       </a>
       <div class="dropdown-menu dropdown-menu-small" role="menu" aria-labelledby="dropdownMenuLink">
@@ -28,7 +30,7 @@
             </a>
             {{$notification->markAsRead()}}
           @endforeach
-          <a class="dropdown-item notification__all text-center" href=""> Mark all Notifications as Read  </a>
+          <a class="dropdown-item notification__all text-center" href=""> Mark all Notifications as Read </a>
         @else
           <a class="dropdown-item" href="#">
             <div class="notification__icon-wrapper">
@@ -45,8 +47,10 @@
       </div>
     </li>
     <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle text-nowrap px-3" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-        <img class="user-avatar rounded-circle mr-2" width="50" height="40" src="{{ \yal\laraveldash\Helper\Helper::UploadedAvatar(auth()->user()) }}" alt="User Avatar">
+      <a class="nav-link dropdown-toggle text-nowrap px-3" data-toggle="dropdown" href="#" role="button"
+         aria-haspopup="true" aria-expanded="false">
+        <img class="user-avatar rounded-circle mr-2" width="50" height="40"
+             src="{{ \yal\laraveldash\Helper\Helper::UploadedAvatar(auth()->user()) }}" alt="User Avatar">
         <span class="d-none d-md-inline-block">{{ auth()->user()->name }}</span>
       </a>
       <div class="dropdown-menu dropdown-menu-small">
@@ -60,7 +64,8 @@
   </ul>
 
   <nav class="nav">
-    <a href="#" class="nav-link nav-link-icon toggle-sidebar d-md-inline d-lg-none text-center border-left" data-toggle="collapse" data-target=".header-navbar" aria-expanded="false" aria-controls="header-navbar">
+    <a href="#" class="nav-link nav-link-icon toggle-sidebar d-md-inline d-lg-none text-center border-left"
+       data-toggle="collapse" data-target=".header-navbar" aria-expanded="false" aria-controls="header-navbar">
       <i class="material-icons">&#xE5D2;</i>
     </a>
   </nav>

@@ -1,25 +1,30 @@
-@extends("yal\laraveldash::home")
+@extends('laravelDash::layouts.master')
 
-@section("content")
+@section('content')
 
-   @component("yal\laraveldash::components.navbar")
-     <div class="page-header row no-gutters py-4">
-       <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+  @component("yal\laraveldash::components.navbar")
+    <div class="page-header row no-gutters py-4">
+      <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
         <span class="text-uppercase page-subtitle">Dashboard</span>
         <h3 class="page-title" style="margin-top:10px;">Manage Overview</h3>
       </div>
-    @endcomponent
+      @endcomponent
 
       <div class="row">
         <div class="col">
-          <manage-component show="{{ route('post.index') }}" type="posts" delete="{{ route('dashboard.manage.index') }}" token="{{ session()->token() }}" route="{{ route('dashboard.manage.jsonData') }}" show="{{ route('post.index') }}"></manage-component>
+          <manage-component show="{{ route('post.index') }}" type="posts" delete="{{ route('dashboard.manage.index') }}"
+                            token="{{ session()->token() }}" route="{{ route('dashboard.manage.jsonData') }}"
+                            show="{{ route('post.index') }}"></manage-component>
           <br>
-          <manage-component show="{{ route('dashboard.store.index') }}" type="products" delete="{{ route('dashboard.manage.index') }}" token="{{ session()->token() }}" route="{{ route('dashboard.manage.jsonData') }}" show="{{ route('post.index') }}"></manage-component>
+          <manage-component show="{{ route('dashboard.store.index') }}" type="products"
+                            delete="{{ route('dashboard.manage.index') }}" token="{{ session()->token() }}"
+                            route="{{ route('dashboard.manage.jsonData') }}"
+                            show="{{ route('post.index') }}"></manage-component>
         </div>
       </div>
     </div>
 
-    @component("yal\laraveldash::components.footer",["top"=>"50px"])
+    @component("laravelDash::components.footer",["top"=>"50px"])
       <div class="col-md-3 col-sm-6 footer-col">
         <h6 class="heading7">Social Media</h6>
         <ul class="footer-social">

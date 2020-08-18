@@ -17,38 +17,38 @@ use Illuminate\Http\Request;
 class CheckoutController extends Controller
 {
 
-    public function __construct()
-    {
-        $this->middleware(['web', 'auth']);
+  public function __construct()
+  {
+    $this->middleware(['web', 'auth']);
+  }
+
+  public function index()
+  {
+    $products = auth()->user()->buy;
+    return view("laravelDash::checkout", compact('products'));
+  }
+
+  public function charges(Request $request)
+  {
+    try {
+
+      $charge = Stripe::charges()->create([
+        'currency' => 'USD',
+        'amount' => $request->get('amount'),
+        'source' => $request->get('stripeToken')
+      ]);
+
+      return response()->json([
+        'success' => 'Your payment has been successfully processed',
+        'payload' => $charge
+      ]);
+
+    } catch (\Exception $exception) {
+      return response()->json([
+        'error' => $exception->getMessage(),
+        'status' => $exception->getCode(),
+        'result' => $request->get('stripeToken')
+      ]);
     }
-
-    public function index()
-    {
-        $products = auth()->user()->buy;
-        return view("yal\laraveldash::checkout", compact('products'));
-    }
-
-    public function charges(Request $request)
-    {
-        try {
-
-            $charge = Stripe::charges()->create([
-                'currency' => 'USD',
-                'amount'   => $request->get('amount'),
-                'source'   => $request->get('stripeToken')
-            ]);
-
-            return response()->json([
-                'success' => 'Your payment has been successfully processed',
-                'payload' => $charge
-            ]);
-
-        } catch (\Exception $exception) {
-            return response()->json([
-                'error'  => $exception->getMessage(),
-                'status' => $exception->getCode(),
-                'result' => $request->get('stripeToken')
-            ]);
-        }
-    }
+  }
 }
