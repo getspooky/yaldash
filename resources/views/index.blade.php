@@ -1,5 +1,7 @@
 @extends('laravelDash::layouts.master')
 
+@section('title', 'Dashboard Overview'. ' | ' . config('app.name', 'Laravel'))
+
 @section("content")
 
   @component("laravelDash::components.navbar")

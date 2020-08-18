@@ -1,5 +1,7 @@
 @extends('laravelDash::layouts.master')
 
+@section('title', auth()->user()->name . ' Settings'. ' | ' . config('app.name', 'Laravel'))
+
 @section("content")
 
   @component("laravelDash::components.navbar")
