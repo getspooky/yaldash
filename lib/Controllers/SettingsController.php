@@ -10,14 +10,15 @@
 
 namespace yal\laraveldash\Controllers;
 
-use Illuminate\Http\File;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Validator;
 use App\User;
-use yal\laraveldash\Events\NotificationEvent;
+use Illuminate\Http\File;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 use yal\laraveldash\Models\Country;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Validator;
+use yal\laraveldash\Events\NotificationEvent;
 use yal\laraveldash\Notifications\DashboardNotification;
 
 class SettingsController extends Controller
@@ -108,7 +109,7 @@ class SettingsController extends Controller
   public function Upload(Request $request)
   {
     $user = auth()->user()->attachementUser();
-    $generate_name = str_random(16) . '.' . $request->file('file')->getClientOriginalExtension();
+    $generate_name = Str::random(16) . '.' . $request->file('file')->getClientOriginalExtension();
     $upload_avatar = $user->create(['file_name' => $generate_name]);
     if ($upload_avatar) {
       $user->getRelated()->newInstance()
