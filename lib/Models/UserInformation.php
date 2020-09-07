@@ -15,29 +15,31 @@ use Illuminate\Database\Eloquent\Model;
 
 class UserInformation extends Model
 {
-    protected $fillable = [
-      'username',
-      'Description',
-      'last_name',
-      'Address',
-      'Address2',
-      'City',
-      'Country',
-      'Zip'
-    ];
+  protected $fillable = [
+    'description',
+    'last_name',
+    'address',
+    'city',
+    'country_id',
+    'zip'
+  ];
 
-    protected $guarded = ['id'];
+  protected $guarded = ['id'];
 
-    public $table = "user_informations";
+  public $table = "user_informations";
 
-    public function users()
-    {
-        return $this->belongsTo(User::class);
-    }
+  public function users()
+  {
+    return $this->belongsTo(User::class);
+  }
 
-    public function resolveChildRouteBinding($childType, $value, $field)
-    {
-      // TODO: Implement resolveChildRouteBinding() method.
-    }
+  public function resolveChildRouteBinding($childType, $value, $field)
+  {
+    // TODO: Implement resolveChildRouteBinding() method.
+  }
 
+  public function country()
+  {
+    return $this->belongsTo(Country::class);
+  }
 }

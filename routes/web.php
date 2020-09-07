@@ -22,7 +22,7 @@ Route::prefix(config('laravelDash.prefix'))->group(function () use ($namespacePr
   Route::resource('post', $namespacePrefix. '\PostController');
   Route::get('Settings',  $namespacePrefix. '\SettingsController@index')
             ->name('dashboard.settings.index');
-  Route::put('Settings',  $namespacePrefix .'\SettingsController@Update')
+  Route::put('Settings',  $namespacePrefix .'\SettingsController@update')
             ->name('dashboard.settings.update');
   Route::post('Settings/upload/avatar', $namespacePrefix. '\SettingsController@Upload')
             ->name('dashboard.settings.upload_avatar');

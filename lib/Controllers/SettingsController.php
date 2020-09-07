@@ -17,18 +17,19 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use App\User;
 use yal\laraveldash\Events\NotificationEvent;
+use yal\laraveldash\Models\Country;
 use yal\laraveldash\Notifications\DashboardNotification;
 
 class SettingsController extends Controller
 {
 
   private $user_information = [
-    'Country',
-    'Zip',
-    'Address',
-    'Description',
-    'City',
-    'LastName'
+    'country_id',
+    'zip',
+    'address',
+    'description',
+    'city',
+    'last_name'
   ];
 
   private $user_register_default_information = ['email', 'name'];
@@ -40,7 +41,8 @@ class SettingsController extends Controller
 
   public function index()
   {
-    return view('laravelDash::users.settings');
+    $countries = Country::all('name', 'id');
+    return view('laravelDash::users.settings', compact('countries'));
   }
 
   /**
@@ -49,7 +51,7 @@ class SettingsController extends Controller
    * @param Request $request
    * @return RedirectResponse
    */
-  public function Update(Request $request)
+  public function update(Request $request)
   {
     $this->Validator($request->all())->validate();
     $attach = auth()->user()->information();
@@ -73,7 +75,8 @@ class SettingsController extends Controller
       'name' => auth()->user()->name,
       'to' => 'auth'
     ]));
-    return redirect()->route('dashboard.settings.update');
+    return redirect()->route('dashboard.settings.update')
+      ->with('status', 'Information has been update successfully!');
   }
 
   public function Validator(array $data)
@@ -81,12 +84,12 @@ class SettingsController extends Controller
     return Validator::make($data, [
       'name' => ['required', 'string', 'max:255'],
       'email' => ['required', 'string', 'email', 'max:255'],
-      'LastName' => ['required', 'string', 'max:20'],
-      'Address' => ['required', 'string', 'min:3'],
-      'City' => ['required', 'string'],
-      'Zip' => ['required', 'integer'],
-      'Country' => ['required', 'string'],
-      'Description' => ['required', 'string', 'min:80', 'max:200']
+      'last_name' => ['required', 'string', 'max:20'],
+      'address' => ['required', 'string', 'min:3'],
+      'city' => ['required', 'string'],
+      'zip' => ['required', 'numeric'],
+      'country_id' => ['required', 'integer'],
+      'description' => ['required', 'string', 'min:80', 'max:200']
     ]);
   }
 

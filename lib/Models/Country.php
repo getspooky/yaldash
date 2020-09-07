@@ -10,7 +10,6 @@
 
 namespace yal\laraveldash\Models;
 
-use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Country extends Model
@@ -20,8 +19,5 @@ class Country extends Model
 
     protected $guarded = ['id'];
 
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
+   //
 }

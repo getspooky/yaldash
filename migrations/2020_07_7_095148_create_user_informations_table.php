@@ -26,12 +26,13 @@ class CreateUserInformationsTable extends Migration
             $table->increments('id');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onCascade('delete');
-            $table->string('Description')->nullable();
-            $table->string('LastName')->nullable();
-            $table->string('Address')->nullable();
-            $table->string('City')->nullable();
-            $table->string('Country')->nullable();
-            $table->integer('Zip')->nullable();
+            $table->unsignedBigInteger('country_id')->nullable();
+            $table->foreign('country_id')->references('id')->on('countries')->onCascade('delete');
+            $table->string('description')->nullable();
+            $table->string('last_name')->nullable();
+            $table->string('address')->nullable();
+            $table->string('city')->nullable();
+            $table->string('zip', 10)->nullable();
             $table->timestamps();
         });
     }
