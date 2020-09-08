@@ -1,5 +1,7 @@
 @extends('laravelDash::layouts.master')
 
+@section('title', 'All Posts'. ' | ' . config('app.name', 'Laravel'))
+
 @section("content")
 
   @component("laravelDash::components.navbar")
@@ -34,13 +36,10 @@
                     <span
                       class="text-muted">{{ (new \Carbon\Carbon($get_post->updated_at))->toFormattedDateString() }}</span>
                     <div class="my-auto ml-auto">
-                      <form method="post" id="show"
-                            action="{{ route('dashboard.post.DevicesStore',['id'=>$get_post->id]) }}">
-                        @csrf
-                        <button type="submit" class="btn btn-sm btn-white" style="margin-top:10px !important;">
-                          <i class="far fa-bookmark mr-1"></i> Read Post
-                        </button>
-                      </form>
+                      <a href="{{ route('post.show',[$get_post->id]) }}"
+                         class="btn btn-sm btn-white" style="margin-top:10px !important;">
+                        <i class="far fa-bookmark mr-1"></i> Read Post
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -67,13 +66,10 @@
                       </div>
                     </div>
                     <div class="my-auto ml-auto">
-                      <form method="post" id="show"
-                            action="{{ route('dashboard.post.DevicesStore',['id'=>$get_post->id]) }}">
-                        @csrf
-                        <button type="submit" class="btn btn-sm btn-white" style="margin-top:10px !important;">
-                          <i class="far fa-bookmark mr-1"></i> Read Post
-                        </button>
-                      </form>
+                      <a href="{{ route('post.show',[$get_post->id]) }}"
+                         class="btn btn-sm btn-white" style="margin-top:10px !important;">
+                        <i class="far fa-bookmark mr-1"></i> Read Post
+                      </a>
                     </div>
                   </div>
                 </div>
