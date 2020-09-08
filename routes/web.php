@@ -28,7 +28,7 @@ Route::prefix(config('laravelDash.prefix'))->group(function () use ($namespacePr
             ->name('dashboard.settings.upload_avatar');
   Route::post('Settings/delete', $namespacePrefix. '\SettingsController@Delete')
             ->name('dashboard.settings.delete_account.destroy');
-  Route::get('Manage', $namespacePrefix. '\Controller@index')
+  Route::get('Manage', $namespacePrefix. '\ManageController@index')
             ->name('dashboard.manage.index');
   Route::get('JsonManage', $namespacePrefix. '\ManageController@Response')
             ->name('dashboard.manage.jsonData');
