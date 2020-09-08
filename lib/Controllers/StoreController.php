@@ -10,13 +10,14 @@
 
 namespace yal\laraveldash\Controllers;
 
-use App\Http\Controllers\Controller;
 use Exception;
 use Illuminate\Http\File;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use yal\laraveldash\Models\Buy;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use yal\laraveldash\Events\NotificationEvent;
-use yal\laraveldash\Models\Buy;
 
 class StoreController extends Controller
 {
@@ -28,8 +29,8 @@ class StoreController extends Controller
 
     public function index()
     {
-        $store = auth()->user()->store()->orderBy('id', 'desc')->get();
-        return view('yal\laraveldash::store', compact('store'));
+        $store = auth()->user()->store()->orderByDesc('id')->get();
+        return view('laravelDash::store', compact('store'));
     }
 
     public function buy($id)
@@ -62,7 +63,7 @@ class StoreController extends Controller
                   'name' => auth()->user()->name,
                   'to' => 'auth'
                 ]));
-                $generate_name = str_random(16) . '.' . $request->file('file_name')->getClientOriginalExtension();
+                $generate_name = Str::random(16) . '.' . $request->file('file_name')->getClientOriginalExtension();
                 $store->attachementStore()->create([
                     'file_name' => $generate_name,
                 ]);
