@@ -47,11 +47,11 @@
 
 <dl>
   <dt>Dashboard Template</dt>
-  <dd>The design don’t just look good though, they are also fully mobile responsive to accommodate users that are accessing your app, software, or website on their smartphones and tablets, no matter what size screen they have.</dd>
+  <dd>The design doesn’t just look good though, they are also fully mobile responsive to accommodate users that are accessing your app, software, or website on their smartphones and tablets, no matter what size screen they have.</dd>
   <dt>Settings Manager</dt>
-  <dd>The Settings section allows you to update your personal information.This can be anything from your First Name , Email , Country , Password , Address or Image.</dd>
+  <dd>The Settings section allows you to update your personal information. This can be anything from your First Name , Email , Country , Password , Address or Image.</dd>
   <dt>Vue2Editor Integration</dt>
-  <dd>Your editor for rich text editing built with Vue.js and Quill.js , Simple setup so you can get started quickly , Offers the options you need for more complex scenarios</dd>
+  <dd>Your editor for rich text editing built with Vue.js and Quill.js, Simple setup so you can get started quickly , Offers the options you need for more complex scenarios</dd>
   <dt>Cross platform and browser support</dt>
   <dd>Build HTML5 web apps for desktops, tablets and smartphones with touch screen interface which work in all major browsers.</dd>
   <dt>Stripe Checkout</dt>
@@ -73,7 +73,7 @@ LaravelDash has a few requirements you should be aware of before installing:
 
 ## Browser Support
 
-LaravelDash supports reasonably recent versions of the following browsers::
+LaravelDash supports reasonably recent versions of the following browsers:
 
 - Google Chrome
 - Microsoft Edge
@@ -108,7 +108,7 @@ php artisan ui --auth
 
 ### Minute 2: Configuration
 
-Firstly, make sure to create a new database and add your database credentials to your .env file :
+Firstly, make sure to create a new database and add your database credentials to your .env file:
 ```sh
 APP_URL=http://localhost
 DB_HOST=localhost
@@ -148,7 +148,7 @@ php artisan vendor:publish --provider="yal\laraveldash\Providers\DashboardServic
 
 ### Minute 4: Running Migrations and Defining Relationships
 
-Generated migrations are regular Laravel migrations , Run the migrations with:
+Generated migrations are regular Laravel migrations, Run the migrations with:
 
 ```sh
 php artisan migrate
@@ -160,7 +160,7 @@ Or run the LaravelDash command, that provides you with what you need to start us
 php artisan laraveldash:install
 ```
 
-Database tables are often related to one another. For example, a blog post may have many comments, or an order could be related to the user who placed it. Eloquent makes managing and working with these relationships easy. so go to App\User.php and add UserRelation
+Database tables are often related to one another. For example, a blog post may have many comments, or an order could be related to the user who placed it. Eloquent makes managing and working with these relationships easy. So, go to App\User.php and add UserRelation
 
 ```php
 <?php
