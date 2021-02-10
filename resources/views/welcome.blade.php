@@ -3,9 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title>Laravel</title>
-
+  <title>yaldash 🏴‍☠️️</title>
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
@@ -40,12 +38,12 @@
     }
     .title {
       font-size: 84px;
-      color: rgb(84 187 238);
+      color: #1C1C1C;
       position:relative;
       top:-20px;
     }
     .links > a {
-      color: rgb(84 187 238);
+      color: #1C1C1C;
       padding: 0 25px;
       font-size: 13px;
       font-weight: 600;
@@ -69,15 +67,15 @@
     </div>
 
     <div class="title m-b-md">
-      🐳 laraveldash
+      yaldash 🏴‍☠️️
     </div>
 
     <div class="links">
-      <a href="https://getspooky.github.io/laravelDash/#/" target="_blank">Docs</a>
-      <a href="https://getspooky.github.io/laravelDash/#/Feature" target="_blank">Features</a>
-      <a href="https://github.com/getspooky/laravelDash/issues" target="_blank">Issues</a>
+      <a href="https://getspooky.github.io/yaldash/#/" target="_blank">Docs</a>
+      <a href="https://getspooky.github.io/yaldash/#/Feature" target="_blank">Features</a>
+      <a href="https://github.com/getspooky/yaldash/issues" target="_blank">Issues</a>
       <a href="https://www.paypal.me/SpookyCommunity" target="_blank">Donate</a>
-      <a href="https://github.com/getspooky/laravelDash" target="_blank">GitHub</a>
+      <a href="https://github.com/getspooky/yaldash" target="_blank">GitHub</a>
     </div>
 
   </div>

@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the laravelDash package.
+ * This file is part of the yaldash  package.
  *
  * (c) Yasser Ameur El Idrissi <getspookydev@gmail.com>
  *
@@ -28,7 +28,6 @@ class LaravelDashInstall extends Command
      * The console command description.
      *
      * @var $description
-     * @types {String}
      */
     protected $description = 'Install the laraveldash package';
 
@@ -44,12 +43,12 @@ class LaravelDashInstall extends Command
 
     /**
      * Execute the console command.
-     * @function
+     * 
      * @return mixed
      */
     public function handle()
     {
-        $this->info('Publishing the laraveldash config file');
+        $this->info('Publishing the yaldash config file');
         $this->call('vendor:publish', ['--provider' => DashboardServiceProvider::class, '--tag' => 'config']);
         $this->info('Migrating the database tables into your application');
         $this->call('migrate');

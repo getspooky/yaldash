@@ -18,7 +18,8 @@
             <div class="col-lg-4">
               <span class="image fit"><img
                   src="{{ \yal\laraveldash\Helper\Helper::UploadedAvatar(\App\User::find(auth()->id())) }}"
-                  alt=""/></span>
+                  alt=""/>
+              </span>
             </div>
             <div class="col-lg-7 col-7-large col-12-medium">
               <header>

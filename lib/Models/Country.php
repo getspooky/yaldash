@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the laravelDash package.
+ * This file is part of the yaldash  package.
  *
  * (c) Yasser Ameur El Idrissi <getspookydev@gmail.com>
  *
@@ -14,10 +14,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Country extends Model
 {
-
     protected $fillable = ['code','name'];
 
     protected $guarded = ['id'];
 
-   //
 }

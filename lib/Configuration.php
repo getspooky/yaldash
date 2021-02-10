@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the laravelDash package.
+ * This file is part of the yaldash  package.
  *
  * (c) Yasser Ameur El Idrissi <getspookydev@gmail.com>
  *
@@ -18,7 +18,7 @@
      | any other location as required by the application or its packages.
      |
      */
-      'name' => 'LaravelDash',
+      'name' => 'yaldash',
 
       /*
        |----------------------------------------------------------------------------

@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the laravelDash package.
+ * This file is part of the yaldash  package.
  *
  * (c) Yasser Ameur El Idrissi <getspookydev@gmail.com>
  *
@@ -30,11 +30,9 @@ class Attachement extends Model
     public function UploadFile(File $file, $name)
     {
         $upload = Storage::putFileAs('public/avatars', $file, $name);
-
         if ($upload) {
             return $upload;
         }
-
         return false;
     }
 
@@ -43,7 +41,6 @@ class Attachement extends Model
         if (FacadeFile::exists($file)) {
             return FacadeFile::delete($file);
         }
-
         return false;
     }
 
@@ -52,7 +49,6 @@ class Attachement extends Model
         if (FacadeFile::exists($file) && FacadeFile::isFile($file)) {
             return rename($file, $file_rename);
         }
-
         return false;
     }
 

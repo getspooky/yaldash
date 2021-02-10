@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the laravelDash package.
+ * This file is part of the yaldash  package.
  *
  * (c) Yasser Ameur El Idrissi <getspookydev@gmail.com>
  *
@@ -46,7 +46,8 @@ class SubscribeController extends Controller
     } catch (Exception $e) {
 
       return response()->json([
-        "error" => $e->getMessage(), "code" => $e->getCode()
+        "error" => $e->getMessage(), 
+        "code" => $e->getCode()
       ]);
 
     }

@@ -1,58 +1,58 @@
 {
-    "name": "yal/laraveldash",
-    "description": "laraveldash is a beautifully designed administration panel for Laravel",
-    "version": "2.0.3",
-    "keywords": [
-      "laravel",
-      "laravel-application",
-      "vue",
-      "admin",
-      "admin-dashboard",
-      "crud",
-      "panel-dashboard",
-      "payment",
-      "php"
-    ],
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Yasser Ameur el idrissi",
-            "email": "spookyframework@gmail.com",
-            "role": "Maintainer",
-            "homepage": "https://github.com/getspooky"
-        }
-    ],
-    "require": {
-        "cartalyst/stripe-laravel": "8.0.* || 9.0.* || 10.0.*|| 11.0.*|| 12.0.*",
-        "cartalyst/stripe": "^2.0",
-        "nesbot/carbon": "^1.26.3 || ^2.0",
-        "laravel/framework": "^5.4 || ^5.8 || ^6.0 || ^7.0",
-        "illuminate/support": "~5.0|^6.0|^7.0",
-        "mitnick/laravel-security": "^1.0"
+  "name": "yal/laraveldash",
+  "description": "yaldash is a beautifully designed administration panel for Laravel",
+  "version": "3.0.0",
+  "keywords": [
+    "laravel",
+    "laravel-application",
+    "vue",
+    "admin",
+    "admin-dashboard",
+    "crud",
+    "panel-dashboard",
+    "payment",
+    "php"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Yasser Ameur el idrissi",
+      "email": "spookyframework@gmail.com",
+      "role": "Maintainer",
+      "homepage": "https://github.com/getspooky"
+    }
+  ],
+  "require": {
+    "cartalyst/stripe-laravel": "8.0.* || 9.0.* || 10.0.*|| 11.0.*|| 12.0.*",
+    "cartalyst/stripe": "^2.0",
+    "nesbot/carbon": "^1.26.3 || ^2.0",
+    "laravel/framework": "^5.4 || ^5.8 || ^6.0 || ^7.0",
+    "illuminate/support": "~5.0|^6.0|^7.0",
+    "mitnick/laravel-security": "^1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "yal\\laraveldash\\": "lib/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "yal\\laraveldash\\Tests\\": "./tests/"
+    }
+  },
+  "require-dev": {
+    "laravel/browser-kit-testing": "^5.1",
+    "phpunit/phpunit": "^7.0"
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0-dev"
     },
-    "autoload": {
-        "psr-4": {
-            "yal\\laraveldash\\": "lib/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "yal\\laraveldash\\Tests\\": "./tests/"
-        }
-    },
-    "require-dev": {
-        "laravel/browser-kit-testing": "^5.1",
-        "phpunit/phpunit": "^7.0"
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "1.0-dev"
-        },
-        "laravel": {
-            "providers": [
-                "yal\\laraveldash\\Providers\\DashboardServiceProvider"
-            ]
-        }
-    },
-    "minimum-stability": "stable"
+    "laravel": {
+      "providers": [
+        "yal\\laraveldash\\Providers\\DashboardServiceProvider"
+      ]
+    }
+  },
+  "minimum-stability": "stable"
 }
