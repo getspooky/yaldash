@@ -26,22 +26,11 @@
 - [Security Vulnerabilities](#Security-Vulnerabilities)
 - [Changelog](#changelog)
 - [License](#license)
-- [Support the Team](#Support-the-Team)
+- [Screenshot](#Screenshot)
 
-## Introduction 
+## Introduction
 
-🐳 It's never been easier to build and customize admin panels. Yah! laravelDash is a beautifully designed administration panel for Laravel.
-
-<table>
-  <tr>
-    <td><img src="./docs/screens/Dashboard-Interface.jpg"  alt="Dashboard Interface" width="430px" height="290px" ></td>
-    <td><img src="./docs/screens/Checkout-Interface.jpg" alt="Checkout Interface" width="430px" height="290px"></td>
-   </tr> 
-   <tr>
-      <td><img src="./docs/screens/CRUD-Interface.png" alt="CRUD Interface" width="430px" height="290px"></td>
-      <td><img src="./docs/screens/Post-Interface.jpg" align="right" alt="Post Interface" width="430px" height="290px"></td>
-  </tr>
-</table>
+It's never been easier to build and customize admin panels. Yah! `yaldash` also called `laravelDash` is a beautifully designed administration panel for Laravel.
 
 ## Features
 
@@ -61,26 +50,26 @@ Payment methods: credit and debit cards, Apple Pay</dd>
 
 ## Documentation
 
-For installation instructions, in-depth usage and deployment details, please take a look at the official [documentation](https://getspooky.github.io/laravelDash/#/).
+For installation instructions, in-depth usage and deployment details, please take a look at the official [documentation](https://getspooky.github.io/yaldash/#/).
 
 ## Requirements
-LaravelDash has a few requirements you should be aware of before installing:
+
+yaldash has a few requirements you should be aware of before installing:
 
 - Composer
-- Laravel Framework 5.4+ 
+- Laravel Framework 5.4+
 - Laravel Mix
 - Node.js & NPM
 
 ## Browser Support
 
-LaravelDash supports reasonably recent versions of the following browsers:
+yaldash supports reasonably recent versions of the following browsers:
 
 - Google Chrome
 - Microsoft Edge
 - Firefox
 - Opera
 - Safari
-
 
 ## Usage
 
@@ -96,10 +85,11 @@ we assume that you have been able to set up your development environment. There 
 I will be using via composer to create new project
 
 ```sh
-composer create-project --prefer-dist laravel/laravel blog 
+composer create-project --prefer-dist laravel/laravel blog
 ```
 
 Laravel provides a quick way to scaffold all of the routes and views you need for authentication using one simple command:
+
 ```sh
 composer require laravel/ui
 
@@ -109,6 +99,7 @@ php artisan ui --auth
 ### Minute 2: Configuration
 
 Firstly, make sure to create a new database and add your database credentials to your .env file:
+
 ```sh
 APP_URL=http://localhost
 DB_HOST=localhost
@@ -117,21 +108,21 @@ DB_USERNAME=homestead
 DB_PASSWORD=secret
 ```
 
-### Minute 3: Install and Configure laravelDash
+### Minute 3: Install and Configure yaldash
 
-LaravelDash is super easy to install. After creating your new Laravel application you can include the laravelDash package with the following command:
+yaldash is super easy to install. After creating your new Laravel application you can include the yaldash package with the following command:
 
 ```sh
 composer require yal/laraveldash
 ```
 
-LaravelDash will automatically register its service provider if you are using Laravel >=5.5. If you are using LaravelDash with Laravel 5.3 or 5.4, add LaravelDash’s service provider in your application’s config/app.php file:
+yaldash will automatically register its service provider if you are using Laravel >=5.5. If you are using yaldash with Laravel 5.3 or 5.4, add yaldash’s service provider in your application’s config/app.php file:
 
 ```php
 /*
- * Laraveldash Service Provider
+ * yaldash Service Provider
  */
-yal\laraveldash\Providers\DashboardServiceProvider::class, 
+yal\laraveldash\Providers\DashboardServiceProvider::class,
 ```
 
 Next, you need to publish the laravelDash configuration file:
@@ -178,13 +169,13 @@ class User extends Authenticatable
 }
 ```
 
-### Minute 5:Yah! You’re on LaravelDash !
+### Minute 5:Yah! You’re on yaldash !
 
 To see it, you need to start a web server on your development machine. You can do this by running the following command:php artisan serve and then head to `http://localhost:8000/Dashboard`
 
 ## Contribute
 
-Whether you're helping us fix bugs, improve the docs, or spread the word, we'd love to have you as part of the `LaravelDash` community! 💪💜  See CONTRIBUTING.md for more information on what we're looking for and how to get started.
+Whether you're helping us fix bugs, improve the docs, or spread the word, we'd love to have you as part of the `yaldash` community! 💪💜 See CONTRIBUTING.md for more information on what we're looking for and how to get started.
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
@@ -207,9 +198,11 @@ Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recen
 
 ## License
 
-The LaravelDash Library is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+The yaldash Library is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
-## Support on Beerpay
-Hey dude! Help me out for a couple of :beers:!
+## Screenshot
 
-[![Beerpay](https://beerpay.io/getspooky/laravelDash/badge.svg?style=beer-square)](https://beerpay.io/getspooky/laravelDash)  [![Beerpay](https://beerpay.io/getspooky/laravelDash/make-wish.svg?style=flat-square)](https://beerpay.io/getspooky/laravelDash?focus=wish)
+<img src="./docs/screens/Dashboard-Interface.jpg"  alt="Dashboard Interface" height="290px" >
+<img src="./docs/screens/Checkout-Interface.jpg" alt="Checkout Interface" height="290px">
+<img src="./docs/screens/CRUD-Interface.png" alt="CRUD Interface" height="290px">
+<img src="./docs/screens/Post-Interface.jpg" align="right" alt="Post Interface" height="290px">
