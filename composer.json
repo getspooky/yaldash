@@ -42,7 +42,7 @@
   },
   "require-dev": {
     "laravel/browser-kit-testing": "^5.1",
-    "phpunit/phpunit": "^7.0"
+    "phpunit/phpunit": "^9.5"
   },
   "extra": {
     "branch-alias": {
