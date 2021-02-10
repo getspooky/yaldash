@@ -202,7 +202,11 @@ The yaldash Library is open-source software licensed under the [MIT license](htt
 
 ## Screenshot
 
-<img src="./docs/screens/Dashboard-Interface.jpg"  alt="Dashboard Interface" height="290px" >
-<img src="./docs/screens/Checkout-Interface.jpg" alt="Checkout Interface" height="290px">
-<img src="./docs/screens/CRUD-Interface.png" alt="CRUD Interface" height="290px">
-<img src="./docs/screens/Post-Interface.jpg" align="right" alt="Post Interface" height="290px">
+<img src="./docs/screens/Dashboard-Interface.jpg"  alt="Dashboard Interface">
+<img src="./docs/screens/Checkout-Interface.jpg" alt="Checkout Interface">
+<img src="./docs/screens/CRUD-Interface.png" alt="CRUD Interface">
+<img src="./docs/screens/Post-Interface.jpg" align="right" alt="Post Interface">
+
+<div align="center">
+   Happy Coding ❤️
+</div>
