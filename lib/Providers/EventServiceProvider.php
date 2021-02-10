@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the laravelDash package.
+ * This file is part of the yaldash  package.
  *
  * (c) Yasser Ameur El Idrissi <getspookydev@gmail.com>
  *
@@ -16,7 +16,6 @@ use yal\laraveldash\Listeners\NotificationListeners;
 
 class EventServiceProvider extends ServiceProvider
 {
-
     /**
      * The event listener mappings for the application.
      *
@@ -37,4 +36,5 @@ class EventServiceProvider extends ServiceProvider
     {
         parent::boot();
     }
+
 }

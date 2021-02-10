@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the laravelDash package.
+ * This file is part of the yaldash  package.
  *
  * (c) Yasser Ameur El Idrissi <getspookydev@gmail.com>
  *
@@ -46,12 +46,6 @@ class SettingsController extends Controller
     return view('laravelDash::users.settings', compact('countries'));
   }
 
-  /**
-   * Update the specified resource in storage information.
-   *
-   * @param Request $request
-   * @return RedirectResponse
-   */
   public function update(Request $request)
   {
     $this->Validator($request->all())->validate();
@@ -76,8 +70,10 @@ class SettingsController extends Controller
       'name' => auth()->user()->name,
       'to' => 'auth'
     ]));
+
     return redirect()->route('dashboard.settings.update')
       ->with('status', 'Information has been update successfully!');
+      
   }
 
   public function Validator(array $data)

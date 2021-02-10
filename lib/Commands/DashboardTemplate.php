@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the laravelDash package.
+ * This file is part of the yaldash  package.
  *
  * (c) Yasser Ameur El Idrissi <getspookydev@gmail.com>
  *
@@ -19,7 +19,6 @@ class DashboardTemplate extends Command
      * The name and signature of the console command.
      *
      * @var $signature
-     * @types {String}
      */
     protected $signature = 'laraveldash:resource {name}';
 
@@ -33,7 +32,7 @@ class DashboardTemplate extends Command
 
     /**
      * Create a new command instance.
-     * @function
+     * 
      * @return void
      */
     public function __construct()
@@ -43,7 +42,7 @@ class DashboardTemplate extends Command
 
     /**
      * Execute the console command.
-     * @function
+     * 
      * @return mixed
      */
     public function handle()

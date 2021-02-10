@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the laravelDash package.
+ * This file is part of the yaldash  package.
  *
  * (c) Yasser Ameur El Idrissi <getspookydev@gmail.com>
  *
@@ -45,6 +45,7 @@ class StoreController extends Controller
     public function store(Request $request)
     {
         try {
+            
             Validator::make($request->all(), [
                 "price" => "required|integer",
                 "description" => "required|string",
@@ -74,7 +75,12 @@ class StoreController extends Controller
             return redirect()->route('dashboard.store.index');
 
         } catch (Exception $e) {
-            return response()->json(["error"=>$e->getMessage(), "code" => $e->getCode()]);
+            return response()->json(
+                [
+                    "error"=>$e->getMessage(), 
+                    "code" => $e->getCode()
+                ]
+            );
         }
 
     }
