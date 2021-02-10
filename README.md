@@ -88,14 +88,6 @@ I will be using via composer to create new project
 composer create-project --prefer-dist laravel/laravel blog
 ```
 
-Laravel provides a quick way to scaffold all of the routes and views you need for authentication using one simple command:
-
-```sh
-composer require laravel/ui
-
-php artisan ui --auth
-```
-
 ### Minute 2: Configuration
 
 Firstly, make sure to create a new database and add your database credentials to your .env file:
