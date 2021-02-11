@@ -41,7 +41,7 @@
     }
   },
   "require-dev": {
-    "laravel/browser-kit-testing": "^5.1",
+    "laravel/browser-kit-testing": "^6.2",
     "phpunit/phpunit": "^9.5"
   },
   "extra": {
