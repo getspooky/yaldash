@@ -47,10 +47,10 @@
 
       @else
         <div class="jumbotron">
-          <h1 class="display-4">{{ config('laravelDash.views.Store.intro_store') }}</h1>
+          <h1 class="display-4">{{ config('laraveldash.views.Store.intro_store') }}</h1>
           <p class="lead"></p>
           <hr class="my-4">
-          <p>{{ config('laravelDash.views.Store.desc_store') }}</p>
+          <p>{{ config('laraveldash.views.Store.desc_store') }}</p>
           <p class="lead">
             <a class="btn btn-primary btn-lg" href="{{ route('dashboard.sell.index') }}" role="button">Sell Product</a>
           </p>

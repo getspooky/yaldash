@@ -22,7 +22,7 @@
             <div class="card-header border-bottom text-center">
               <div class="mb-3 mx-auto">
                 <img class="rounded-circle" onclick="document.getElementById('file').click()"
-                     src="{{ \yal\laraveldash\Helper\Helper::UploadedAvatar(\App\User::find(auth()->id())) }}"
+                     src="{{ \yal\laraveldash\Helper\Helper::UploadedAvatar(config('auth.providers.users.model', App\Models\User::class)::find(auth()->id())) }}"
                      alt="User Avatar" width="110" height="110">
               </div>
               <form method="post" id="settings_upload_image" action="{{route('dashboard.settings.upload_avatar')}}"

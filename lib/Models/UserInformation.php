@@ -10,7 +10,6 @@
 
 namespace yal\laraveldash\Models;
 
-use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 class UserInformation extends Model
@@ -30,7 +29,7 @@ class UserInformation extends Model
 
   public function users()
   {
-    return $this->belongsTo(User::class);
+    return $this->belongsTo(config('auth.providers.users.model', App\Models\User::class));
   }
 
   public function resolveChildRouteBinding($childType, $value, $field)

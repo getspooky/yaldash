@@ -10,14 +10,14 @@
 
 namespace yal\laraveldash\Traits;
 
-use yal\laraveldash\Models\Attachement;
 use yal\laraveldash\Models\Buy;
+use yal\laraveldash\Models\Post;
+use yal\laraveldash\Models\Store;
 use yal\laraveldash\Models\Country;
 use yal\laraveldash\Models\Devices;
 use yal\laraveldash\Models\Checkout;
 use yal\laraveldash\Models\Followers;
-use yal\laraveldash\Models\Post;
-use yal\laraveldash\Models\Store;
+use yal\laraveldash\Models\Attachement;
 use yal\laraveldash\Models\UserInformation;
 
 trait UserRelation
@@ -89,6 +89,6 @@ trait UserRelation
 
   public function isCountry()
   {
-    return $this->information->country->id;
+    return $this->information->country->id ?? null;
   }
 }

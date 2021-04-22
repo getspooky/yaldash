@@ -80,10 +80,10 @@
 
       @else
         <div class="jumbotron">
-          <h1 class="display-4">{{ config('laravelDash.views.Post.intro_post') }}</h1>
+          <h1 class="display-4">{{ config('laraveldash.views.Post.intro_post') }}</h1>
           <p class="lead"></p>
           <hr class="my-4">
-          <p>{{ config('laravelDash.views.Post.desc_post') }}</p>
+          <p>{{ config('laraveldash.views.Post.desc_post') }}</p>
           <p class="lead">
             <a class="btn btn-primary btn-lg" href="{{ route('post.create') }}" role="button">Create new Post</a>
           </p>
