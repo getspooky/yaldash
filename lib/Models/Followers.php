@@ -10,7 +10,6 @@
 
 namespace yal\laraveldash\Models;
 
-use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Followers extends Model
@@ -22,7 +21,7 @@ class Followers extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(config('auth.providers.users.model', App\Models\User::class));
     }
 
     public function resolveChildRouteBinding($childType, $value, $field)

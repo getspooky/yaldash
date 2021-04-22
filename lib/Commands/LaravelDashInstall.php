@@ -16,43 +16,45 @@ use yal\laraveldash\Providers\DashboardServiceProvider;
 class LaravelDashInstall extends Command
 {
 
-    /**
-     * The name and signature of the console command.
-     *
-     * @var $signature
-     * @types {String}
-     */
-    protected $signature = 'laraveldash:install';
+  /**
+   * The name and signature of the console command.
+   *
+   * @var $signature
+   * @types {String}
+   */
+  protected $signature = 'laraveldash:install';
 
-    /**
-     * The console command description.
-     *
-     * @var $description
-     */
-    protected $description = 'Install the laraveldash package';
+  /**
+   * The console command description.
+   *
+   * @var $description
+   */
+  protected $description = 'Install the laraveldash package';
 
-    /**
-     * Create a new command instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        parent::__construct();
-    }
+  /**
+   * Create a new command instance.
+   *
+   * @return void
+   */
+  public function __construct()
+  {
+    parent::__construct();
+  }
 
-    /**
-     * Execute the console command.
-     * 
-     * @return mixed
-     */
-    public function handle()
-    {
-        $this->info('Publishing the yaldash config file');
-        $this->call('vendor:publish', ['--provider' => DashboardServiceProvider::class, '--tag' => 'config']);
-        $this->info('Migrating the database tables into your application');
-        $this->call('migrate');
-        $this->info('Creating a symbolic link from "public/storage" to "storage/app/public"');
-        $this->call('storage:link');
-    }
+  /**
+   * Execute the console command.
+   *
+   * @return mixed
+   */
+  public function handle()
+  {
+    $this->info('Publishing the yaldash config file');
+    $this->call('vendor:publish', ['--provider' => DashboardServiceProvider::class, '--tag' => 'laravelDash-config']);
+    $this->info('Publishing the yaldash assets files');
+    $this->call('vendor:publish', ['--provider' => DashboardServiceProvider::class, '--tag' => 'laravelDash-assets']);
+    $this->info('Migrating the database tables into your application');
+    $this->call('migrate');
+    $this->info('Creating a symbolic link from "public/storage" to "storage/app/public"');
+    $this->call('storage:link');
+  }
 }

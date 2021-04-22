@@ -13,7 +13,7 @@
 
   <!-- Styles -->
 
-  <link href="{{ \yal\laraveldash\Helper\Assets::load('css','boot.css') }}" rel="stylesheet">
+  <link href="{{ \yal\laraveldash\Helper\Assets::load('css','app.css') }}" rel="stylesheet">
 
   <!-- script -->
 
@@ -36,7 +36,7 @@
       @component("laravelDash::components.sidebar")
 
         <li class="nav-item">
-          <a class="nav-link " href="{{ route('dashboard.settings.index') }}">
+          <a class="nav-link {{ \yal\laraveldash\Helper\Helper::setActive('dashboard.settings.index') }}" href="{{ route('dashboard.settings.index') }}">
             <i class="material-icons">settings</i>
             <span>Settings</span>
           </a>

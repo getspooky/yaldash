@@ -12,7 +12,6 @@ namespace yal\laraveldash\Controllers;
 
 use Exception;
 use App\Http\Controllers\Controller;
-use App\User;
 use Illuminate\Http\Request;
 use yal\laraveldash\Helper\Helper;
 
@@ -26,7 +25,7 @@ class SubscribeController extends Controller
 
   public function index()
   {
-    $users = User::all();
+    $users = config('auth.providers.users.model', App\Models\User::class)::all();
     return view('laravelDash::users.users', compact('users'));
   }
 
@@ -46,7 +45,7 @@ class SubscribeController extends Controller
     } catch (Exception $e) {
 
       return response()->json([
-        "error" => $e->getMessage(), 
+        "error" => $e->getMessage(),
         "code" => $e->getCode()
       ]);
 

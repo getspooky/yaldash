@@ -27,7 +27,7 @@
                   <div class="card-header border-bottom text-center">
                     <div class="mb-3 mx-auto">
                       <img class="rounded-circle"
-                           src="{{ \yal\laraveldash\Helper\Helper::UploadedAvatar(\App\User::find($followers->id)) }}"
+                           src="{{ \yal\laraveldash\Helper\Helper::UploadedAvatar(config('auth.providers.users.model', App\Models\User::class)::find($followers->id)) }}"
                            alt="User Avatar" width="110">
                     </div>
                     <h4 class="mb-0">{{ $followers->name }}</h4>

@@ -17,7 +17,7 @@
           <div class="row">
             <div class="col-lg-4">
               <span class="image fit"><img
-                  src="{{ \yal\laraveldash\Helper\Helper::UploadedAvatar(\App\User::find(auth()->id())) }}"
+                  src="{{ \yal\laraveldash\Helper\Helper::UploadedAvatar(config('auth.providers.users.model', App\Models\User::class)::find(auth()->id())) }}"
                   alt=""/>
               </span>
             </div>
@@ -25,9 +25,9 @@
               <header>
                 <h1>Hi. I'm <strong>{{ ucwords(auth()->user()->name) }}</strong>.</h1>
               </header>
-              <p>{{ config('laravelDash.views.Dashboard.intro_paragraph') }}</p>
-              <a href="{{ config('laravelDash.views.Dashboard.intro_button') }}"
-                 class="button-intro-large">{{ config('laravelDash.views.Dashboard.intro_button') }}</a>
+              <p>{{ config('laraveldash.views.Dashboard.intro_paragraph') }}</p>
+              <a href="{{ config('laraveldash.views.Dashboard.intro_button') }}"
+                 class="button-intro-large">{{ config('laraveldash.views.Dashboard.intro_button') }}</a>
             </div>
           </div>
         </div>
@@ -92,30 +92,30 @@
     <article class="wrapper style2">
       <div class="container" style="margin-top:-50px !important;">
         <header>
-          <h2>{{ config('laravelDash.views.Dashboard.stuff.title') }}</h2>
-          <p>{{ config('laravelDash.views.Dashboard.stuff.sub_title') }}</p>
+          <h2>{{ config('laraveldash.views.Dashboard.stuff.title') }}</h2>
+          <p>{{ config('laraveldash.views.Dashboard.stuff.sub_title') }}</p>
         </header>
         <br>
         <div class="row aln-center">
           <div class="col-4 col-6-medium col-12-small">
             <section class="box style1">
-              <span class="{{ config('laravelDash.views.Dashboard.stuff.first_stuff.icon') }}"></span>
-              <h3>{{ config('laravelDash.views.Dashboard.stuff.first_stuff.title') }}</h3>
-              <p>{{ config('laravelDash.views.Dashboard.stuff.first_stuff.content') }}</p>
+              <span class="{{ config('laraveldash.views.Dashboard.stuff.first_stuff.icon') }}"></span>
+              <h3>{{ config('laraveldash.views.Dashboard.stuff.first_stuff.title') }}</h3>
+              <p>{{ config('laraveldash.views.Dashboard.stuff.first_stuff.content') }}</p>
             </section>
           </div>
           <div class="col-4 col-6-medium col-12-small">
             <section class="box style1">
-              <span class="{{ config('laravelDash.views.Dashboard.stuff.second_stuff.icon') }}"></span>
-              <h3>{{ config('laravelDash.views.Dashboard.stuff.second_stuff.title') }}</h3>
-              <p>{{ config('laravelDash.views.Dashboard.stuff.second_stuff.content') }}</p>
+              <span class="{{ config('laraveldash.views.Dashboard.stuff.second_stuff.icon') }}"></span>
+              <h3>{{ config('laraveldash.views.Dashboard.stuff.second_stuff.title') }}</h3>
+              <p>{{ config('laraveldash.views.Dashboard.stuff.second_stuff.content') }}</p>
             </section>
           </div>
           <div class="col-4 col-6-medium col-12-small">
             <section class="box style1">
-              <span class="{{ config('laravelDash.views.Dashboard.stuff.third_stuff.icon') }}"></span>
-              <h3>{{ config('laravelDash.views.Dashboard.stuff.third_stuff.title') }}</h3>
-              <p>{{ config('laravelDash.views.Dashboard.stuff.third_stuff.content') }}</p>
+              <span class="{{ config('laraveldash.views.Dashboard.stuff.third_stuff.icon') }}"></span>
+              <h3>{{ config('laraveldash.views.Dashboard.stuff.third_stuff.title') }}</h3>
+              <p>{{ config('laraveldash.views.Dashboard.stuff.third_stuff.content') }}</p>
             </section>
           </div>
         </div>

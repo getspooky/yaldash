@@ -10,7 +10,6 @@
 
 namespace yal\laraveldash\Controllers;
 
-use App\User;
 use Illuminate\Http\File;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -55,11 +54,11 @@ class SettingsController extends Controller
       $attach->create($this->Filter($this->user_information, $request->all())) :
       $attach->Update($this->Filter($this->user_information, $request->all()));
 
-    User::find(auth()->id())->update(
+    config('auth.providers.users.model', App\Models\User::class)::find(auth()->id())->update(
       $this->Filter($this->user_register_default_information, $request->all()
       ));
 
-    User::find(auth()->id())->notify(
+    config('auth.providers.users.model', App\Models\User::class)::find(auth()->id())->notify(
       (new DashboardNotification('your account has been updated successfully',
         'settings', \auth()->user()->name))->delay(now()->addSeconds(40)
       ));
@@ -73,7 +72,7 @@ class SettingsController extends Controller
 
     return redirect()->route('dashboard.settings.update')
       ->with('status', 'Information has been update successfully!');
-      
+
   }
 
   public function Validator(array $data)

@@ -14,7 +14,7 @@
 
       <div class="container-galeria">
         <div class="main_slider"
-             style="background:url({{\yal\laraveldash\Helper\Assets::loadImg('sell_background.jpg')}})">
+             style="background:url({{\yal\laraveldash\Helper\Assets::loadImg('Sell.jpg')}})">
           <div class="container fill_height">
             <div class="row align-items-center fill_height">
               <div class="col">

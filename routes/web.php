@@ -21,7 +21,7 @@ Route::prefix(config('laravelDash.prefix'))->group(function () use ($namespacePr
     ->name('dashboard.home');
 
   Route::resource('post', $namespacePrefix. '\PostController');
-  
+
   Route::get('Settings',  $namespacePrefix. '\SettingsController@index')
             ->name('dashboard.settings.index');
 
@@ -72,7 +72,7 @@ Route::prefix(config('laravelDash.prefix'))->group(function () use ($namespacePr
 
   Route::get('published/{folder}/{file}', $namespacePrefix. '\DashboardController@Dashboard_assets')
             ->name('dashboard.assets');
-            
+
   Route::get('ViewsState', $namespacePrefix. '\DashboardController@ViewsState')
             ->name('dashboard.views.state');
 
