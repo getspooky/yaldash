@@ -1,5 +1,12 @@
 ## Release Notes
 
+- Version 3.1.0
+
+  - Added Laravel 8 Support
+  - Fixed `php artisan laraveldash:install` command
+  - Fixed `App\User` to `config('auth.providers.users.model', App\Models\User::class)` in all references
+  - Bug minor fixes
+
 - Version 3.0.0
 
   - Support laravel 8
