@@ -26,7 +26,7 @@
 - [Security Vulnerabilities](#Security-Vulnerabilities)
 - [Changelog](#changelog)
 - [License](#license)
-- [Screenshot](#Screenshot)
+- [Screenshot](#Screenshot) 
 
 ## Introduction
 
