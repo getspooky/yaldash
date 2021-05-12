@@ -8,7 +8,7 @@
         "production": "node node_modules/cross-env/dist/bin/cross-env.js NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
     },
     "dependencies": {
-        "chart.js": "^2.8.0",
+        "chart.js": "^2.9.4",
         "socket.io-client": "^2.2.0",
         "vue-chartkick": "^0.5.0",
         "vue-stripe-elements-plus": "^0.3.2",
