@@ -49,7 +49,16 @@
       |
       */
       'routes' => [
-          'Dashboard', 'Settings', 'Manage', 'JsonManage' , 'Users' , 'Checkout' , 'Store'
+        'Dashboard' => 'laravel-dash',
+        'Settings' => 'Settings',
+        'Manage' => 'Manage',
+        'JsonManage' => 'JsonManage',
+        'Users' => 'Users',
+        'Checkout' => 'Checkout',
+        'Buy' => 'Buy',
+        'Sell' => 'sell',
+        'Store' => 'Store',
+        'View' => 'View',
       ],
 
       /*

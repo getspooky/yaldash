@@ -163,7 +163,8 @@ class User extends Authenticatable
 
 ### Minute 5:Yah! You’re on yaldash !
 
-To see it, you need to start a web server on your development machine. You can do this by running the following command:php artisan serve and then head to `http://localhost:8000/Dashboard`
+To see it, you need to start a web server on your development machine. You can do this by running the following command:php artisan serve and then head to `http://localhost:8000/laravel-dash`
+> you can customize to the route you want in the config file **(config/laraveldash.php)**
 
 ## Contribute
 
