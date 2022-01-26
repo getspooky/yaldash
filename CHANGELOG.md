@@ -1,5 +1,10 @@
 ## Release Notes
 
+- Version 3.2.0
+
+  - Added customization of routes in the config file
+  - Bug minor fixes
+
 - Version 3.1.0
 
   - Added Laravel 8 Support
