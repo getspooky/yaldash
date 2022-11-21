@@ -31,7 +31,7 @@ if (document.getElementsByClassName('demo').length > 0) {
              `;
   var speed = 60;
 
-  function typeItOut () {
+  function typeItOut() {
     if (i < txt.length) {
       document.getElementsByClassName('demo')[0].innerHTML += txt.charAt(i);
       i++;
@@ -43,17 +43,17 @@ if (document.getElementsByClassName('demo').length > 0) {
 }
 
 // toggle tabs on codeblock
-window.addEventListener("load", function() {
+window.addEventListener('load', function () {
   // get all tab_containers in the document
-  var tabContainers = getAll(".tab__container");
+  var tabContainers = getAll('.tab__container');
 
   // bind click event to each tab container
   for (var i = 0; i < tabContainers.length; i++) {
-    get('.tab__menu', tabContainers[i]).addEventListener("click", tabClick);
+    get('.tab__menu', tabContainers[i]).addEventListener('click', tabClick);
   }
 
   // each click event is scoped to the tab_container
-  function tabClick (event) {
+  function tabClick(event) {
     var scope = event.currentTarget.parentNode;
     var clickedTab = event.target;
     var tabs = getAll('.tab', scope);
@@ -93,32 +93,17 @@ function smoothScrollTo(element, event) {
   setActiveLink(event);
 
   window.scrollTo({
-    'behavior': 'smooth',
-    'top': element.offsetTop - 20,
-    'left': 0
+    behavior: 'smooth',
+    top: element.offsetTop - 20,
+    left: 0,
   });
 }
 
 if (btns.length && sections.length > 0) {
-// for (var i = 0; i<btns.length; i++) {
-//   btns[i].addEventListener('click', function(event) {
-//     smoothScrollTo(sections[i], event);
-//   });
-// }
-  btns[0].addEventListener('click', function (event) {
-    smoothScrollTo(sections[0], event);
-  });
-
-  btns[1].addEventListener('click', function (event) {
-    smoothScrollTo(sections[1], event);
-  });
-
-  btns[2].addEventListener('click', function (event) {
-    smoothScrollTo(sections[2], event);
-  });
-
-  btns[3].addEventListener('click', function (event) {
-    smoothScrollTo(sections[3], event);
+  btns.forEach(function (button, index) {
+    button.addEventListener('click', function (event) {
+      smoothScrollTo(sections[index], event);
+    });
   });
 }
 
@@ -126,7 +111,7 @@ if (btns.length && sections.length > 0) {
 window.addEventListener('scroll', function () {
   var docNav = get('.doc__nav > ul');
 
-  if( docNav) {
+  if (docNav) {
     if (window.pageYOffset > 63) {
       docNav.classList.add('fixed');
     } else {
@@ -139,7 +124,7 @@ window.addEventListener('scroll', function () {
 var topNav = get('.menu');
 var icon = get('.toggle');
 
-window.addEventListener('load', function(){
+window.addEventListener('load', function () {
   function showNav() {
     if (topNav.className === 'menu') {
       topNav.className += ' responsive';
